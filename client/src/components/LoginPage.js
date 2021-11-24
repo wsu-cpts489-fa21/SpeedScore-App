@@ -18,7 +18,7 @@ class LoginPage extends React.Component {
                       showCreateAccount: false,
                       showAccountCreated: false,
                       accountCreatedResult: "",
-                      loginBtnIcon: "sign-in",
+                      loginBtnIcon: "sign-in-alt",
                       loginBtnLabel: "Log In",
                       githubIcon: ['fab','github'],
                       githubLabel: "Sign in with GitHub"
@@ -134,7 +134,7 @@ class LoginPage extends React.Component {
     }
        
     render() {
-        return(this.state.showCreateAccount ?
+        return(this.state.showCreateAccount?
             <CreateAccount 
               createAccount = {this.props.createAccount}
               accountExists = {this.props.accountExists}
