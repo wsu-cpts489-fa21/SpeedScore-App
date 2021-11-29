@@ -1,13 +1,13 @@
-# CptS 489 Team Project: *Team Name*
+# CptS 489 Team Project: *Click Overflow*
 This repository implements SpeedScore, a web app that enables users to log, analyze, share, and discuss their speedgolf rounds and experiences. SpeedScore is built using MongoDB, Express.js, React.js, and Node.js.
 
 ## Link to Deployed App
 You can access our team's deployed app at [this Heroku site](https://ourapp.herokuapp.com)
 
 ## Team members
-1. **Team leader:** *name (GitHub Id)*
-1. *Team member 2 name (GitHub Id)*
-1. *Team member 3 name (GitHub Id)*
+1. **Team leader:** *Brandon (Brandon-LC)*
+1. *Joel Horstman (joelhorstman)*
+1. *Joshua Long (GitHub Id)*
 1. *Team member 4 name (GitHub Id)*
 1. *Team member 5 name (GitHub Id)*
 
