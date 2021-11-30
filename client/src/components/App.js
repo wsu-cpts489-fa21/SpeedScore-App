@@ -3,7 +3,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faWindowClose, faEdit, faCalendar, 
         faSpinner, faSignInAlt, faBars, faTimes, faSearch,
         faSort, faTrash, faEye, faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { faGithub} from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import NavBar from './NavBar.js';
 import ModeTabs from './ModeTabs.js';
 import LoginPage from './LoginPage.js';
@@ -13,10 +13,11 @@ import CoursesPage from './CoursesPage.js';
 import BuddiesPage from './BuddiesPage.js';
 import SideMenu from './SideMenu.js';
 import AppMode from './AppMode.js';
+import EditProfile from './EditProfile.js';
 
 library.add(faWindowClose,faEdit, faCalendar, 
             faSpinner, faSignInAlt, faBars, faTimes, faSearch,
-            faSort, faTrash, faEye, faUserPlus, faGithub);
+            faSort, faTrash, faEye, faUserPlus, faGithub, faGoogle);
 
 class App extends React.Component {
 
@@ -25,13 +26,14 @@ class App extends React.Component {
     this.state = {mode: AppMode.LOGIN,
                   menuOpen: false,
                   modalOpen: false,
+                  showToast: false,
                   userData: {
                     accountData: {},
                     identityData: {},
                     speedgolfData: {},
                     rounds: [],
                     roundCount: 0},
-                  authenticated: false                  
+                  authenticated: false             
                   };
   }
 
@@ -89,6 +91,10 @@ class App extends React.Component {
   
    //User interface state management methods
    
+  toggleToastFunction = () => {
+    this.setState(prevState => ({showToast: !prevState.showToast}));
+  }
+
   setMode = (newMode) => {
     this.setState({mode: newMode});
   }
@@ -110,6 +116,11 @@ class App extends React.Component {
 
   getAccountData = (email) => {
     return JSON.parse(localStorage.getItem(email));
+  }
+
+  updateProfile = (newProfile) => {
+    newProfile.rounds = this.state.userData.rounds;
+    this.setState({userData: newProfile});
   }
 
   authenticateUser = async(id, pw) => {
@@ -242,12 +253,15 @@ class App extends React.Component {
                 modalOpen={this.state.modalOpen}
                 toggleModalOpen={this.toggleModalOpen}
                 userData={this.state.userData}
-                updateUserData={this.updateUserData} /> 
+                updateUserData={this.updateUserData} 
+                setMode={this.setMode}/> 
+
         <ModeTabs mode={this.state.mode}
                   setMode={this.setMode} 
                   menuOpen={this.state.menuOpen}
                   modalOpen={this.state.modalOpen}/> 
-        {this.state.menuOpen  ? <SideMenu logOut={this.logOut}/> : null}
+        {this.state.menuOpen  ? 
+        <SideMenu logOut={this.logOut}/> : null}
         {
           {LoginMode:
             <LoginPage modalOpen={this.state.modalOpen}
@@ -260,7 +274,9 @@ class App extends React.Component {
             <FeedPage modalOpen={this.state.modalOpen}
                       toggleModalOpen={this.toggleModalOpen} 
                       menuOpen={this.state.menuOpen}
-                      userId={this.state.userId}/>,
+                      userId={this.state.userId}
+                      toggleToastFunction={this.toggleToastFunction}
+                      showToast={this.state.showToast} />,
           RoundsMode:
             <RoundsPage rounds={this.state.userData.rounds}
                         addRound={this.addRound}
@@ -279,7 +295,15 @@ class App extends React.Component {
             <BuddiesPage modalOpen={this.state.modalOpen}
                         toggleModalOpen={this.toggleModalOpen} 
                         menuOpen={this.state.menuOpen}
-                        userId={this.state.userId}/>
+                        userId={this.state.userId}/>,
+          
+          EditProfileMode:
+            <EditProfile setMode={this.setMode} 
+                         userData={this.state.userData}
+                         getUserData={this.getUserData} 
+                         updateProfile={this.updateProfile}
+                         toggleToastFunction={this.toggleToastFunction} />
+              
         }[this.state.mode]
         }
       </>

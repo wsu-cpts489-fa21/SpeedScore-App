@@ -198,6 +198,7 @@ class CreateAccount extends React.Component {
           <div className="mode-page action-dialog" role="dialog" 
             aria-modal="true" aria-labelledby="createAccountHeader" tabIndex="0">
             <h1 id="createAccountHeader" className="mode-page-header">
+              {/* {this.props.profileBtnClick ? "Update Profile" : "Create Account"} */}
               Create Account
             </h1>
             {this.renderErrorBox()}
