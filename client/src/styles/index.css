@@ -47,6 +47,17 @@ button::-moz-focus-inner {
 }
 
 /*************************************************************************
+* CSS CLASSES FOR THIRD PARTY AUTHENTICATION BUTTONS
+*************************************************************************/
+.auth-btn {
+   margin-right: 5px;
+ }
+ 
+ .auth-icon {
+   margin-right: 5px;
+ }
+
+/*************************************************************************
 * CSS CLASSES FOR SKIP LINK (USED BY SCREEN READERS AND KEYBOARD NAV)
 * A skip link allows keyboard users to quickly skip over an app's 
 * navigation elements to reach its content. It is a best practice for
