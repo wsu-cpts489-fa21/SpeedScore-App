@@ -4,7 +4,7 @@ import AppMode from './AppMode';
 class ModeTabs extends React.Component {
     render() {
       return(
-        (this.props.mode !== AppMode.LOGIN && !this.props.modalOpen) ?
+        (this.props.mode !== AppMode.LOGIN && !this.props.modalOpen && this.props.mode != AppMode.EDITPROFILE) ?
         <div id="modeTabs" 
              className={"modetab-container" + (this.props.menuOpen ? " disabled" : "")}  
              role="tablist" 
