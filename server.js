@@ -16,6 +16,7 @@ const buildPath = (PORT === process.env.PORT) ?
   new URL('client/build/', import.meta.url).pathname :
   (new URL('client/build/', import.meta.url).pathname).substring(1);
 import mongoose from 'mongoose';
+
 const connectStr = 'mongodb+srv://' + process.env.MONGODB_USER + ':' +
    encodeURI(process.env.MONGODB_PW) +
    process.env.MONGODB_CSTRING; //Remote DB

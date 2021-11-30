@@ -19,6 +19,7 @@ userRoute.get('/users/:userId', async(req, res, next) => {
         return res.status(404).send("No user account with id " +
           req.params.userId + " was found in database.");
       } else {
+        console.log(JSON.stringify(thisUser));
         return res.status(200).json(JSON.stringify(thisUser));
       }
     } catch (err) {
@@ -155,6 +156,7 @@ userRoute.put('/users/:userId',  async (req, res, next) => {
             res.status(404).send("Account not updated. Either no account with that id"
                 + " exists, or no value in the account was changed.");
         } else {
+          console.log('User Account Updated!');
             res.status(200).send("User account " + req.params.userId + 
                 " successfully updated.")
         }
