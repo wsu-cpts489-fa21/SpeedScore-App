@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import AppMode from './AppMode.js'
 import CreateAccount from './CreateAccount.js';
+import AUTH_ROOT from '../env.js';
 
 class LoginPage extends React.Component {
 
@@ -21,7 +22,9 @@ class LoginPage extends React.Component {
                       loginBtnIcon: "sign-in",
                       loginBtnLabel: "Log In",
                       githubIcon: ['fab','github'],
-                      githubLabel: "Sign in with GitHub"
+                      githubLabel: "Sign in with GitHub",
+                      googleIcon: ['fab', 'google'],
+                      googleLabel: "Sign in with Google"
                     };
     }
 
@@ -82,7 +85,7 @@ class LoginPage extends React.Component {
     }
 
     handleOAuthLogin = (provider) => {
-        window.open(`/auth/${provider}`,"_self");
+        window.open(`${AUTH_ROOT}/auth/${provider}`,"_self");
     }
     
     handleOAuthLoginClick = (provider) => {
@@ -203,11 +206,19 @@ class LoginPage extends React.Component {
                 </li>
                 </ul>
                 <div className="centered">
-                <button type="button" className="btn btn-github"
+                <button type="button" className="btn btn-github auth-btn"
                   onClick={() => this.handleOAuthLoginClick("github")}>
                   <FontAwesomeIcon icon={this.state.githubIcon} 
-                                   className={this.state.githubIcon == "spinner" ? "fa-spin" : ""}/>
-                  &nbsp;{this.state.githubLabel}
+                                   className={this.state.githubIcon ==
+                                   "spinner auth-icon" ? "fa-spin" : "auth-icon"}/>
+                  {this.state.githubLabel}
+                </button>
+                <button type="button" className="btn btn-google auth-btn"
+                  onClick={() => this.handleOAuthLoginClick("google")}>
+                  <FontAwesomeIcon icon={this.state.googleIcon} 
+                                   className={this.state.googleIcon ==
+                                   "spinner" ? "fa-spin auth-icon" : "auth-icon"}/>
+                  {this.state.googleLabel}
                 </button>
                 </div>
             </div>  
