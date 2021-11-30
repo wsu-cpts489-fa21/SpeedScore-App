@@ -179,26 +179,6 @@ class App extends React.Component {
     }
   }
 
-  // updateRound = (newRoundData) => {
-  //   const newRounds = [...this.state.userData.rounds];
-  //   let r;
-  //   for (r = 0; r < newRounds.length; ++r) {
-  //       if (newRounds[r].roundNum === newRoundData.roundNum) {
-  //           break;
-  //       }
-  //   }
-  //   newRounds[r] = newRoundData;
-  //   const newUserData = {
-  //     accountData: this.state.userData.accountData,
-  //     identityData: this.state.userData.identityData,
-  //     speedgolfProfileData: this.state.userData.speedgolfProfileData,
-  //     rounds: newRounds, 
-  //     roundCount: this.state.userData.roundCount
-  //   }
-  //   localStorage.setItem(newUserData.accountData.email,JSON.stringify(newUserData));
-  //   this.setState({userData: newUserData}); 
-  // }
-
   updateRound = async(newRoundData, editId) => {
     const url = "/rouds/" + this.state.userData.accountData.id + "/" + editId;
     let res = await fetch(url, {
@@ -213,7 +193,6 @@ class App extends React.Component {
     if (res.status == 201) {
       const newRounds = [...this.state.userData.rounds];
       newRounds[editId] = newRoundData;
-      newRounds.push(newRoundData);
       const newUserData = {accountData: this.state.userData.accountData,
                            identityData: this.state.userData.identityData,
                            speedgolfData: this.state.userData.speedgolfData,
@@ -236,7 +215,8 @@ class App extends React.Component {
                             'Content-type': 'application/json'
                             },
               });
-    if (res.status == 201) {
+    console.log(res.status)
+    if (res.status == 200) {
       const newRounds = [...this.state.userData.rounds];
       newRounds.splice(deleteId, 1);
       const newUserData = {
@@ -252,26 +232,6 @@ class App extends React.Component {
       return("Round could not be deleted. " + resText);
     }
   }
-
-  // deleteRound = (id) => {
-  //   const newRounds = [...this.state.userData.rounds];
-  //   let r;
-  //   for (r = 0; r < newRounds.length; ++r) {
-  //       if (newRounds[r].roundNum === this.state.deleteId) {
-  //           break;
-  //       }
-  //   }
-  //   delete newRounds[r];
-  //   const newUserData = {
-  //     accountData: this.state.userData.accountData,
-  //     identityData: this.state.userData.identityData,
-  //     speedgolfProfileData: this.state.userData.speedgolfProfileData,
-  //     rounds: newRounds, 
-  //     roundCount: this.state.userData.roundCount
-  //   }
-  //   localStorage.setItem(newUserData.accountData.email,JSON.stringify(newUserData));
-  //   this.setState({userData: newUserData});
-  // }
 
   render() {
     return (

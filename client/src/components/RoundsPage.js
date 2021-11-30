@@ -21,6 +21,7 @@ class RoundsPage extends React.Component {
         this.setState({editId: val,
                        mode: RoundsMode.EDITROUND}, 
                        this.props.toggleModalOpen);
+                       //() => this.props.updateRound(data,val));
     }
     
     initiateDeleteRound = (val) => {

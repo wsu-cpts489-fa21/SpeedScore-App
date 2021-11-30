@@ -21,7 +21,9 @@ class LoginPage extends React.Component {
                       loginBtnIcon: "sign-in",
                       loginBtnLabel: "Log In",
                       githubIcon: ['fab','github'],
-                      githubLabel: "Sign in with GitHub"
+                      githubLabel: "Sign in with GitHub",
+                      googleIcon: ['fab', 'google'],
+                      googleLabel: ['fab', 'google']
                     };
     }
 
