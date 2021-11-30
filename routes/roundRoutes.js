@@ -71,9 +71,61 @@ roundRoute.get('/rounds/:userId', async(req, res) => {
 //UPDATE round route: Updates a specific round for a given user
 //in the users collection (PUT)
 //TO DO: Implement this route
-
+roundRoute.post('/rouds/:userId/:roundId', async(req, res, next) => {
+//roundRoute.put('rounds/:userId', async(req, res) => {
+    console.log("in /rounds (POST) route with params = " +
+                JSON.stringify(req.params) + " and body = " +
+                JSON.stringify(req.body));
+    try {
+      const round = new Round(req.body);
+      let thisUser = await User.findOne({"accountData.id": req.params.userId});
+      var newRounds = thisUser.rounds
+      newRounds[req.params.roundId] = round
+      const status = await User.updateOne(
+        {"accountData.id": req.params.userId},
+        {$set: {rounds: newRounds}});
+      const error = round.validateSync();
+      if (error) {
+        return res.status(400).send("Round not updated " + erorr.message);
+      }
+      if (status.modifiedCount != 1) {
+        return res.status(400).send("Round not added to database. "+
+        "User '" + req.params.userId + "' does not exist.");
+      } else {
+        return res.status(201).send("Round successfully added to database.");
+      }
+    }
+    catch (err) {
+      return res.status(400).send("Unexpected error occurred when looking " +
+        "up round in database: " + err);
+    }
+  });
 //DELETE round route: Deletes a specific round for a given user
 //in the users collection (DELETE)
 //TO DO: Implement this route
+roundRoute.delete('/rounds/:userId/:roundDeleteId', async(req, res) => {
+  console.log("in /rounds (DELETE) route with params = " +
+              JSON.stringify(req.params))
+  try {
+    let thisUser = await User.findOne({"accountData.id": req.params.userId});
+    var newRounds = [];
+    newRounds = thisUser.rounds.filter((item) => {
+      return item.id !=thisUser.rounds[req.params.roundDeleteId].id;
+    });
+    let status = await User.updateOne({"accountData.id": req.params.userId}, {$set: {"rounds": newRounds}});
+    if (status.modifiedCount != 1) {
+      res.status(400).send('Round was not deleted');
+    }
+    else {
+      console.log('Round was deleted');
+      res.status(200).send('Round was deleted');
+    }
+  }
+  catch (err) {
+    console.log()
+    return res.status(400).send("Unexpected error occurred when looking " +
+      "up round in database: " + err);
+    }
+});
 
 export default roundRoute;

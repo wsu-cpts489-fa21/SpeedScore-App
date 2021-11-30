@@ -64,7 +64,8 @@ class RoundForm extends React.Component {
         const newRound = {...this.state};
         delete newRound.btnIcon;
         delete newRound.btnLabel;
-        const res = await this.props.saveRound(newRound);
+        //const res = await this.props.updateRound(newRound, editId);
+        const res = await this.props.saveRound(newRound, this.props.editId);
         this.props.toggleModalOpen();
         this.props.setMode(RoundsMode.ROUNDSTABLE);
     }
