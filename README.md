@@ -127,7 +127,7 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
      <tr>
       <td>11/29/21</td><td>40</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td>
     </tr>
-    <tr><td align="right"><b>Totals:</b></td><td><b>48</b></td><td><b>2</b></td><td><b>2</b></td><td><b>0</b></td><td><b>1</b></td><td><b>2</b></td>
+    <tr><td align="right"><b>Totals:</b></td><td><b>90</b></td><td><b>90</b></td><td><b>90</b></td><td><b>90</b></td><td><b>90</b></td><td><b>90</b></td>
     </tr>
   </tbody>
 </table>
@@ -151,30 +151,25 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
 #### Context Statements
 | Team Member | Context Statement |
 |-------------|-------------------|
-|TM1| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
-|TM2| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
-|TM3| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
-|TM4| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
-|TM5| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
+|Brandon| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
+|Joel| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
+|Joshua| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
+|Adi| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
+|Parikshit| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
 
 ### Retrospective
 
-[Link to Recording](https://wsu.zoom.us/recording)
-
 #### What went well
-  - Item 1
-  - Item 2
-  - Item x
+  - We communicated effectivly as a team
+  - We got what we needed to done
+  - We kept good logs on what we have done, what we need to do, and team communication
   
  #### What we'd like to improve
-  - Item 1
-  - Item 2
-  - Item x
+  - Finishing work by deadlines
   
 #### Changes we plan to implement in next milestone period
-  - Item 1
-  - Item 2
-  - Item x
+  - Continue to communicate and hold meetings
+  - Continue to help each other when we run into blocks
 
 ## Milestone 1 (Due 12/3)
 
