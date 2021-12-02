@@ -2,14 +2,14 @@
 This repository implements SpeedScore, a web app that enables users to log, analyze, share, and discuss their speedgolf rounds and experiences. SpeedScore is built using MongoDB, Express.js, React.js, and Node.js.
 
 ## Link to Deployed App
-You can access our team's deployed app at [this Heroku site](https://ourapp.herokuapp.com)
+You can access our team's deployed app at [this Heroku site](https://capstonedyno.herokuapp.com/)
 
 ## Team members
 1. **Team leader:** *Brandon (Brandon-LC)*
 1. *Joel Horstman (joelhorstman)*
-1. *Joshua Long (GitHub Id)*
-1. *Team member 4 name (GitHub Id)*
-1. *Team member 5 name (GitHub Id)*
+1. *Joshua Long (joshmainac)*
+1. *Adi Zangi (adi-zangi)*
+1. *Parikshit Panwar (Parikshit-Panwar-WSU)*
 
 ## Milestone 0 (Due 11/19)
 
@@ -21,15 +21,51 @@ You can access our team's deployed app at [this Heroku site](https://ourapp.hero
       <th colspan="2"></th><th colspan="6">Story Point Counts</th><th colspan="2"></th>
     </tr> 
     <tr>
-      <th>Issue</th><th>Linked PR</th><th>Total</th><th>TM1</th><th>TM2</th><th>TM3</th><th>TM4</th><th>TM5</th><th>% Complete</th><th>Notes</th>
+      <th>Issue</th><th>Linked PR</th><th>Total</th><th>Brandon</th><th>Joel</th><th>Joshua</th><th>Adi</th><th>Parikshit</th><th>% Complete</th><th>Notes</th>
     </tr>
   </thead> 
   <tbody>
     <tr>
-      <td><a href="https://github.com/issue">Issue #</a></td><td><a href="https://github.com/PR">PR #</a></td><td>5</td><td>3</td><td>1</td><td>1</td><td>0</td><td>0</td><td>100</td><td></td>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/13">Issue # 13</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/13">PR # X</a></td><td>5</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>100</td><td></td>
     </tr>
     <tr>
-     <td><a href="https://github.com/issue">Issue #</a></td><td><a href="https://github.com/PR">PR #</a></td><td>3</td><td>0</td><td>0</td><td>0</td><td>0.8</td><td>0.4</td><td>40</td><td>Updated database schema. Updated server routes. Did not implement UI.</td>
+     <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/12">Issue # 12</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/12">PR # X</a></td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>100</td><td></td>
+    </tr>
+    <tr>
+     <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/8">Issue # 8</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/8">PR # X</a></td><td>3</td><td>0</td><td>0</td><td>3</td><td>0</td><td>0</td><td>100</td><td></td>
+    </tr>
+    <tr>
+     <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/6">Issue # 6</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/6">PR # X</a></td><td>3</td><td>0</td><td>0</td><td>3</td><td>0</td><td>0</td><td>100</td><td></td>
+    </tr>
+    <tr>
+     <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/4">Issue # 4</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/4">PR # X</a></td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>100</td><td></td>
+    </tr>
+    <tr>
+     <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/3">Issue # 3</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/3">PR # X</a></td><td>3</td><td>3</td><td>0</td><td>0</td><td>0</td><td>0</td><td>100</td><td></td>
+    </tr>
+    <tr>
+     <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/1">Issue # 1</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/64">PR # 64</a></td><td>3</td><td>3</td><td>0</td><td>0</td><td>0</td><td>0</td><td>100</td><td></td>
+    </tr>
+    <tr>
+     <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/58">Issue # 58</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/61">PR # 61</a></td><td>5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5</td><td>100</td><td></td>
+    </tr>
+    <tr>
+     <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/5">Issue # 5</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/61">PR # 61</a></td><td>3</td><td>0</td><td>0</td><td>0</td><td>0</td><td>3</td><td>100</td><td></td>
+    </tr>
+    <tr>
+     <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/9">Issue # 9</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/65">PR # 65</a></td><td>5</td><td>0</td><td>5</td><td>0</td><td>0</td><td>0</td><td>100</td><td></td>
+    </tr>
+    <tr>
+     <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/7">Issue # 7</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/66">PR # 66</a></td><td>3</td><td>0</td><td>3</td><td>0</td><td>0</td><td>0</td><td>100</td><td></td>
+    </tr>
+    <tr>
+     <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/11">Issue # 11</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/63">PR # 63</a></td><td>3</td><td>0</td><td>0</td><td>0</td><td>3</td><td>0</td><td>100</td><td></td>
+    </tr>
+    <tr>
+     <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/10">Issue # 10</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/62">PR # 62</a></td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td><td>0</td><td>100</td><td></td>
+    </tr>
+    <tr>
+     <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/2">Issue # 2</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/2">PR # X</a></td><td>5</td><td>1</td><td>2</td><td>0</td><td>0</td><td>0</td><td>40</td><td></td>
     </tr>
     <tr><td colspan="2" align="right"><b>Totals:</b></td><td><b>8</b></td><td><b>3</b></td><td><b>1</b></td><td><b>1</b></td><td><b>0.8</b></td><td><b>0.4</b></td><td colspan="2"></td>
     </tr>
