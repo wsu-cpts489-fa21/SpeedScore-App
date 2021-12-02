@@ -87,27 +87,25 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
 |------|-----------|----------------|-----------------|
 |[Issue # 6](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/6)| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/6)|Delete Rounds| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/6) | 
 |[Issue # 5](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/5)| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/5)|Edit Profile| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/5) |
+|[Issue # 7](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/7)| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/7)|Update Rounds| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/7) |
   
 ### Communication
  
-#### Slack Messages
+#### Discord Messages
 <table> 
   <thead>
     <tr>
       <th></th><th colspan="6">Post/Reply Counts</th>
     </tr> 
     <tr>
-      <th>Date</th><th>Total</th><th>TM1</th><th>TM2</th><th>TM3</th><th>TM4</th><th>TM5</th>
+      <th>Date</th><th>Total</th><th>Brandon</th><th>Joel</th><th>Joshua</th><th>Adi</th><th>Parikshit</th>
     </tr>
   </thead> 
   <tbody>
     <tr>
-      <td>11/9/21</td><td>5</td><td>2</td><td>1</td><td>1</td><td>1</td><td>0</td>
+      <td>12/2/21</td><td>211</td><td>37</td><td>81</td><td>15</td><td>58</td><td>20</td>
     </tr>
-    <tr>
-     <td>11/12/21</td><td>4</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td>
-    </tr>
-    <tr><td align="right"><b>Totals:</b></td><td><b>9</b></td><td><b>3</b></td><td><b>2</b></td><td><b>1</b></td><td><b>1</b></td><td><b>1</b></td>
+    <tr><td align="right"><b>Totals:</b></td><td><b>211</b></td><td><b>37</b></td><td><b>81</b></td><td><b>15</b></td><td><b>58</b></td><td><b>20</b></td>
     </tr>
   </tbody>
 </table>
