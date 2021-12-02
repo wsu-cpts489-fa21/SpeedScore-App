@@ -67,7 +67,7 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
     <tr>
      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/2">Issue # 2</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/2">PR # X</a></td><td>5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>40</td><td></td>
     </tr>
-    <tr><td colspan="2" align="right"><b>Totals:</b></td><td><b>48</b></td><td><b>10</b></td><td><b>11</b></td><td><b>7</b></td><td><b>9</b></td><td><b>9</b></td><td colspan="2"></td>
+    <tr><td colspan="2" align="right"><b>Totals:</b></td><td><b>48</b></td><td><b>10</b></td><td><b>10</b></td><td><b>7</b></td><td><b>9</b></td><td><b>9</b></td><td colspan="2"></td>
     </tr>
   </tbody>
 </table>
@@ -75,18 +75,18 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
 #### Context Statements
 | Team Member | Context Statement |
 |-------------|-------------------|
-|TM1| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
-|TM2| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
-|TM3| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
-|TM4| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
-|TM5| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
+|Brandon| Code review and helped others |
+|Joel| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
+|Joshua| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
+|Adi| Helped others |
+|Parikshit| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
 
 ### Testing
 
 |Issue | Test File | Feature Tested | Results Summary | 
 |------|-----------|----------------|-----------------|
-|[Issue #](https://github.com/issue)| [Google.js](https://www.github.com/)|Google Authentication| [3/3 tests passed](https://yoursite.com/animated.gif) | [
-|[Issue #](https://github.com/issue)| [routes.js](https://www.github.com/)|PUT and DELETE routes for rounds | [15/15 tests passed](https://yoursite.com/animated.gif) |
+|[Issue # 6](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/6)| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/6)|Delete Rounds| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/6) | 
+|[Issue # 5](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/5)| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/5)|Edit Profile| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/5) |
   
 ### Communication
  
