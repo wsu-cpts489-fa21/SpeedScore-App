@@ -86,7 +86,7 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
 |Issue | Test File | Feature Tested | Results Summary | 
 |------|-----------|----------------|-----------------|
 |[Issue # 6](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/6)| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/6)|Delete Rounds| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/6) | 
-|[Issue # 5](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/5)| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/blob/main/client/src/tests/EditProfileTest.spec.ts)|Edit Profile| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/tree/main/client/src/tests/gifs) |
+|[Issue # 5](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/5)| [EditProfileTest.spec.ts](https://github.com/wsu-cpts489-fa21/tp-click-overflow/blob/main/client/src/tests/EditProfileTest.spec.ts)|Edit Profile| [2/2 tests passed](https://github.com/wsu-cpts489-fa21/tp-click-overflow/tree/main/client/src/tests/gifs) |
 |[Issue # 7](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/7)| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/7)|Update Rounds| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/7) |
   
 ### Communication
