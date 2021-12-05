@@ -14,10 +14,10 @@ authRoute.get('/auth/github', passport.authenticate('github'));
 //CALLBACK route:  GitHub will call this route after the
 //OAuth authentication process is complete.
 //req.isAuthenticated() tells us whether authentication was successful.
-authRoute.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/' }),
+authRoute.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: process.env.HOMEPAGE }),
   (req, res) => {
     console.log("auth/github/callback reached.");
-    res.redirect('/'); //sends user back to login screen; 
+    res.redirect(process.env.HOMEPAGE); //sends user back to login screen; 
                        //req.isAuthenticated() indicates status
   }
 );
