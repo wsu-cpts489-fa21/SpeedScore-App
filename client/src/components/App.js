@@ -233,7 +233,7 @@ class App extends React.Component {
       const newUserData = {
                           accountData: this.state.userData.accountData,
                           identityData: this.state.userData.identityData,
-                          speedgolfProfileData: this.state.userData.speedgolfProfileData,
+                          speedgolfData: this.state.userData.speedgolfData,
                           rounds: newRounds};
         this.setState({userData: newUserData});
         return("Round deleted");
