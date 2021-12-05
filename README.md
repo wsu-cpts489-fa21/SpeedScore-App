@@ -65,9 +65,9 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/10">Issue # 10</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/62">PR # 62</a></td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td><td>0</td><td>100</td><td></td>
     </tr>
     <tr>
-     <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/2">Issue # 2</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/2">PR # X</a></td><td>5</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>40</td><td></td>
+     <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/2">Issue # 2</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/2">PR # X</a></td><td>5</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>100</td><td></td>
     </tr>
-    <tr><td colspan="2" align="right"><b>Totals:</b></td><td><b>48</b></td><td><b>10</b></td><td><b>10</b></td><td><b>7</b></td><td><b>9</b></td><td><b>9</b></td><td colspan="2"></td>
+    <tr><td colspan="2" align="right"><b>Totals:</b></td><td><b>48</b></td><td><b>10</b></td><td><b>10</b></td><td><b>8</b></td><td><b>10</b></td><td><b>10</b></td><td colspan="2"></td>
     </tr>
   </tbody>
 </table>
@@ -86,7 +86,7 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
 |Issue | Test File | Feature Tested | Results Summary | 
 |------|-----------|----------------|-----------------|
 |[Issue # 6](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/6)| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/6)|Delete Rounds| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/6) | 
-|[Issue # 5](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/5)| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/5)|Edit Profile| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/5) |
+|[Issue # 5](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/5)| [EditProfileTest.spec.ts](https://github.com/wsu-cpts489-fa21/tp-click-overflow/blob/main/client/src/tests/EditProfileTest.spec.ts)|Edit Profile| [2/2 tests passed](https://github.com/wsu-cpts489-fa21/tp-click-overflow/tree/main/client/src/tests/gifs) |
 |[Issue # 7](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/7)| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/7)|Update Rounds| [INPUT](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/7) |
   
 ### Communication
