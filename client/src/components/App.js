@@ -36,7 +36,7 @@ class App extends React.Component {
                     rounds: [],
                     roundCount: 0
                   },
-                  badges: [],
+                  badges: new Set(),
                   authenticated: false             
                   };
   }
@@ -171,15 +171,32 @@ class App extends React.Component {
   //Badges methods
 
   getBadges = (rounds) => {
-   const badgesList = [];
+   const badgesSet = new Set();
    const roundCount = rounds.length;
-   Object.keys(badges.rounds).forEach(badge => { // Round count badges
+   const roundCountBadges = Object.keys(badges.rounds);
+   roundCountBadges.forEach(badge => { // Badges for number of rounds
       if (roundCount >= badges.rounds[badge].qualification) {
-         badgesList.push(badge);
+         badgesSet.add(badge);
       }
-   })
-   // continue with round times
-   return badgesList;
+   });
+   const timeBadges = Object.keys(badges.roundTime);
+   const strokesBadges = Object.keys(badges.roundStrokes);
+   for (let i = 0; i < rounds.length; i++) {
+      const round = rounds[i];
+      timeBadges.forEach(badge => { // Badges for round time
+         if (round.minutes < badges.roundTime[badge].qualification) {
+            badgesSet.add(badge);
+         }
+      });
+      strokesBadges.forEach(badge => { // Badges for round strokes
+         if (round.strokes <= badges.roundStrokes[badge].qualification) {
+            badgesSet.add(badge);
+         }
+      });
+   }
+   const frequencyBadges = Object.keys(badges.roundsInMonth);
+   // TODO: round frequency
+   return badgesSet;
   }
 
   //Round Management methods

@@ -53,7 +53,7 @@ const badges = {
                            description: "50 strokes in a round"},
       level3: {qualification: 100,
                            name: "Master strokes",
-                           description: "100 strokes in a round"}
+                           description: "70 or less strokes in a round"}
    },
    roundsInMonth: {
       badge: badge4,
