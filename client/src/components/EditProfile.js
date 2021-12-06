@@ -380,6 +380,20 @@ class EditProfile extends React.Component {
                     </form>
                     </Accordion.Body>
                 </Accordion.Item>
+
+
+
+                <Accordion.Item eventKey="3">
+                    <Accordion.Header>Badges</Accordion.Header>
+                    <Accordion.Body>
+                    <form noValidate>
+                        NOTHING YET
+                    </form>
+                    </Accordion.Body>
+                </Accordion.Item>
+
+
+
             </Accordion>
             <div className="mode-page-btn-container">
                 <button id="updateProfileBtn" type="button" className="mode-page-btn action-dialog action-button" onClick={this.handleSubmit}>

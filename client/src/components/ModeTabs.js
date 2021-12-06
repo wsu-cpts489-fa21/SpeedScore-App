@@ -41,6 +41,14 @@ class ModeTabs extends React.Component {
                 onClick={() => this.props.setMode(AppMode.BUDDIES)}>
                 Buddies
             </button>
+            <button id="badgesMode" type="button" 
+                className={"modetab-btn" +  
+                    (this.props.mode === AppMode.BADGES ? " modetab-selected" : "") } 
+                role="tab" tabIndex="-1" aria-selected="false" 
+                aria-controls="badgesModeTab"
+                onClick={() => this.props.setMode(AppMode.BADGES)}>
+                Badges
+            </button>
         </div> : null
         );
     }

@@ -11,6 +11,7 @@ import FeedPage from './FeedPage.js';
 import RoundsPage from './RoundsPage.js';
 import CoursesPage from './CoursesPage.js';
 import BuddiesPage from './BuddiesPage.js';
+import BadgesPage from './BadgesPage.js'
 import SideMenu from './SideMenu.js';
 import AppMode from './AppMode.js';
 import EditProfile from './EditProfile.js';
@@ -296,6 +297,16 @@ class App extends React.Component {
                         toggleModalOpen={this.toggleModalOpen} 
                         menuOpen={this.state.menuOpen}
                         userId={this.state.userId}/>,
+          
+          
+
+          BadgesMode:
+            <BadgesPage modalOpen={this.state.modalOpen}
+                        toggleModalOpen={this.toggleModalOpen} 
+                        menuOpen={this.state.menuOpen}
+                        userId={this.state.userId}/>,
+          
+          
           
           EditProfileMode:
             <EditProfile setMode={this.setMode} 

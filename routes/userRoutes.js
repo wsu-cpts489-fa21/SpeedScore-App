@@ -80,9 +80,9 @@ userRoute.post('/users/:userId',  async (req, res, next) => {
             const hash = await bcrypt.hash(req.body.accountData.password, saltRounds);
             thisUser = await new User({
                 accountData: {id: req.params.userId,
-                            password: hash,
-                            securityQuestion: req.body.accountData.securityQuestion,
-                            securityAnswer: req.body.accountData.securityAnswer},
+                              password: hash,
+                              securityQuestion: req.body.accountData.securityQuestion,
+                              securityAnswer: req.body.accountData.securityAnswer},
                 identityData: {displayName: req.body.identityData.displayName,
                                 profilePic: req.body.identityData.profilePic},
                 speedgolfData: {bio: req.body.speedgolfData.bio,
@@ -90,7 +90,7 @@ userRoute.post('/users/:userId',  async (req, res, next) => {
                                 personalBest: req.body.speedgolfData.personalBest,
                                 clubs: req.body.speedgolfData.clubs,
                                 clubComments: req.body.speedgolfData.clubComments},
-                rounds: []
+                                rounds: []
             }).save();
         return res.status(201).send("New account for '" + 
             req.params.userId + "' successfully created.");
