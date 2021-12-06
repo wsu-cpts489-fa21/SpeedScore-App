@@ -25,21 +25,50 @@ class BadgesPage extends React.Component {
    
    renderTable = () => {
       const table = [];
-      for (let r = 0; r < Object.keys(badges).length; ++r) {
+      for (let r = 0; r < Object.keys(this.props.badges).length; ++r) {
          table.push(
-            <tr key={r} onClick={() => this.isShowPopup(true, Object.values(badges)[r])} className="centered">
+            <tr key={r} onClick={() => this.isShowPopup(true, Object.values(this.props.badges)[r])} className="centered">
                <td>
                   <div>
-                     <img src={Object.values(badges)[r].badge} height="100px"/>
+                     {Object.values(this.props.badges)[r].level === "level0" ?
+                        <div>
+                           <img src={Object.values(this.props.badges)[r].notBadge} height="100px"/> 
+                        </div> :
+                        <div>
+                           <img src={Object.values(this.props.badges)[r].badge} height="100px"/>
+                        </div>
+                     }
                   </div>
                   <div>
-                     <FontAwesomeIcon icon="star" color="gold"/>
-                     <FontAwesomeIcon icon="star"/>
-                     <FontAwesomeIcon icon="star"/>
+                     {Object.values(this.props.badges)[r].level === "level0" ? 
+                        <div>
+                           <FontAwesomeIcon icon="star"/>
+                           <FontAwesomeIcon icon="star"/>
+                           <FontAwesomeIcon icon="star"/> 
+                        </div> :
+                        Object.values(this.props.badges)[r].level === "level1" ?
+                           <div>
+                              <FontAwesomeIcon icon="star" color="gold"/>
+                              <FontAwesomeIcon icon="star"/>
+                              <FontAwesomeIcon icon="star"/> 
+                           </div> :
+                           Object.values(this.props.badges)[r].level === "level2" ?
+                              <div>
+                                 <FontAwesomeIcon icon="star" color="gold"/>
+                                 <FontAwesomeIcon icon="star" color="gold"/>
+                                 <FontAwesomeIcon icon="star"/> 
+                              </div> :
+                              <div>
+                                 <FontAwesomeIcon icon="star" color="gold"/>
+                                 <FontAwesomeIcon icon="star" color="gold"/>
+                                 <FontAwesomeIcon icon="star" color="gold"/> 
+                              </div> 
+                     } 
+                     
                   </div>
                </td>
                <td>
-                  {Object.values(badges)[r].name}
+                  {Object.values(this.props.badges)[r].name}
                </td>
             </tr>
          )

@@ -171,32 +171,39 @@ class App extends React.Component {
   //Badges methods
 
   getBadges = (rounds) => {
-   const badgesSet = new Set();
-   const roundCount = rounds.length;
-   const roundCountBadges = Object.keys(badges.rounds);
-   roundCountBadges.forEach(badge => { // Badges for number of rounds
-      if (roundCount >= badges.rounds[badge].qualification) {
-         badgesSet.add(badge);
-      }
-   });
-   const timeBadges = Object.keys(badges.roundTime);
-   const strokesBadges = Object.keys(badges.roundStrokes);
-   for (let i = 0; i < rounds.length; i++) {
-      const round = rounds[i];
-      timeBadges.forEach(badge => { // Badges for round time
-         if (round.minutes < badges.roundTime[badge].qualification) {
-            badgesSet.add(badge);
-         }
-      });
-      strokesBadges.forEach(badge => { // Badges for round strokes
-         if (round.strokes <= badges.roundStrokes[badge].qualification) {
-            badgesSet.add(badge);
-         }
-      });
-   }
-   const frequencyBadges = Object.keys(badges.roundsInMonth);
-   // TODO: round frequency
-   return badgesSet;
+    // const badgesSet = new Set();
+    //var badgesSet = {};
+
+    const roundCount = rounds.length;
+    const roundCountBadges = Object.keys(badges.rounds);
+    roundCountBadges.forEach(level => { // Badges for number of rounds
+        if (roundCount >= badges.rounds[level].qualification) {
+          //badgesSet["rounds"]["level"] = level
+          badges.rounds["level"] = level
+        }
+    });
+
+    const timeBadges = Object.keys(badges.roundTime);
+    const strokesBadges = Object.keys(badges.roundStrokes);
+    for (let i = 0; i < rounds.length; i++) {
+        const round = rounds[i];
+        timeBadges.forEach(level => { // Badges for round time
+          if (round.minutes < badges.roundTime[level].qualification) {
+              //badgesSet["roundTime"]["level"] = level;
+              badges.roundTime["level"] = level
+          }
+        });
+        strokesBadges.forEach(level => { // Badges for round strokes
+          if (round.strokes <= badges.roundStrokes[level].qualification) {
+              //badgesSet["roundStrokes"]["level"] = level;
+              badges.roundStrokes["level"] = level
+          }
+        });
+    }
+
+    const frequencyBadges = Object.keys(badges.roundsInMonth);
+    // TODO: round frequency
+    return badges;
   }
 
   //Round Management methods
@@ -349,7 +356,8 @@ class App extends React.Component {
                          userData={this.state.userData}
                          getUserData={this.getUserData} 
                          updateProfile={this.updateProfile}
-                         toggleToastFunction={this.toggleToastFunction} />
+                         toggleToastFunction={this.toggleToastFunction}
+                         badges={this.state.badges}/>
               
         }[this.state.mode]
         }

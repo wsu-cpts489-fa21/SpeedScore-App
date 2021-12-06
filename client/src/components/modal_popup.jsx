@@ -26,10 +26,24 @@ class ModalPopup extends Component {
             <tr key={0} className="centered">
                 <td>
                     <div>
-                        <img src={this.props.badge.badge} height="100px"/>
+                        {this.props.badge.level === "level1" || this.props.badge.level === "level2" || this.props.badge.level === "level3" ?
+                            <div>
+                                <img src={this.props.badge.badge} height="100px"/> 
+                            </div> :
+                            <div>
+                                <img src={this.props.badge.notBadge} height="100px"/>
+                            </div>    
+                        }
                     </div>
                     <div>
-                        <FontAwesomeIcon icon="star" color="gold"/>
+                        {this.props.badge.level === "level1" || this.props.badge.level === "level2" || this.props.badge.level === "level3" ?
+                            <div>
+                                <FontAwesomeIcon icon="star" color="gold"/> 
+                            </div> :
+                            <div>
+                                <FontAwesomeIcon icon="star"/>
+                            </div>
+                        }
                     </div>
                 </td>
                 <td>
@@ -43,11 +57,26 @@ class ModalPopup extends Component {
             <tr key={1} className="centered">
                 <td>
                     <div>
-                        <img src={this.props.badge.notBadge} height="100px"/>
+                        {this.props.badge.level === "level2" || this.props.badge.level === "level3"?
+                            <div>
+                                <img src={this.props.badge.badge} height="100px"/> 
+                            </div> :
+                            <div>
+                                <img src={this.props.badge.notBadge} height="100px"/>
+                            </div>    
+                        }
                     </div>
                     <div className="centered">
-                        <FontAwesomeIcon icon="star"/>
-                        <FontAwesomeIcon icon="star"/>
+                        {this.props.badge.level === "level2" || this.props.badge.level === "level3" ?
+                            <div>
+                                <FontAwesomeIcon icon="star" color="gold"/> 
+                                <FontAwesomeIcon icon="star" color="gold"/> 
+                            </div> :
+                            <div>
+                                <FontAwesomeIcon icon="star"/>
+                                <FontAwesomeIcon icon="star"/>
+                            </div>
+                        }
                     </div>
                 </td>
                 <td>
@@ -62,12 +91,28 @@ class ModalPopup extends Component {
             <tr key={2} className="centered">
                 <td>
                     <div>
-                        <img src={this.props.badge.notBadge} height="100px"/>
+                        {this.props.badge.level === "level3"?
+                            <div>
+                                <img src={this.props.badge.badge} height="100px"/> 
+                            </div> :
+                            <div>
+                                <img src={this.props.badge.notBadge} height="100px"/>
+                            </div>   
+                        }
                     </div>
                     <div className="centered">
-                        <FontAwesomeIcon icon="star"/>
-                        <FontAwesomeIcon icon="star"/>
-                        <FontAwesomeIcon icon="star"/>
+                        {this.props.badge.level === "level2" || this.props.badge.level === "level3" ?
+                            <div>
+                                <FontAwesomeIcon icon="star" color="gold"/> 
+                                <FontAwesomeIcon icon="star" color="gold"/> 
+                                <FontAwesomeIcon icon="star" color="gold"/> 
+                            </div> :
+                            <div>
+                                <FontAwesomeIcon icon="star"/>
+                                <FontAwesomeIcon icon="star"/>
+                                <FontAwesomeIcon icon="star"/>
+                            </div>
+                        }
                     </div>
                 </td>
                 <td>
