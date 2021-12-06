@@ -15,6 +15,7 @@ import BadgesPage from './BadgesPage.js'
 import SideMenu from './SideMenu.js';
 import AppMode from './AppMode.js';
 import EditProfile from './EditProfile.js';
+import badges from './Badges.js'
 
 library.add(faWindowClose,faEdit, faCalendar, 
             faSpinner, faSignInAlt, faBars, faTimes, faSearch,
@@ -33,7 +34,9 @@ class App extends React.Component {
                     identityData: {},
                     speedgolfData: {},
                     rounds: [],
-                    roundCount: 0},
+                    roundCount: 0
+                  },
+                  badges: [],
                   authenticated: false             
                   };
   }
@@ -138,7 +141,9 @@ class App extends React.Component {
   logInUser = (userObj) => {
       this.setState({userData: userObj,
                      mode: AppMode.FEED,
-                     authenticated: true});
+                     authenticated: true,
+                     badges: this.getBadges(userObj.rounds)
+                  });
   }
 
   createAccount = async(data) => {
@@ -161,6 +166,20 @@ class App extends React.Component {
   updateUserData = (data) => {
    localStorage.setItem(data.accountData.email,JSON.stringify(data));
    this.setState({userData: data});
+  }
+
+  //Badges methods
+
+  getBadges = (rounds) => {
+   const badgesList = [];
+   const roundCount = rounds.length;
+   Object.keys(badges.rounds).forEach(badge => { // Round count badges
+      if (roundCount >= badges.rounds[badge].qualification) {
+         badgesList.push(badge);
+      }
+   })
+   // continue with round times
+   return badgesList;
   }
 
   //Round Management methods
@@ -301,10 +320,10 @@ class App extends React.Component {
           
 
           BadgesMode:
-            <BadgesPage modalOpen={this.state.modalOpen}
+            <BadgesPage badges={this.state.badges}
+                        modalOpen={this.state.modalOpen}
                         toggleModalOpen={this.toggleModalOpen} 
-                        menuOpen={this.state.menuOpen}
-                        userId={this.state.userId}/>,
+                        menuOpen={this.state.menuOpen}/>,
           
           
           
