@@ -174,36 +174,66 @@ class App extends React.Component {
   //Badges methods
 
   getBadges = (rounds) => {
-    const roundCount = rounds.length;
-    const roundCountBadges = Object.keys(badges.rounds);
-    roundCountBadges.forEach(level => { // Badges for number of rounds
-        if (roundCount >= badges.rounds[level].qualification) {
-          //badgesSet["rounds"]["level"] = level
-          badges.rounds["level"] = level
-        }
-    });
+      this.getRoundCountBadges(badges, rounds);
+      this.getRoundTimeBadges(badges, rounds);
+      this.getRoundStrokesBadges(badges, rounds);
+      this.getRoundFrequencyBadges(badges, rounds);
+      return badges;
+  }
 
-    const timeBadges = Object.keys(badges.roundTime);
-    const strokesBadges = Object.keys(badges.roundStrokes);
-    for (let i = 0; i < rounds.length; i++) {
-        const round = rounds[i];
-        timeBadges.forEach(level => { // Badges for round time
-          if (round.minutes < badges.roundTime[level].qualification) {
-              //badgesSet["roundTime"]["level"] = level;
-              badges.roundTime["level"] = level
-          }
-        });
-        strokesBadges.forEach(level => { // Badges for round strokes
-          if (round.strokes <= badges.roundStrokes[level].qualification) {
-              //badgesSet["roundStrokes"]["level"] = level;
-              badges.roundStrokes["level"] = level
-          }
-        });
-    }
+  getRoundCountBadges = (badges, rounds) => {
+      const roundCount = rounds.length;
+      const roundCountBadges = Object.keys(badges.rounds);
+      roundCountBadges.forEach(level => {
+         if (roundCount >= badges.rounds[level].qualification) {
+            badges.rounds["level"] = level
+         }
+      });
+      return badges;
+  }
 
-    const frequencyBadges = Object.keys(badges.roundsInMonth);
-    // TODO: round frequency
-    return badges;
+  getRoundTimeBadges = (badges, rounds) => {
+      const timeBadges = Object.keys(badges.roundTime);
+      for (let i = 0; i < rounds.length; i++) {
+         const round = rounds[i];
+         timeBadges.forEach(level => {
+            if (round.minutes < badges.roundTime[level].qualification) {
+               badges.roundTime["level"] = level
+            }
+         });
+      }
+      return badges;
+  }
+
+  getRoundStrokesBadges = (badges, rounds) => {
+      const strokesBadges = Object.keys(badges.roundStrokes);
+      for (let i = 0; i < rounds.length; i++) {
+         const round = rounds[i];
+         strokesBadges.forEach(level => {
+            if (round.strokes <= badges.roundStrokes[level].qualification) {
+               badges.roundStrokes["level"] = level
+            }
+         });
+      }
+      return badges;
+  }
+
+  getRoundFrequencyBadges = (badges, rounds) => {
+      const roundsPerMonthCounter = {};
+      for (let i = 0; i < rounds.length; i++) {
+         const round = rounds[i];
+         const roundMonth = new Date(round.date).getMonth();
+         roundsPerMonthCounter[roundMonth] = !roundsPerMonthCounter[roundMonth] ?
+               1 : roundsPerMonthCounter[roundMonth] + 1;
+      }
+      const frequencyBadges = Object.keys(badges.roundsInMonth);
+      const frequency = Math.max(Object.values(roundsPerMonthCounter));
+      frequencyBadges.forEach(level => {
+         if (frequency >= badges.roundsInMonth[level].qualification) {
+            badges.roundsInMonth["level"] = level;
+         }
+      });
+      return badges;
   }
 
 
@@ -236,7 +266,8 @@ class App extends React.Component {
                            identityData: this.state.userData.identityData,
                            speedgolfData: this.state.userData.speedgolfData,
                            rounds: newRounds};
-      this.setState({userData: newUserData});
+      this.setState({userData: newUserData,
+                     badges: this.getBadges(newRounds)});
       return("New round logged.");
     } else { 
       const resText = await res.text();
@@ -262,7 +293,8 @@ class App extends React.Component {
                            identityData: this.state.userData.identityData,
                            speedgolfData: this.state.userData.speedgolfData,
                            rounds: newRounds};
-      this.setState({userData: newUserData});
+      this.setState({userData: newUserData,
+                     badges: this.getBadges(newRounds)});
       return("Round updated");
     }
     else{
@@ -289,7 +321,8 @@ class App extends React.Component {
                           identityData: this.state.userData.identityData,
                           speedgolfData: this.state.userData.speedgolfData,
                           rounds: newRounds};
-        this.setState({userData: newUserData});
+        this.setState({userData: newUserData,
+                        badges: this.getBadges(newRounds)});
         return("Round deleted");
     }
     else{
