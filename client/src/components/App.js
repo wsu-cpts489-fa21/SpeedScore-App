@@ -198,54 +198,58 @@ class App extends React.Component {
   }
 
   getRoundCountBadges = (rounds) => {
-    if (rounds.length == 0) {
       badges.rounds["level"] = "level0"
-    } else {
+
       Object.keys(badges.rounds).forEach(level => {
         if (rounds.length >= badges.rounds[level].qualification) {
           badges.rounds["level"] = level
         }
       });
-    }
+
       return badges;
   }
 
   getRoundTimeBadges = (rounds) => {
-    if (rounds.length == 0) {
-      badges.roundTime["level"] = "level0"
-    } else {
-      for (let i = 0; i < rounds.length; i++) {
-        const round = rounds[i];
-        Object.keys(badges.roundTime).forEach(level => {
-          if (round.minutes < badges.roundTime[level].qualification) {
-              badges.roundTime["level"] = level
-          }
-        });
-      }
+    badges.roundTime["level"] = "level0"
+    const roundsTimeCounter = {0: 200};
+
+    for (let i = 0; i < rounds.length; i++) {
+        if (rounds[i].minutes < roundsTimeCounter[0]) {
+          roundsTimeCounter[0] = parseInt(rounds[i].minutes)
+        }
     }
-      return badges;
+
+    Object.keys(badges.roundTime).forEach(level => {
+        if (roundsTimeCounter[0] < badges.roundTime[level].qualification) {
+          badges.roundTime["level"] = level;
+        }
+    });
+    return badges;
   }
 
   getRoundStrokesBadges = (rounds) => {
-    if (rounds.length == 0) {
-      badges.roundStrokes["level"] = "level0"
-    } else {
-      for (let i = 0; i < rounds.length; i++) {
-        const round = rounds[i];
-        Object.keys(badges.roundStrokes).forEach(level => {
-          if (round.strokes <= badges.roundStrokes[level].qualification) {
-              badges.roundStrokes["level"] = level
-          }
-        });
+    badges.roundStrokes["level"] = "level0"
+    const roundsStrokesCounter = {0: 100};
+
+    for (let i = 0; i < rounds.length; i++) {
+      if (rounds[i].strokes < roundsStrokesCounter[0]) {
+        roundsStrokesCounter[0] = parseInt(rounds[i].strokes)
       }
     }
+
+    Object.keys(badges.roundStrokes).forEach(level => {
+      if (roundsStrokesCounter[0] <= badges.roundStrokes[level].qualification) {
+          badges.roundStrokes["level"] = level
+      }
+    });
+
     return badges;
   }
 
   getRoundFrequencyBadges = (rounds) => {
-    if (rounds.length == 0) {
+
       badges.roundsInMonth["level"] = "level0"
-    } else {
+
       const roundsPerMonthCounter = {};
       for (let i = 0; i < rounds.length; i++) {
           const roundMonth = new Date(rounds[i].date).getMonth();
@@ -257,7 +261,7 @@ class App extends React.Component {
             badges.roundsInMonth["level"] = level;
           }
       });
-    }
+
     return badges;
   }
 
@@ -314,7 +318,33 @@ class App extends React.Component {
   newBadgeAlert = (oldBadges) => {
     for (let r = 0; r < Object.keys(this.state.badges).length; ++r) {
       if (Object.values(this.state.badges)[r].level != oldBadges[Object.keys(this.state.badges)[r]]) {
-        this.isShowPopup(true, oldBadges, this.state.badges)
+        if (Object.keys(this.state.badges)[r] in this.state.displayBadges) {
+          let test = {level: Object.values(this.state.badges)[r].level,
+                    badge: Object.values(this.state.badges)[r].badge,
+                    name: Object.keys(this.state.badges)[r]}
+          this.addDisplayBadges(test)
+        }
+        if (parseInt(oldBadges[Object.keys(this.state.badges)[r]][5]) < parseInt(Object.values(this.state.badges)[r].level[5])) {
+          this.isShowPopup(true, oldBadges, this.state.badges)
+        }
+      }
+    }
+  }
+
+  removeDisplayBadgeAlert = (oldBadges) => {
+    for (let r = 0; r < Object.keys(this.state.badges).length; ++r) {
+      if (Object.values(this.state.badges)[r].level != oldBadges[Object.keys(this.state.badges)[r]]) {
+        if (Object.values(this.state.badges)[r].level === "level0") {
+          let test = {level: Object.values(this.state.badges)[r].level,
+                    badge: Object.values(this.state.badges)[r].badge,
+                    name: Object.keys(this.state.badges)[r]}
+          this.removeDisplayBadges(test)
+        } else {
+          let test = {level: Object.values(this.state.badges)[r].level,
+                    badge: Object.values(this.state.badges)[r].badge,
+                    name: Object.keys(this.state.badges)[r]}
+          this.addDisplayBadges(test)
+        }
       }
     }
   }
@@ -328,9 +358,7 @@ class App extends React.Component {
 
 
   addRound = async(newRoundData) => {   
-
     var oldBadges = this.getOldBadges()
-
     const url = "/rounds/" + this.state.userData.accountData.id;
     let res = await fetch(url, {
                   method: 'POST',
@@ -358,6 +386,7 @@ class App extends React.Component {
   }
 
   updateRound = async(newRoundData, editId) => {
+    var oldBadges = this.getOldBadges()
     const url = "/rouds/" + this.state.userData.accountData.id + "/" + editId;
     let res = await fetch(url, {
                   method: 'POST',
@@ -377,6 +406,7 @@ class App extends React.Component {
                            rounds: newRounds};
       this.setState({userData: newUserData,
                      badges: this.getBadges(newRounds)});
+      this. newBadgeAlert(oldBadges)
       return("Round updated");
     }
     else{
@@ -386,6 +416,7 @@ class App extends React.Component {
 }
 
   deleteRound = async(deleteId) => {
+    var oldBadges = this.getOldBadges()
     const url = "/rounds/" + this.state.userData.accountData.id + "/" + deleteId;
     let res = await fetch(url, {
                   method: 'DELETE',
@@ -405,6 +436,7 @@ class App extends React.Component {
                           rounds: newRounds};
         this.setState({userData: newUserData,
                         badges: this.getBadges(newRounds)});
+        this. removeDisplayBadgeAlert(oldBadges)
         return("Round deleted");
     }
     else{

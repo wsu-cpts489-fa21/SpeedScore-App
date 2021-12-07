@@ -148,7 +148,7 @@ class ModalPopup extends Component {
                         }
                     </div>
                     <div className="centered">
-                        {this.props.badge.level === "level2" || this.props.badge.level === "level3" ?
+                        {this.props.badge.level === "level3" ?
                             <div>
                                 <FontAwesomeIcon icon="star" color="gold"/> 
                                 <FontAwesomeIcon icon="star" color="gold"/> 
