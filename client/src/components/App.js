@@ -171,43 +171,66 @@ class App extends React.Component {
   //Badges methods
 
   getBadges = (rounds) => {
-    const roundCount = rounds.length;
-    const roundCountBadges = Object.keys(badges.rounds);
-    roundCountBadges.forEach(level => { // Badges for number of rounds
-        if (roundCount >= badges.rounds[level].qualification) {
-          badges.rounds["level"] = level
-        }
-    });
-    
-    const timeBadges = Object.keys(badges.roundTime);
-    const strokesBadges = Object.keys(badges.roundStrokes);
-    const roundsPerMonthCounter = {};
-    for (let i = 0; i < rounds.length; i++) {
-        const round = rounds[i];
-        timeBadges.forEach(level => { // Badges for round time
-          if (round.minutes < badges.roundTime[level].qualification) {
-              badges.roundTime["level"] = level
-          }
-        });
-        strokesBadges.forEach(level => { // Badges for round strokes
-          if (round.strokes <= badges.roundStrokes[level].qualification) {
-              badges.roundStrokes["level"] = level
-          }
-        });
-        const roundDate = new Date(round.date); // Record rounds per month
-        const roundMonth = roundDate.getMonth();
-        roundsPerMonthCounter[roundMonth] = !roundsPerMonthCounter[roundMonth] ?
-            1 : roundsPerMonthCounter[roundMonth] + 1;
-    }
+      this.getRoundCountBadges(badges, rounds);
+      this.getRoundTimeBadges(badges, rounds);
+      this.getRoundStrokesBadges(badges, rounds);
+      this.getRoundFrequencyBadges(badges, rounds);
+      return badges;
+  }
 
-    const frequencyBadges = Object.keys(badges.roundsInMonth);
-    const frequency = Math.max(Object.values(roundsPerMonthCounter));
-    frequencyBadges.forEach(level => { // Badges for round frequency
-      if (frequency >= badges.roundsInMonth[level].qualification) {
-         badges.roundsInMonth["level"] = level;
+  getRoundCountBadges = (badges, rounds) => {
+      const roundCount = rounds.length;
+      const roundCountBadges = Object.keys(badges.rounds);
+      roundCountBadges.forEach(level => {
+         if (roundCount >= badges.rounds[level].qualification) {
+            badges.rounds["level"] = level
+         }
+      });
+      return badges;
+  }
+
+  getRoundTimeBadges = (badges, rounds) => {
+      const timeBadges = Object.keys(badges.roundTime);
+      for (let i = 0; i < rounds.length; i++) {
+         const round = rounds[i];
+         timeBadges.forEach(level => {
+            if (round.minutes < badges.roundTime[level].qualification) {
+               badges.roundTime["level"] = level
+            }
+         });
       }
-    });
-    return badges;
+      return badges;
+  }
+
+  getRoundStrokesBadges = (badges, rounds) => {
+      const strokesBadges = Object.keys(badges.roundStrokes);
+      for (let i = 0; i < rounds.length; i++) {
+         const round = rounds[i];
+         strokesBadges.forEach(level => {
+            if (round.strokes <= badges.roundStrokes[level].qualification) {
+               badges.roundStrokes["level"] = level
+            }
+         });
+      }
+      return badges;
+  }
+
+  getRoundFrequencyBadges = (badges, rounds) => {
+      const roundsPerMonthCounter = {};
+      for (let i = 0; i < rounds.length; i++) {
+         const round = rounds[i];
+         const roundMonth = new Date(round.date).getMonth();
+         roundsPerMonthCounter[roundMonth] = !roundsPerMonthCounter[roundMonth] ?
+               1 : roundsPerMonthCounter[roundMonth] + 1;
+      }
+      const frequencyBadges = Object.keys(badges.roundsInMonth);
+      const frequency = Math.max(Object.values(roundsPerMonthCounter));
+      frequencyBadges.forEach(level => {
+         if (frequency >= badges.roundsInMonth[level].qualification) {
+            badges.roundsInMonth["level"] = level;
+         }
+      });
+      return badges;
   }
 
   //Round Management methods
