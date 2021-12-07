@@ -253,7 +253,8 @@ class App extends React.Component {
                            identityData: this.state.userData.identityData,
                            speedgolfData: this.state.userData.speedgolfData,
                            rounds: newRounds};
-      this.setState({userData: newUserData});
+      this.setState({userData: newUserData,
+                     badges: this.getBadges(newRounds)});
       return("New round logged.");
     } else { 
       const resText = await res.text();
@@ -279,7 +280,8 @@ class App extends React.Component {
                            identityData: this.state.userData.identityData,
                            speedgolfData: this.state.userData.speedgolfData,
                            rounds: newRounds};
-      this.setState({userData: newUserData});
+      this.setState({userData: newUserData,
+                     badges: this.getBadges(newRounds)});
       return("Round updated");
     }
     else{
@@ -306,7 +308,8 @@ class App extends React.Component {
                           identityData: this.state.userData.identityData,
                           speedgolfData: this.state.userData.speedgolfData,
                           rounds: newRounds};
-        this.setState({userData: newUserData});
+        this.setState({userData: newUserData,
+                        badges: this.getBadges(newRounds)});
         return("Round deleted");
     }
     else{
