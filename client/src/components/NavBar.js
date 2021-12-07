@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import logo from '../images/sslogo.png'
 import profilePic from '../images/DefaultProfilePic.jpg';
 import AppMode from './AppMode';
-import CreateAccount from './CreateAccount';
 
 class NavBar extends React.Component {
 
+    // Displays up to three badges in navbar
     displayBadges = () => {
       const table = [];
       for (let r = 0; r < Object.keys(this.props.displayBadges).length; ++r) {
@@ -59,17 +59,11 @@ class NavBar extends React.Component {
            <h1 id="appName" className="navbar-title">SpeedScore</h1> 
            {this.props.mode != AppMode.LOGIN && !this.props.modalOpen && this.props.mode != AppMode.EDITPROFILE ?
              <div className="navbar-right-items">
-
-
-
                 <table id="roundsTable">
                   <tbody>
                       {this.displayBadges()}
                   </tbody>
                 </table>        
-
-
-                
                 <input id="searchBox" className="form-control hidden" 
                 aria-label="Search Rounds" size="30"
                 type="search" />

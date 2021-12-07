@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';  
 import { Modal } from 'react-bootstrap';  
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-  
+
+// Popup modal to display badge information
 class ModalPopup extends Component {  
     constructor(props) {  
         super(props);  
@@ -19,19 +20,16 @@ class ModalPopup extends Component {
         this.props.onPopupClose(false);  
     }  
 
+    // Button to add badge to display badges list
     handleAdd = () => {
-        // let test = this.props.displayBadges
-        // test[this.props.name] = {level: this.props.badge.level,
-        //                          badge: this.props.badge.badge}
         let test = {level: this.props.badge.level,
                     badge: this.props.badge.badge,
                     name: this.props.name}
         this.props.addDisplayBadges(test)
     }
 
+    // Button to remove badge from display badges list
     handleRemove = () => {
-        // let test = this.props.displayBadges
-        // delete test[this.props.name]
         let test = {level: this.props.badge.level,
             badge: this.props.badge.badge,
             name: this.props.name}
@@ -40,7 +38,6 @@ class ModalPopup extends Component {
 
     renderTable = () => {
         const table = [];
-
         table.push(
             <tr key={0} className="centered">
                 <td>
@@ -184,7 +181,6 @@ class ModalPopup extends Component {
                 </td>
             </tr>
         )
-
         return table;
     }
   

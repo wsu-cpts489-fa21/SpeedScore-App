@@ -206,6 +206,7 @@ button::-moz-focus-inner {
   display: flex; 
 }
 
+/* Shifts mode tabs down when badges are being displayed */
 .shifted {
   top: 80px;
 }

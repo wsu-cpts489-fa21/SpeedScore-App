@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+// Badge schema
 const BadgeSchema = new mongoose.Schema({
     level: {type: String, required: true},
     badge: {type: String, required: true},

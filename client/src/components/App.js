@@ -153,18 +153,6 @@ class App extends React.Component {
                   });
   }
 
-  getDisplayBadges = (badges) => {
-    var displayBadges = {}
-    for (let r = 0; r < Object.keys(badges).length; ++r) {
-      displayBadges[badges[r].name] = {
-        name: badges[r].name,
-        badge: badges[r].badge,
-        level: badges[r].level
-      }
-    }
-    return displayBadges
-  }
-
   createAccount = async(data) => {
     const url = '/users/' + data.accountData.id;
     const res = await fetch(url, {
@@ -189,6 +177,20 @@ class App extends React.Component {
 
   //Badges methods
 
+  // Gets a badge and adds it to the display badge list
+  getDisplayBadges = (badges) => {
+    var displayBadges = {}
+    for (let r = 0; r < Object.keys(badges).length; ++r) {
+      displayBadges[badges[r].name] = {
+        name: badges[r].name,
+        badge: badges[r].badge,
+        level: badges[r].level
+      }
+    }
+    return displayBadges
+  }
+
+  // Updates the badges object with current badge levels
   getBadges = (rounds) => {
     this.getRoundCountBadges(rounds);
     this.getRoundTimeBadges(rounds);
@@ -197,76 +199,79 @@ class App extends React.Component {
     return badges;
   }
 
+  // Helper function to get the Round Count badge level
   getRoundCountBadges = (rounds) => {
-      badges.rounds["level"] = "level0"
+      badges.rounds["level"] = "level0" // Default
 
       Object.keys(badges.rounds).forEach(level => {
-        if (rounds.length >= badges.rounds[level].qualification) {
+        if (rounds.length >= badges.rounds[level].qualification) { // Gets highest level
           badges.rounds["level"] = level
         }
       });
-
       return badges;
   }
 
+  // Helper function to get the Round Time badge level
   getRoundTimeBadges = (rounds) => {
-    badges.roundTime["level"] = "level0"
-    const roundsTimeCounter = {0: 200};
+    badges.roundTime["level"] = "level0" // Default
+    const roundsTimeCounter = {0: 200}; // Default
 
-    for (let i = 0; i < rounds.length; i++) {
+    for (let i = 0; i < rounds.length; i++) { // Finds the lowest round time
         if (rounds[i].minutes < roundsTimeCounter[0]) {
           roundsTimeCounter[0] = parseInt(rounds[i].minutes)
         }
     }
 
     Object.keys(badges.roundTime).forEach(level => {
-        if (roundsTimeCounter[0] < badges.roundTime[level].qualification) {
+        if (roundsTimeCounter[0] < badges.roundTime[level].qualification) {  // Gets highest level
           badges.roundTime["level"] = level;
         }
     });
     return badges;
   }
 
+  // Helper function to get the Round Strokes badge level
   getRoundStrokesBadges = (rounds) => {
-    badges.roundStrokes["level"] = "level0"
-    const roundsStrokesCounter = {0: 100};
+    badges.roundStrokes["level"] = "level0" // Default
+    const roundsStrokesCounter = {0: 100}; // Default
 
-    for (let i = 0; i < rounds.length; i++) {
+    for (let i = 0; i < rounds.length; i++) { // Finds the lowest round stroke count
       if (rounds[i].strokes < roundsStrokesCounter[0]) {
         roundsStrokesCounter[0] = parseInt(rounds[i].strokes)
       }
     }
 
     Object.keys(badges.roundStrokes).forEach(level => {
-      if (roundsStrokesCounter[0] <= badges.roundStrokes[level].qualification) {
+      if (roundsStrokesCounter[0] <= badges.roundStrokes[level].qualification) {  // Gets highest level
           badges.roundStrokes["level"] = level
       }
     });
-
     return badges;
   }
 
+  // Helper function to get the Round Frequency badge level
   getRoundFrequencyBadges = (rounds) => {
-
-      badges.roundsInMonth["level"] = "level0"
+      badges.roundsInMonth["level"] = "level0" // Default
 
       const roundsPerMonthCounter = {};
-      for (let i = 0; i < rounds.length; i++) {
+      for (let i = 0; i < rounds.length; i++) { // Finds the number of rounds in a month
           const roundMonth = new Date(rounds[i].date).getMonth();
           roundsPerMonthCounter[roundMonth] = !roundsPerMonthCounter[roundMonth] ?
                 1 : roundsPerMonthCounter[roundMonth] + 1;
       }
+
       Object.keys(badges.roundsInMonth).forEach(level => {
-          if (Math.max(Object.values(roundsPerMonthCounter)) >= badges.roundsInMonth[level].qualification) {
+          if (Math.max(Object.values(roundsPerMonthCounter)) >= badges.roundsInMonth[level].qualification) {  // Gets highest level
             badges.roundsInMonth["level"] = level;
           }
       });
-
     return badges;
   }
 
+  // Gets a badge and adds it to the database, then updates state
   addDisplayBadges = async(badge) => {
     const url = "/badges/" + this.state.userData.accountData.id;
+
     let res = await fetch(url, {
               method: 'POST',
               headers: {
@@ -275,17 +280,15 @@ class App extends React.Component {
               },
               body: JSON.stringify(badge)
     }); 
-
     const displayBadges = this.state.displayBadges;
-
     displayBadges[badge.name] = badge;
     this.setState({displayBadges: displayBadges})
-
-    //this.setState({ displayBadges: displayBadges})
   }
 
+  // Gets a badge and removes it from the database, then updates state
   removeDisplayBadges = async(badge) => {
     const url = "/bages/" + this.state.userData.accountData.id;
+
     let res = await fetch(url, {
               method: 'POST',
               headers: {
@@ -294,71 +297,73 @@ class App extends React.Component {
               },
               body: JSON.stringify(badge)
     }); 
-
     const displayBadges = this.state.displayBadges;
-
     delete displayBadges[badge.name]
     this.setState({displayBadges: displayBadges})
-
-    //this.setState({ displayBadges: displayBadges})
   }
 
-  //Round Management methods
-
-
-
+  // Helper function to get old display badge list
   getOldBadges = () => {
     let result = {};
+    
     for (let r = 0; r < Object.keys(this.state.badges).length; ++r) {
       result[Object.keys(this.state.badges)[r]] = Object.values(this.state.badges)[r].level
     }
     return result
   }
 
+  // Displays a modal popup whenever a new badge is earned
   newBadgeAlert = (oldBadges) => {
     for (let r = 0; r < Object.keys(this.state.badges).length; ++r) {
-      if (Object.values(this.state.badges)[r].level != oldBadges[Object.keys(this.state.badges)[r]]) {
-        if (Object.keys(this.state.badges)[r] in this.state.displayBadges) {
+      
+      if (Object.values(this.state.badges)[r].level != oldBadges[Object.keys(this.state.badges)[r]]) { // User unlocked a new badge
+        
+        if (Object.keys(this.state.badges)[r] in this.state.displayBadges) { // The badge is already displayed in display badge list
           let test = {level: Object.values(this.state.badges)[r].level,
                     badge: Object.values(this.state.badges)[r].badge,
                     name: Object.keys(this.state.badges)[r]}
-          this.addDisplayBadges(test)
+          this.addDisplayBadges(test) // Update badge in display badge list
         }
-        if (parseInt(oldBadges[Object.keys(this.state.badges)[r]][5]) < parseInt(Object.values(this.state.badges)[r].level[5])) {
-          this.isShowPopup(true, oldBadges, this.state.badges)
+
+        if (parseInt(oldBadges[Object.keys(this.state.badges)[r]][5]) < parseInt(Object.values(this.state.badges)[r].level[5])) { // Display popup if the badge unlocked is better then the pervious badge
+          this.isShowPopup(true, oldBadges, this.state.badges) // Display popup
         }
       }
     }
   }
 
+  // Either update or remove the badge from display badge list
   removeDisplayBadgeAlert = (oldBadges) => {
     for (let r = 0; r < Object.keys(this.state.badges).length; ++r) {
-      if (Object.values(this.state.badges)[r].level != oldBadges[Object.keys(this.state.badges)[r]]) {
-        if (Object.values(this.state.badges)[r].level === "level0") {
+      
+      if (Object.values(this.state.badges)[r].level != oldBadges[Object.keys(this.state.badges)[r]]) { // User downgraded a badge (or badge was removed)
+        
+        if (Object.values(this.state.badges)[r].level === "level0") { // The badge was removed
           let test = {level: Object.values(this.state.badges)[r].level,
                     badge: Object.values(this.state.badges)[r].badge,
                     name: Object.keys(this.state.badges)[r]}
-          this.removeDisplayBadges(test)
-        } else {
+          this.removeDisplayBadges(test) // Remove the badge from display listings
+        } else { // The badge was downgraded
           let test = {level: Object.values(this.state.badges)[r].level,
                     badge: Object.values(this.state.badges)[r].badge,
                     name: Object.keys(this.state.badges)[r]}
-          this.addDisplayBadges(test)
+          this.addDisplayBadges(test) // Update badge is display badge list
         }
       }
     }
   }
-
+  
+  // Displays popup modal when a new badge is unlocked
   isShowPopup = (status, oldBadges, newBadges) => {  
     this.setState({ showModalPopup: status,
                       oldBadges: oldBadges,
                       newBadges: newBadges});  
   };  
 
-
+  //Round Management methods
 
   addRound = async(newRoundData) => {   
-    var oldBadges = this.getOldBadges()
+    var oldBadges = this.getOldBadges() // Gets a copy of the old badges before the update
     const url = "/rounds/" + this.state.userData.accountData.id;
     let res = await fetch(url, {
                   method: 'POST',
@@ -377,7 +382,7 @@ class App extends React.Component {
                            rounds: newRounds};
       this.setState({userData: newUserData,
                      badges: this.getBadges(newRounds)});
-      this.newBadgeAlert(oldBadges);
+      this.newBadgeAlert(oldBadges); // Checks if a badge has been removed or updated
       return("New round logged.");
     } else { 
       const resText = await res.text();
@@ -386,7 +391,7 @@ class App extends React.Component {
   }
 
   updateRound = async(newRoundData, editId) => {
-    var oldBadges = this.getOldBadges()
+    var oldBadges = this.getOldBadges() // Gets a copy of the old badges before the update
     const url = "/rouds/" + this.state.userData.accountData.id + "/" + editId;
     let res = await fetch(url, {
                   method: 'POST',
@@ -406,7 +411,7 @@ class App extends React.Component {
                            rounds: newRounds};
       this.setState({userData: newUserData,
                      badges: this.getBadges(newRounds)});
-      this. newBadgeAlert(oldBadges)
+      this. newBadgeAlert(oldBadges) // Checks if a badge has been removed or updated
       return("Round updated");
     }
     else{
@@ -416,7 +421,7 @@ class App extends React.Component {
 }
 
   deleteRound = async(deleteId) => {
-    var oldBadges = this.getOldBadges()
+    var oldBadges = this.getOldBadges() // Gets a copy of the old badges before the update
     const url = "/rounds/" + this.state.userData.accountData.id + "/" + deleteId;
     let res = await fetch(url, {
                   method: 'DELETE',
@@ -436,7 +441,7 @@ class App extends React.Component {
                           rounds: newRounds};
         this.setState({userData: newUserData,
                         badges: this.getBadges(newRounds)});
-        this. removeDisplayBadgeAlert(oldBadges)
+        this. removeDisplayBadgeAlert(oldBadges) // Checks if a badge has been removed or updated
         return("Round deleted");
     }
     else{
@@ -448,8 +453,6 @@ class App extends React.Component {
   render() {
     return (
       <>
-
-
         <ModalBadgePopup  
                showModalPopup={this.state.showModalPopup}  
                onPopupClose={this.isShowPopup}
@@ -458,9 +461,6 @@ class App extends React.Component {
                displayBadges={this.state.displayBadges}
                addDisplayBadges={this.addDisplayBadges}
                removeDisplayBadges={this.removeDisplayBadges}/>
-
-
-
         <NavBar mode={this.state.mode}
                 menuOpen={this.state.menuOpen}
                 toggleMenuOpen={this.toggleMenuOpen}
@@ -513,9 +513,6 @@ class App extends React.Component {
                         toggleModalOpen={this.toggleModalOpen} 
                         menuOpen={this.state.menuOpen}
                         userId={this.state.userId}/>,
-          
-          
-
           BadgesMode:
             <BadgesPage badges={this.state.badges}
                         modalOpen={this.state.modalOpen}
@@ -524,21 +521,17 @@ class App extends React.Component {
                         displayBadges={this.state.displayBadges}
                         addDisplayBadges={this.addDisplayBadges}
                         removeDisplayBadges={this.removeDisplayBadges}/>,
-          
-          
-          
           EditProfileMode:
             <EditProfile setMode={this.setMode} 
                          userData={this.state.userData}
                          getUserData={this.getUserData} 
                          updateProfile={this.updateProfile}
                          toggleToastFunction={this.toggleToastFunction}/>
-              
         }[this.state.mode]
         }
       </>
     ); 
   }
-
 }
+
 export default App;

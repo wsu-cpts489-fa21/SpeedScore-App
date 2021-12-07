@@ -1,14 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import badges from './Badges.js'
-
-
 import ModalPopup from './modal_popup';
 
-
 class BadgesPage extends React.Component {
-
-
 
    constructor() {  
       super();  
@@ -17,19 +11,19 @@ class BadgesPage extends React.Component {
       }  
    } 
 
+   // Displays popup modal to give badge information
    isShowPopup = (status, badge, name) => {  
    this.setState({ showModalPopup: status,
                      badge: badge,
                      name: name});  
    };  
 
-
-   
+   // Helper function to render table with badge information
    renderTable = () => {
       const table = [];
       for (let r = 0; r < Object.keys(this.props.badges).length; ++r) {
          table.push(
-            <tr key={r} onClick={() => this.isShowPopup(true, Object.values(this.props.badges)[r], Object.keys(this.props.badges)[r])} className="centered">
+            <tr key={r} onClick={() => this.isShowPopup(true, Object.values(this.props.badges)[r], Object.keys(this.props.badges)[r])} className="centered"> 
                <td>
                   <div>
                      {Object.values(this.props.badges)[r].level === "level0" ?
@@ -112,7 +106,6 @@ class BadgesPage extends React.Component {
       </div>
       );
    }   
-
 }
 
 export default BadgesPage;

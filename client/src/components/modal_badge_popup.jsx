@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';  
 import { Modal } from 'react-bootstrap';  
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-  
+
+// Popup modal to display new badges unlocked
 class ModalBadgePopup extends Component {  
     constructor(props) {  
         super(props);  
@@ -19,41 +20,33 @@ class ModalBadgePopup extends Component {
         this.props.onPopupClose(false);  
     }  
 
+    // Button to add badge to display badges list
     handleAdd = (r) => {
-        // let test = this.props.displayBadges
-        // test[this.props.name] = {level: this.props.badge.level,
-        //                          badge: this.props.badge.badge}
         let test = {level: Object.values(this.props.newBadges)[r].level,
                     badge: Object.values(this.props.newBadges)[r].badge,
                     name: Object.keys(this.props.newBadges)[r]}
         this.props.addDisplayBadges(test)
     }
 
+    // Button to removed badge from display badges list
     handleRemove = (r) => {
-        // let test = this.props.displayBadges
-        // delete test[this.props.name]
         let test = {level: Object.values(this.props.newBadges)[r].level,
                     badge: Object.values(this.props.newBadges)[r].badge,
                     name: Object.keys(this.props.newBadges)[r]}
         this.props.removeDisplayBadges(test)
     }
 
-
     renderTable = () => {
         const table = [];
-
-
         for (let r = 0; r < Object.keys(this.props.newBadges).length; ++r) {            
             if (Object.values(this.props.newBadges)[r].level != this.props.oldBadges[Object.keys(this.props.newBadges)[r]]) {
                 table.push(
                     <tr key={r} className="centered">
                         <td>
                             <div>
-
                                 <div>
                                     <img src={Object.values(this.props.newBadges)[r].badge} height="100px"/>
                                 </div>    
-
                             </div>
                             <div>
                                 {Object.values(this.props.newBadges)[r].level === "level1" ?
@@ -115,27 +108,10 @@ class ModalBadgePopup extends Component {
                                 null
                             }
                         </td>
-                        {/* <td>
-                            {this.props.name in this.props.displayBadges && this.props.badge.level == "level1" ?
-                                <button onClick= {() => this.handleRemove()}>
-                                    <FontAwesomeIcon icon="times" color="red"/> 
-                                </button> :
-                                null
-                            }
-                            {!(this.props.name in this.props.displayBadges) && Object.keys(this.props.displayBadges).length < 3 && this.props.badge.level == "level1" ? 
-                                <button onClick= {() => this.handleAdd()}>
-                                    <FontAwesomeIcon icon="check-square" color="green"/> 
-                                </button> :
-                                null
-                            }
-                        </td> */}
-                    </tr>)
+                    </tr>
+                )
             }
-
-
         }
-
-
         return table;
     }
   

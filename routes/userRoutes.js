@@ -7,8 +7,6 @@ import express from 'express';
 import bcrypt from 'bcrypt';
 const userRoute = express.Router();
 const saltRounds = 10;
-import {Badge} from "../models/Badges.js";
-
 
 //READ user route: Retrieves the user with the specified userId from users collection (GET)
 userRoute.get('/users/:userId', async(req, res, next) => {
@@ -103,29 +101,12 @@ userRoute.post('/users/:userId',  async (req, res, next) => {
   });
 
 
-
-//UPDATE user route: Updates a user account in the users collection (POST)
+//UPDATE user route: Adds badge to user's display badges list (POST)
 userRoute.post('/badges/:userId',  async (req, res, next) => {
   try {
-
-      //const badge = new Badge(req.body);
-
-      //console.log(badge)
-
-      // var newBadges = thisUser.badges
-      // newBadges[0] = badge
-
-      console.log(req.body)
-
-
       const status = await User.updateOne(
         {"accountData.id": req.params.userId},
         {$push: {badges: req.body}});
-      // let status = await User.updateOne({"accountData.id": req.params.userId}, 
-      //                                     {$set: {badges: badge}});
-
-
-
       if (status.modifiedCount != 1) { //account could not be found
           console.log("status: " + JSON.stringify(status));
           res.status(404).send("Account not updated. Either no account with that id"
@@ -142,28 +123,15 @@ userRoute.post('/badges/:userId',  async (req, res, next) => {
 });
 
 
-//UPDATE user route: Updates a user account in the users collection (POST)
+//UPDATE user route: Removes badge from user's display badges list (POST)
 userRoute.post('/bages/:userId',  async (req, res, next) => {
   try {
-
-      //const badge = new Badge(req.body);
-
-      //console.log(badge)
-
-      // var newBadges = thisUser.badges
-      // newBadges[0] = badge
-
       let thisUser = await User.findOne({"accountData.id": req.params.userId});
-
-      var newBadges = [];
+      var newBadges = []; // Display badges with badge removed
       newBadges = thisUser.badges.filter((item) => {
         return item.name != req.body.name;
       });
-
       let status = await User.updateOne({"accountData.id": req.params.userId}, {$set: {"badges": newBadges}});
-
-
-
       if (status.modifiedCount != 1) { //account could not be found
           console.log("status: " + JSON.stringify(status));
           res.status(404).send("Account not updated. Either no account with that id"
@@ -179,11 +147,6 @@ userRoute.post('/bages/:userId',  async (req, res, next) => {
       }
 });
 
-
-
-
-
-  
 //UPDATE user route: Updates a user account in the users collection (POST)
 userRoute.put('/users/:userId',  async (req, res, next) => {
     console.log("in /users update route (PUT) with userId = " 
@@ -268,6 +231,4 @@ userRoute.delete('/users/:userId', async(req, res, next) => {
     }
   });
   
-  export default userRoute;
-
-  
+export default userRoute;
