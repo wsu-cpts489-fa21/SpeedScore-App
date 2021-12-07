@@ -187,10 +187,11 @@ class App extends React.Component {
   //Badges methods
 
   getBadges = (rounds) => {
-      this.getRoundCountBadges(badges, rounds);
-      this.getRoundTimeBadges(badges, rounds);
-      this.getRoundStrokesBadges(badges, rounds);
-      this.getRoundFrequencyBadges(badges, rounds);
+      let myBadges = badges;
+      this.getRoundCountBadges(myBadges, rounds);
+      this.getRoundTimeBadges(myBadges, rounds);
+      this.getRoundStrokesBadges(myBadges, rounds);
+      this.getRoundFrequencyBadges(myBadges, rounds);
       return badges;
   }
 
@@ -198,7 +199,8 @@ class App extends React.Component {
       const roundCount = rounds.length;
       const roundCountBadges = Object.keys(badges.rounds);
       roundCountBadges.forEach(level => {
-         if (roundCount >= badges.rounds[level].qualification) {
+         if (roundCount >= badges.rounds[level].qualification
+               && level > badges.rounds.level) {
             badges.rounds["level"] = level
          }
       });
@@ -210,7 +212,8 @@ class App extends React.Component {
       for (let i = 0; i < rounds.length; i++) {
          const round = rounds[i];
          timeBadges.forEach(level => {
-            if (round.minutes < badges.roundTime[level].qualification) {
+            if (round.minutes < badges.roundTime[level].qualification
+                  && level > badges.roundTime.level) {
                badges.roundTime["level"] = level
             }
          });
@@ -223,7 +226,8 @@ class App extends React.Component {
       for (let i = 0; i < rounds.length; i++) {
          const round = rounds[i];
          strokesBadges.forEach(level => {
-            if (round.strokes <= badges.roundStrokes[level].qualification) {
+            if (round.strokes <= badges.roundStrokes[level].qualification
+                  && level > badges.roundStrokes.level) {
                badges.roundStrokes["level"] = level
             }
          });
@@ -242,7 +246,8 @@ class App extends React.Component {
       const frequencyBadges = Object.keys(badges.roundsInMonth);
       const frequency = Math.max(Object.values(roundsPerMonthCounter));
       frequencyBadges.forEach(level => {
-         if (frequency >= badges.roundsInMonth[level].qualification) {
+         if (frequency >= badges.roundsInMonth[level].qualification
+               && level > badges.roundsInMonth.level) {
             badges.roundsInMonth["level"] = level;
          }
       });
