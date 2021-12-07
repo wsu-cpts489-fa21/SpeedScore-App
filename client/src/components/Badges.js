@@ -18,15 +18,15 @@ const badges = {
       notBadge: notBadge1,
       name: "The Player",
       level: "level0",
-      level1: {qualification: 10,
+      level1: {qualification: 1,
                            name: "Beginner competitor",
-                           description: "Played 10 rounds"},
-      level2: {qualification: 20,
+                           description: "Played 1 rounds"},
+      level2: {qualification: 10,
                            name: "Intermediate competitor",
-                           description: "Played 20 rounds"},
-      level3: {qualification: 30,
+                           description: "Played 10 rounds"},
+      level3: {qualification: 20,
                            name: "Advanced competitor",
-                           description: "Played 30 rounds"}
+                           description: "Played 20 rounds"}
    },
    roundTime: {
       badge: badge2,

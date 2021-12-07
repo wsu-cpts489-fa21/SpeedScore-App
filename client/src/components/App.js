@@ -145,8 +145,21 @@ class App extends React.Component {
       this.setState({userData: userObj,
                      mode: AppMode.FEED,
                      authenticated: true,
-                     badges: this.getBadges(userObj.rounds)
+                     badges: this.getBadges(userObj.rounds),
+                     displayBadges: this.getDisplayBadges(userObj.badges)
                   });
+  }
+
+  getDisplayBadges = (badges) => {
+    var displayBadges = {}
+    for (let r = 0; r < Object.keys(badges).length; ++r) {
+      displayBadges[badges[r].name] = {
+        name: badges[r].name,
+        badge: badges[r].badge,
+        level: badges[r].level
+      }
+    }
+    return displayBadges
   }
 
   createAccount = async(data) => {
@@ -167,7 +180,7 @@ class App extends React.Component {
   }
 
   updateUserData = (data) => {
-   localStorage.setItem(data.accountData.email,JSON.stringify(data));
+   localStorage.setItem(data.accountData.email, JSON.stringify(data));
    this.setState({userData: data});
   }
 
@@ -236,14 +249,43 @@ class App extends React.Component {
       return badges;
   }
 
+  addDisplayBadges = async(badge) => {
+    const url = "/badges/" + this.state.userData.accountData.id;
+    let res = await fetch(url, {
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(badge)
+    }); 
 
+    const displayBadges = this.state.displayBadges;
 
+    displayBadges[badge.name] = badge;
+    this.setState({displayBadges: displayBadges})
 
-  updateDisplayBadges = (displayBadges) => {
-    this.setState({ displayBadges: displayBadges})
+    //this.setState({ displayBadges: displayBadges})
   }
 
+  removeDisplayBadges = async(badge) => {
+    const url = "/bages/" + this.state.userData.accountData.id;
+    let res = await fetch(url, {
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(badge)
+    }); 
 
+    const displayBadges = this.state.displayBadges;
+
+    delete displayBadges[badge.name]
+    this.setState({displayBadges: displayBadges})
+
+    //this.setState({ displayBadges: displayBadges})
+  }
 
 
   //Round Management methods
@@ -255,8 +297,7 @@ class App extends React.Component {
                   headers: {
                             'Accept': 'application/json',
                             'Content-Type': 'application/json'
-                                },
-                          method: 'POST',
+                          },
                           body: JSON.stringify(newRoundData)
                 }); 
     if (res.status == 201) { 
@@ -394,7 +435,8 @@ class App extends React.Component {
                         toggleModalOpen={this.toggleModalOpen} 
                         menuOpen={this.state.menuOpen}
                         displayBadges={this.state.displayBadges}
-                        updateDisplayBadges={this.updateDisplayBadges}/>,
+                        addDisplayBadges={this.addDisplayBadges}
+                        removeDisplayBadges={this.removeDisplayBadges}/>,
           
           
           

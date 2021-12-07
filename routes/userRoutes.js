@@ -7,6 +7,7 @@ import express from 'express';
 import bcrypt from 'bcrypt';
 const userRoute = express.Router();
 const saltRounds = 10;
+import {Badge} from "../models/Badges.js";
 
 
 //READ user route: Retrieves the user with the specified userId from users collection (GET)
@@ -100,6 +101,88 @@ userRoute.post('/users/:userId',  async (req, res, next) => {
         .send("Unexpected error occurred when adding user to database. " + err);
     }
   });
+
+
+
+//UPDATE user route: Updates a user account in the users collection (POST)
+userRoute.post('/badges/:userId',  async (req, res, next) => {
+  try {
+
+      //const badge = new Badge(req.body);
+
+      //console.log(badge)
+
+      // var newBadges = thisUser.badges
+      // newBadges[0] = badge
+
+      console.log(req.body)
+
+
+      const status = await User.updateOne(
+        {"accountData.id": req.params.userId},
+        {$push: {badges: req.body}});
+      // let status = await User.updateOne({"accountData.id": req.params.userId}, 
+      //                                     {$set: {badges: badge}});
+
+
+
+      if (status.modifiedCount != 1) { //account could not be found
+          console.log("status: " + JSON.stringify(status));
+          res.status(404).send("Account not updated. Either no account with that id"
+              + " exists, or no value in the account was changed.");
+      } else {
+        console.log('User Account Updated!');
+          res.status(200).send("User account " + req.params.userId + 
+              " successfully updated.")
+      }
+      } catch (err) {
+          res.status(400).send("Unexpected error occurred when updating user in database: " 
+          + err);
+      }
+});
+
+
+//UPDATE user route: Updates a user account in the users collection (POST)
+userRoute.post('/bages/:userId',  async (req, res, next) => {
+  try {
+
+      //const badge = new Badge(req.body);
+
+      //console.log(badge)
+
+      // var newBadges = thisUser.badges
+      // newBadges[0] = badge
+
+      let thisUser = await User.findOne({"accountData.id": req.params.userId});
+
+      var newBadges = [];
+      newBadges = thisUser.badges.filter((item) => {
+        return item.name != req.body.name;
+      });
+
+      let status = await User.updateOne({"accountData.id": req.params.userId}, {$set: {"badges": newBadges}});
+
+
+
+      if (status.modifiedCount != 1) { //account could not be found
+          console.log("status: " + JSON.stringify(status));
+          res.status(404).send("Account not updated. Either no account with that id"
+              + " exists, or no value in the account was changed.");
+      } else {
+        console.log('User Account Updated!');
+          res.status(200).send("User account " + req.params.userId + 
+              " successfully updated.")
+      }
+      } catch (err) {
+          res.status(400).send("Unexpected error occurred when updating user in database: " 
+          + err);
+      }
+});
+
+
+
+
+
   
 //UPDATE user route: Updates a user account in the users collection (POST)
 userRoute.put('/users/:userId',  async (req, res, next) => {

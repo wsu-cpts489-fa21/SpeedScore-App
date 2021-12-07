@@ -20,16 +20,22 @@ class ModalPopup extends Component {
     }  
 
     handleAdd = () => {
-        let test = this.props.displayBadges
-        test[this.props.name] = {level: this.props.badge.level,
-                                 badge: this.props.badge.badge}
-        this.props.updateDisplayBadges(test)
+        // let test = this.props.displayBadges
+        // test[this.props.name] = {level: this.props.badge.level,
+        //                          badge: this.props.badge.badge}
+        let test = {level: this.props.badge.level,
+                    badge: this.props.badge.badge,
+                    name: this.props.name}
+        this.props.addDisplayBadges(test)
     }
 
     handleRemove = () => {
-        let test = this.props.displayBadges
-        delete test[this.props.name]
-        this.props.updateDisplayBadges(test)
+        // let test = this.props.displayBadges
+        // delete test[this.props.name]
+        let test = {level: this.props.badge.level,
+            badge: this.props.badge.badge,
+            name: this.props.name}
+        this.props.removeDisplayBadges(test)
     }
 
     renderTable = () => {

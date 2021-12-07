@@ -84,7 +84,8 @@ class BadgesPage extends React.Component {
                onPopupClose={this.isShowPopup}
                badge={this.state.badge}
                displayBadges={this.props.displayBadges}
-               updateDisplayBadges={this.props.updateDisplayBadges}
+               addDisplayBadges={this.props.addDisplayBadges}
+               removeDisplayBadges={this.props.removeDisplayBadges}
                name={this.state.name}
             ></ModalPopup>  
             <h1 className="mode-page-header">BADGES</h1>
