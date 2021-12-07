@@ -16,9 +16,10 @@ class BadgesPage extends React.Component {
         showModalPopup: false  
       }  
     }  
-    isShowPopup = (status, badge) => {  
+    isShowPopup = (status, badge, name) => {  
       this.setState({ showModalPopup: status,
-                      badge: badge});  
+                      badge: badge,
+                      name: name});  
     };  
 
 
@@ -27,7 +28,7 @@ class BadgesPage extends React.Component {
       const table = [];
       for (let r = 0; r < Object.keys(this.props.badges).length; ++r) {
          table.push(
-            <tr key={r} onClick={() => this.isShowPopup(true, Object.values(this.props.badges)[r])} className="centered">
+            <tr key={r} onClick={() => this.isShowPopup(true, Object.values(this.props.badges)[r], Object.keys(this.props.badges)[r])} className="centered">
                <td>
                   <div>
                      {Object.values(this.props.badges)[r].level === "level0" ?
@@ -62,9 +63,7 @@ class BadgesPage extends React.Component {
                                  <FontAwesomeIcon icon="star" color="gold"/>
                                  <FontAwesomeIcon icon="star" color="gold"/>
                                  <FontAwesomeIcon icon="star" color="gold"/> 
-                              </div> 
-                     } 
-                     
+                              </div>}                     
                   </div>
                </td>
                <td>
@@ -84,10 +83,14 @@ class BadgesPage extends React.Component {
                showModalPopup={this.state.showModalPopup}  
                onPopupClose={this.isShowPopup}
                badge={this.state.badge}
+               displayBadges={this.props.displayBadges}
+               updateDisplayBadges={this.props.updateDisplayBadges}
+               name={this.state.name}
             ></ModalPopup>  
             <h1 className="mode-page-header">BADGES</h1>
             <table id="roundsTable" className="table table-hover caption-top">
                <thead className="table-light">
+               <th> Select up to 3 to display </th>
                <tr>
                   <th scope="col" role="columnheader" 
                      className="sortable-header cell-align-middle centered" 

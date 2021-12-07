@@ -19,6 +19,19 @@ class ModalPopup extends Component {
         this.props.onPopupClose(false);  
     }  
 
+    handleAdd = () => {
+        let test = this.props.displayBadges
+        test[this.props.name] = {level: this.props.badge.level,
+                                 badge: this.props.badge.badge}
+        this.props.updateDisplayBadges(test)
+    }
+
+    handleRemove = () => {
+        let test = this.props.displayBadges
+        delete test[this.props.name]
+        this.props.updateDisplayBadges(test)
+    }
+
     renderTable = () => {
         const table = [];
 
@@ -52,6 +65,20 @@ class ModalPopup extends Component {
                 <td>
                     {this.props.badge.level1.description}
                 </td>
+                <td>
+                    {this.props.name in this.props.displayBadges && this.props.badge.level == "level1" ?
+                        <button onClick= {() => this.handleRemove()}>
+                            <FontAwesomeIcon icon="times" color="red"/> 
+                        </button> :
+                        null
+                    }
+                    {!(this.props.name in this.props.displayBadges) && Object.keys(this.props.displayBadges).length < 3 && this.props.badge.level == "level1" ? 
+                        <button onClick= {() => this.handleAdd()}>
+                            <FontAwesomeIcon icon="check-square" color="green"/> 
+                        </button> :
+                        null
+                    }
+                </td>
             </tr>)
         table.push(
             <tr key={1} className="centered">
@@ -84,6 +111,20 @@ class ModalPopup extends Component {
                 </td>
                 <td>
                     {this.props.badge.level2.description}
+                </td>
+                <td>
+                    {this.props.name in this.props.displayBadges && this.props.badge.level == "level2" ?
+                        <button onClick= {() => this.handleRemove()}>
+                            <FontAwesomeIcon icon="times" color="red"/> 
+                        </button> :
+                        null
+                    }
+                   {!(this.props.name in this.props.displayBadges) && Object.keys(this.props.displayBadges).length < 3 && this.props.badge.level == "level2" ?
+                        <button onClick= {() => this.handleAdd()}>
+                            <FontAwesomeIcon icon="check-square" color="green"/> 
+                        </button> :
+                        null
+                    }
                 </td>
             </tr>
         )
@@ -120,6 +161,20 @@ class ModalPopup extends Component {
                 </td>
                 <td>
                     {this.props.badge.level3.description}
+                </td>
+                <td>
+                    {this.props.name in this.props.displayBadges && this.props.badge.level == "level3" ?
+                        <button onClick= {() => this.handleRemove()}>
+                            <FontAwesomeIcon icon="times" color="red"/> 
+                        </button> :
+                        null
+                    }
+                    {!(this.props.name in this.props.displayBadges) && Object.keys(this.props.displayBadges).length < 3 && this.props.badge.level == "level3" ?
+                        <button onClick= {() => this.handleAdd()}>
+                            <FontAwesomeIcon icon="check-square" color="green"/> 
+                        </button> :
+                        null
+                    }
                 </td>
             </tr>
         )
@@ -159,6 +214,9 @@ class ModalPopup extends Component {
                                         className="sortable-header cell-align-middle"
                                         aria-sort="none">
                                         Description
+                                    </th>
+                                    <th>
+                                        Select
                                     </th>
                                 </tr>
                             </thead>

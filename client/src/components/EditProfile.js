@@ -6,6 +6,12 @@ import AppMode from './AppMode';
 import App from './App';
 
 class EditProfile extends React.Component {
+
+    isShowPopup = (status, badge) => {  
+        this.setState({ showModalPopup: status,
+                        badge: badge});  
+    };  
+
     constructor(props) {
         super(props);
 
@@ -26,7 +32,7 @@ class EditProfile extends React.Component {
                 idValid: true,
                 securityQuestionValid: true,
                 securityAnswerValid: true,
-                displayNameValid: true
+                displayNameValid: true,
         }
         this.dataIsInvalid = false;
         this.idError = React.createRef();
@@ -184,9 +190,8 @@ class EditProfile extends React.Component {
         </p>
         );
     }
-
+    
     render() {
-
         return(
             <>
             <h1 className="mode-page-header">Account & Profile</h1>
@@ -380,20 +385,6 @@ class EditProfile extends React.Component {
                     </form>
                     </Accordion.Body>
                 </Accordion.Item>
-
-
-
-                <Accordion.Item eventKey="3">
-                    <Accordion.Header>Badges</Accordion.Header>
-                    <Accordion.Body>
-                    <form noValidate>
-                        NOTHING YET
-                    </form>
-                    </Accordion.Body>
-                </Accordion.Item>
-
-
-
             </Accordion>
             <div className="mode-page-btn-container">
                 <button id="updateProfileBtn" type="button" className="mode-page-btn action-dialog action-button" onClick={this.handleSubmit}>

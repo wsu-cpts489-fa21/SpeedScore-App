@@ -2,7 +2,7 @@ import React from 'react';
 import { library } from "@fortawesome/fontawesome-svg-core"; 
 import { faWindowClose, faEdit, faCalendar, 
         faSpinner, faSignInAlt, faBars, faTimes, faSearch,
-        faSort, faTrash, faEye, faUserPlus, faStar} from '@fortawesome/free-solid-svg-icons';
+        faSort, faTrash, faEye, faUserPlus, faStar, faCheckSquare} from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import NavBar from './NavBar.js';
 import ModeTabs from './ModeTabs.js';
@@ -19,7 +19,7 @@ import badges from './Badges.js'
 
 library.add(faWindowClose,faEdit, faCalendar, 
             faSpinner, faSignInAlt, faBars, faTimes, faSearch,
-            faSort, faTrash, faEye, faUserPlus, faGithub, faGoogle, faStar);
+            faSort, faTrash, faEye, faUserPlus, faGithub, faGoogle, faStar, faCheckSquare);
 
 class App extends React.Component {
 
@@ -36,8 +36,9 @@ class App extends React.Component {
                     rounds: [],
                     roundCount: 0
                   },
-                  badges: new Set(),
-                  authenticated: false             
+                  badges: {},
+                  authenticated: false,
+                  displayBadges: {}         
                   };
   }
 
@@ -55,7 +56,6 @@ class App extends React.Component {
     } 
   }
   
-
   /*
    handleClick -- document-level click handler assigned in componentDidMount()
    using 'true' as third param to addEventListener(). This means that the event
@@ -82,15 +82,18 @@ class App extends React.Component {
    * Menu item functionality 
    */
   logOut = () => {
-    this.setState({mode:AppMode.LOGIN,
-                   userData: {
-                    accountData: {},
-                    identityData: {},
-                    speedgolfData: {},
-                    rounds: [],
-                    },
-                   authenticated: false,
-                   menuOpen: false});
+    this.setState(
+                    {mode:AppMode.LOGIN,
+                      userData: {
+                        accountData: {},
+                        identityData: {},
+                        speedgolfData: {},
+                        rounds: [],
+                        },
+                      authenticated: false,
+                      menuOpen: false
+                    }
+                  );
   }
   
    //User interface state management methods
@@ -171,9 +174,6 @@ class App extends React.Component {
   //Badges methods
 
   getBadges = (rounds) => {
-    // const badgesSet = new Set();
-    //var badgesSet = {};
-
     const roundCount = rounds.length;
     const roundCountBadges = Object.keys(badges.rounds);
     roundCountBadges.forEach(level => { // Badges for number of rounds
@@ -205,6 +205,16 @@ class App extends React.Component {
     // TODO: round frequency
     return badges;
   }
+
+
+
+
+  updateDisplayBadges = (displayBadges) => {
+    this.setState({ displayBadges: displayBadges})
+  }
+
+
+
 
   //Round Management methods
 
@@ -298,12 +308,14 @@ class App extends React.Component {
                 toggleModalOpen={this.toggleModalOpen}
                 userData={this.state.userData}
                 updateUserData={this.updateUserData} 
-                setMode={this.setMode}/> 
+                setMode={this.setMode}
+                displayBadges={this.state.displayBadges}/> 
 
         <ModeTabs mode={this.state.mode}
                   setMode={this.setMode} 
                   menuOpen={this.state.menuOpen}
-                  modalOpen={this.state.modalOpen}/> 
+                  modalOpen={this.state.modalOpen}
+                  displayBadges={this.state.displayBadges}/> 
         {this.state.menuOpen  ? 
         <SideMenu logOut={this.logOut}/> : null}
         {
@@ -347,7 +359,9 @@ class App extends React.Component {
             <BadgesPage badges={this.state.badges}
                         modalOpen={this.state.modalOpen}
                         toggleModalOpen={this.toggleModalOpen} 
-                        menuOpen={this.state.menuOpen}/>,
+                        menuOpen={this.state.menuOpen}
+                        displayBadges={this.state.displayBadges}
+                        updateDisplayBadges={this.updateDisplayBadges}/>,
           
           
           

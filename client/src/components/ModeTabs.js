@@ -6,7 +6,7 @@ class ModeTabs extends React.Component {
       return(
         (this.props.mode !== AppMode.LOGIN && !this.props.modalOpen && this.props.mode != AppMode.EDITPROFILE) ?
         <div id="modeTabs" 
-             className={"modetab-container" + (this.props.menuOpen ? " disabled" : "")}  
+             className={"modetab-container" + (this.props.menuOpen ? " disabled" : "") + (Object.keys(this.props.displayBadges).length == 0 ? "" : " shifted")}  
              role="tablist" 
              aria-label="App Modes">
             <button id="feedMode" type="button" 
