@@ -15,12 +15,13 @@ class BadgesPage extends React.Component {
       this.state = {  
         showModalPopup: false  
       }  
-    }  
-    isShowPopup = (status, badge, name) => {  
-      this.setState({ showModalPopup: status,
-                      badge: badge,
-                      name: name});  
-    };  
+   } 
+
+   isShowPopup = (status, badge, name) => {  
+   this.setState({ showModalPopup: status,
+                     badge: badge,
+                     name: name});  
+   };  
 
 
    
@@ -86,8 +87,7 @@ class BadgesPage extends React.Component {
                displayBadges={this.props.displayBadges}
                addDisplayBadges={this.props.addDisplayBadges}
                removeDisplayBadges={this.props.removeDisplayBadges}
-               name={this.state.name}
-            ></ModalPopup>  
+               name={this.state.name}/>
             <h1 className="mode-page-header">BADGES</h1>
             <table id="roundsTable" className="table table-hover caption-top">
                <thead className="table-light">

@@ -17,6 +17,9 @@ import AppMode from './AppMode.js';
 import EditProfile from './EditProfile.js';
 import badges from './Badges.js'
 
+
+import ModalBadgePopup from './modal_badge_popup';
+
 library.add(faWindowClose,faEdit, faCalendar, 
             faSpinner, faSignInAlt, faBars, faTimes, faSearch,
             faSort, faTrash, faEye, faUserPlus, faGithub, faGoogle, faStar, faCheckSquare);
@@ -187,66 +190,75 @@ class App extends React.Component {
   //Badges methods
 
   getBadges = (rounds) => {
-      this.getRoundCountBadges(badges, rounds);
-      this.getRoundTimeBadges(badges, rounds);
-      this.getRoundStrokesBadges(badges, rounds);
-      this.getRoundFrequencyBadges(badges, rounds);
-      return badges;
+    this.getRoundCountBadges(rounds);
+    this.getRoundTimeBadges(rounds);
+    this.getRoundStrokesBadges(rounds);
+    this.getRoundFrequencyBadges(rounds);
+    return badges;
   }
 
-  getRoundCountBadges = (badges, rounds) => {
-      const roundCount = rounds.length;
-      const roundCountBadges = Object.keys(badges.rounds);
-      roundCountBadges.forEach(level => {
-         if (roundCount >= badges.rounds[level].qualification) {
-            badges.rounds["level"] = level
-         }
+  getRoundCountBadges = (rounds) => {
+    if (rounds.length == 0) {
+      badges.rounds["level"] = "level0"
+    } else {
+      Object.keys(badges.rounds).forEach(level => {
+        if (rounds.length >= badges.rounds[level].qualification) {
+          badges.rounds["level"] = level
+        }
       });
+    }
       return badges;
   }
 
-  getRoundTimeBadges = (badges, rounds) => {
-      const timeBadges = Object.keys(badges.roundTime);
+  getRoundTimeBadges = (rounds) => {
+    if (rounds.length == 0) {
+      badges.roundTime["level"] = "level0"
+    } else {
       for (let i = 0; i < rounds.length; i++) {
-         const round = rounds[i];
-         timeBadges.forEach(level => {
-            if (round.minutes < badges.roundTime[level].qualification) {
-               badges.roundTime["level"] = level
-            }
-         });
+        const round = rounds[i];
+        Object.keys(badges.roundTime).forEach(level => {
+          if (round.minutes < badges.roundTime[level].qualification) {
+              badges.roundTime["level"] = level
+          }
+        });
       }
+    }
       return badges;
   }
 
-  getRoundStrokesBadges = (badges, rounds) => {
-      const strokesBadges = Object.keys(badges.roundStrokes);
+  getRoundStrokesBadges = (rounds) => {
+    if (rounds.length == 0) {
+      badges.roundStrokes["level"] = "level0"
+    } else {
       for (let i = 0; i < rounds.length; i++) {
-         const round = rounds[i];
-         strokesBadges.forEach(level => {
-            if (round.strokes <= badges.roundStrokes[level].qualification) {
-               badges.roundStrokes["level"] = level
-            }
-         });
+        const round = rounds[i];
+        Object.keys(badges.roundStrokes).forEach(level => {
+          if (round.strokes <= badges.roundStrokes[level].qualification) {
+              badges.roundStrokes["level"] = level
+          }
+        });
       }
-      return badges;
+    }
+    return badges;
   }
 
-  getRoundFrequencyBadges = (badges, rounds) => {
+  getRoundFrequencyBadges = (rounds) => {
+    if (rounds.length == 0) {
+      badges.roundsInMonth["level"] = "level0"
+    } else {
       const roundsPerMonthCounter = {};
       for (let i = 0; i < rounds.length; i++) {
-         const round = rounds[i];
-         const roundMonth = new Date(round.date).getMonth();
-         roundsPerMonthCounter[roundMonth] = !roundsPerMonthCounter[roundMonth] ?
-               1 : roundsPerMonthCounter[roundMonth] + 1;
+          const roundMonth = new Date(rounds[i].date).getMonth();
+          roundsPerMonthCounter[roundMonth] = !roundsPerMonthCounter[roundMonth] ?
+                1 : roundsPerMonthCounter[roundMonth] + 1;
       }
-      const frequencyBadges = Object.keys(badges.roundsInMonth);
-      const frequency = Math.max(Object.values(roundsPerMonthCounter));
-      frequencyBadges.forEach(level => {
-         if (frequency >= badges.roundsInMonth[level].qualification) {
+      Object.keys(badges.roundsInMonth).forEach(level => {
+          if (Math.max(Object.values(roundsPerMonthCounter)) >= badges.roundsInMonth[level].qualification) {
             badges.roundsInMonth["level"] = level;
-         }
+          }
       });
-      return badges;
+    }
+    return badges;
   }
 
   addDisplayBadges = async(badge) => {
@@ -287,10 +299,38 @@ class App extends React.Component {
     //this.setState({ displayBadges: displayBadges})
   }
 
-
   //Round Management methods
 
-  addRound = async(newRoundData) => {
+
+
+  getOldBadges = () => {
+    let result = {};
+    for (let r = 0; r < Object.keys(this.state.badges).length; ++r) {
+      result[Object.keys(this.state.badges)[r]] = Object.values(this.state.badges)[r].level
+    }
+    return result
+  }
+
+  newBadgeAlert = (oldBadges) => {
+    for (let r = 0; r < Object.keys(this.state.badges).length; ++r) {
+      if (Object.values(this.state.badges)[r].level != oldBadges[Object.keys(this.state.badges)[r]]) {
+        this.isShowPopup(true, oldBadges, this.state.badges)
+      }
+    }
+  }
+
+  isShowPopup = (status, oldBadges, newBadges) => {  
+    this.setState({ showModalPopup: status,
+                      oldBadges: oldBadges,
+                      newBadges: newBadges});  
+  };  
+
+
+
+  addRound = async(newRoundData) => {   
+
+    var oldBadges = this.getOldBadges()
+
     const url = "/rounds/" + this.state.userData.accountData.id;
     let res = await fetch(url, {
                   method: 'POST',
@@ -309,6 +349,7 @@ class App extends React.Component {
                            rounds: newRounds};
       this.setState({userData: newUserData,
                      badges: this.getBadges(newRounds)});
+      this.newBadgeAlert(oldBadges);
       return("New round logged.");
     } else { 
       const resText = await res.text();
@@ -375,6 +416,19 @@ class App extends React.Component {
   render() {
     return (
       <>
+
+
+        <ModalBadgePopup  
+               showModalPopup={this.state.showModalPopup}  
+               onPopupClose={this.isShowPopup}
+               oldBadges={this.state.oldBadges}
+               newBadges={this.state.newBadges}
+               displayBadges={this.state.displayBadges}
+               addDisplayBadges={this.addDisplayBadges}
+               removeDisplayBadges={this.removeDisplayBadges}/>
+
+
+
         <NavBar mode={this.state.mode}
                 menuOpen={this.state.menuOpen}
                 toggleMenuOpen={this.toggleMenuOpen}
@@ -415,7 +469,8 @@ class App extends React.Component {
                         modalOpen={this.state.modalOpen}
                         toggleModalOpen={this.toggleModalOpen} 
                         menuOpen={this.state.menuOpen}
-                        userId={this.state.userId}/>,
+                        userId={this.state.userId}
+                        badges={this.state.badges}/>,
           CoursesMode:
             <CoursesPage modalOpen={this.state.modalOpen}
                         toggleModalOpen={this.toggleModalOpen} 
@@ -445,8 +500,7 @@ class App extends React.Component {
                          userData={this.state.userData}
                          getUserData={this.getUserData} 
                          updateProfile={this.updateProfile}
-                         toggleToastFunction={this.toggleToastFunction}
-                         badges={this.state.badges}/>
+                         toggleToastFunction={this.toggleToastFunction}/>
               
         }[this.state.mode]
         }
