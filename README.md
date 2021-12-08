@@ -301,11 +301,9 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
 
 ### Retrospective
 
-[Link to Recording](https://wsu.zoom.us/recording)
-
 #### What went well
-  - Item 1
-  - Item 2
+  - We delegated tasks to team members effectively
+  - We continued with good team communication
   - Item x
   
  #### What we'd like to improve
