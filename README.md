@@ -229,8 +229,7 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
 
 |Issue | Test File | Feature Tested | Results Summary | 
 |------|-----------|----------------|-----------------|
-|[Issue #](https://github.com/issue)| [Google.js](https://www.github.com/)|Google Authentication| [3/3 tests passed](https://yoursite.com/animated.gif) | [
-|[Issue #](https://github.com/issue)| [routes.js](https://www.github.com/)|PUT and DELETE routes for rounds | [15/15 tests passed](https://yoursite.com/animated.gif) |
+|[Issue # 36](https://github.com/issues/36)| TODO: link to file | Viewing and searching speedgolf-friendly courses | [#/#total tests passed] (TODO: link to GIF) |
   
 ### Communication
  
