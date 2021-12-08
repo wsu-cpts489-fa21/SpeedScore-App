@@ -219,11 +219,11 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
 #### Context Statements
 | Team Member | Context Statement |
 |-------------|-------------------|
-|TM1| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
-|TM2| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
-|TM3| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
-|TM4| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
-|TM5| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
+|Brandon  | Added ability to earn badges and reviewed pull requests |
+|Joel     | Added ability to to save pictures and videos with rounds |
+|Joshua   | Wrote blog post about React hooks and reimplemented the Buddies page with hooks |
+|Adi      | Added ability to earn badges and added the milestone report to readme |
+|Parikshit| Added and tested ability to search for speedgolf courses |
 
 ### Testing
 
