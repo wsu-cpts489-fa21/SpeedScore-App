@@ -186,10 +186,10 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
   </thead> 
   <tbody>
     <tr>
-      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/46">Issue # 46</a></td><td><a href="https://github.com/PR">PR #</a></td><td>5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5</td><td></td>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/46">Issue # 46</a></td><td><a href="https://github.com/PR">PR #</a></td><td>5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5</td><td>0</td><td></td>
     </tr>
     <tr>
-     <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/36">Issue # 36</a></td><td><a href="https://github.com/PR">PR #</a></td><td>8</td><td>0</td><td>0</td><td>0</td><td>0</td><td>4</td>  <td>0</td><td></td>
+     <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/36">Issue # 36</a></td><td><a href="https://github.com/PR">PR #</a></td><td>8</td><td>0</td><td>0</td><td>0</td><td>0</td><td>4</td><td>0</td><td></td>
     </tr>
     <tr>
       <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/15">Issue # 15</a></td><td><a href="https://github.com/PR">PR #</a></td><td>13</td><td>8</td><td>0</td><td>1</td><td>5</td><td>0</td><td>0</td><td></td>
@@ -211,7 +211,7 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
     </tr>
     <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/68">Issue # 68</a></td><td><a href="https://github.com/PR">PR #</a></td><td>5</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td></td>
     </tr>
-    <tr><td colspan="2" align="right"><b>Totals:</b></td><td><b>8</b></td><td><b>3</b></td><td><b>1</b></td><td><b>1</b></td><td><b>0.8</b></td><td><b>0.4</b></td><td colspan="2"></td>
+    <tr><td colspan="2" align="right"><b>Totals:</b></td><td><b>50</b></td><td><b>10</b></td><td><b>10</b></td><td><b>8</b></td><td><b>10</b></td><td><b>11</b></td><td colspan="2"></td>
     </tr>
   </tbody>
 </table>
