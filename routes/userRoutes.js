@@ -126,25 +126,25 @@ userRoute.post('/badges/:userId',  async (req, res, next) => {
 //UPDATE user route: Removes badge from user's display badges list (POST)
 userRoute.post('/bages/:userId',  async (req, res, next) => {
   try {
-      let thisUser = await User.findOne({"accountData.id": req.params.userId});
-      var newBadges = []; // Display badges with badge removed
-      newBadges = thisUser.badges.filter((item) => {
-        return item.name != req.body.name;
-      });
-      let status = await User.updateOne({"accountData.id": req.params.userId}, {$set: {"badges": newBadges}});
-      if (status.modifiedCount != 1) { //account could not be found
-          console.log("status: " + JSON.stringify(status));
-          res.status(404).send("Account not updated. Either no account with that id"
-              + " exists, or no value in the account was changed.");
-      } else {
-        console.log('User Account Updated!');
-          res.status(200).send("User account " + req.params.userId + 
-              " successfully updated.")
-      }
-      } catch (err) {
-          res.status(400).send("Unexpected error occurred when updating user in database: " 
-          + err);
-      }
+    let thisUser = await User.findOne({"accountData.id": req.params.userId});
+    var newBadges = []; // Display badges with badge removed
+    newBadges = thisUser.badges.filter((item) => {
+      return item.name != req.body.name;
+    });
+    let status = await User.updateOne({"accountData.id": req.params.userId}, {$set: {"badges": newBadges}});
+    if (status.modifiedCount != 1) { //account could not be found
+        console.log("status: " + JSON.stringify(status));
+        res.status(404).send("Account not updated. Either no account with that id"
+            + " exists, or no value in the account was changed.");
+    } else {
+      console.log('User Account Updated!');
+        res.status(200).send("User account " + req.params.userId + 
+            " successfully updated.")
+    }
+    } catch (err) {
+        res.status(400).send("Unexpected error occurred when updating user in database: " 
+        + err);
+    }
 });
 
 //UPDATE user route: Updates a user account in the users collection (POST)

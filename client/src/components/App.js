@@ -313,16 +313,23 @@ class App extends React.Component {
   }
 
   // Displays a modal popup whenever a new badge is earned
-  newBadgeAlert = (oldBadges) => {
+  newBadgeAlert = async(oldBadges) => {
     for (let r = 0; r < Object.keys(this.state.badges).length; ++r) {
+
+      if (Object.values(this.state.badges)[r].level === "level0") { // The badge was removed
+        let test = {level: Object.values(this.state.badges)[r].level,
+                  badge: Object.values(this.state.badges)[r].badge,
+                  name: Object.keys(this.state.badges)[r]}
+        await this.removeDisplayBadges(test) // Remove the badge from display listings
       
-      if (Object.values(this.state.badges)[r].level != oldBadges[Object.keys(this.state.badges)[r]]) { // User unlocked a new badge
-        
+      } else if (Object.values(this.state.badges)[r].level != oldBadges[Object.keys(this.state.badges)[r]]) { // User unlocked a new badge
+      
         if (Object.keys(this.state.badges)[r] in this.state.displayBadges) { // The badge is already displayed in display badge list
           let test = {level: Object.values(this.state.badges)[r].level,
                     badge: Object.values(this.state.badges)[r].badge,
                     name: Object.keys(this.state.badges)[r]}
-          this.addDisplayBadges(test) // Update badge in display badge list
+          await this.removeDisplayBadges(test) // Removes the old badge from display list
+          await this.addDisplayBadges(test) // Update badge in display badge list
         }
 
         if (parseInt(oldBadges[Object.keys(this.state.badges)[r]][5]) < parseInt(Object.values(this.state.badges)[r].level[5])) { // Display popup if the badge unlocked is better then the pervious badge
@@ -333,21 +340,21 @@ class App extends React.Component {
   }
 
   // Either update or remove the badge from display badge list
-  removeDisplayBadgeAlert = (oldBadges) => {
+  removeDisplayBadgeAlert = async(oldBadges) => {
     for (let r = 0; r < Object.keys(this.state.badges).length; ++r) {
       
       if (Object.values(this.state.badges)[r].level != oldBadges[Object.keys(this.state.badges)[r]]) { // User downgraded a badge (or badge was removed)
         
         if (Object.values(this.state.badges)[r].level === "level0") { // The badge was removed
           let test = {level: Object.values(this.state.badges)[r].level,
-                    badge: Object.values(this.state.badges)[r].badge,
-                    name: Object.keys(this.state.badges)[r]}
-          this.removeDisplayBadges(test) // Remove the badge from display listings
+                      badge: Object.values(this.state.badges)[r].badge,
+                      name: Object.keys(this.state.badges)[r]}
+          await this.removeDisplayBadges(test) // Remove the badge from display listings
         } else { // The badge was downgraded
           let test = {level: Object.values(this.state.badges)[r].level,
                     badge: Object.values(this.state.badges)[r].badge,
                     name: Object.keys(this.state.badges)[r]}
-          this.addDisplayBadges(test) // Update badge is display badge list
+          await this.addDisplayBadges(test) // Update badge is display badge list
         }
       }
     }
@@ -356,8 +363,8 @@ class App extends React.Component {
   // Displays popup modal when a new badge is unlocked
   isShowPopup = (status, oldBadges, newBadges) => {  
     this.setState({ showModalPopup: status,
-                      oldBadges: oldBadges,
-                      newBadges: newBadges});  
+                    oldBadges: oldBadges,
+                    newBadges: newBadges});  
   };  
 
   //Round Management methods
