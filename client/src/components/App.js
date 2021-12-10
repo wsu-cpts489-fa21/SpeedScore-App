@@ -495,7 +495,10 @@ class App extends React.Component {
                 userData={this.state.userData}
                 updateUserData={this.updateUserData} 
                 setMode={this.setMode}
-                displayBadges={this.state.displayBadges}/> 
+                displayBadges={this.state.displayBadges}
+                searchBarOpen={this.state.searchBarOpen}
+                toggleSearchBarOpen={this.toggleSearchBarOpen}
+                getSearchedText={this.getSearchedText}/> 
 
         <ModeTabs mode={this.state.mode}
                   setMode={this.setMode} 
