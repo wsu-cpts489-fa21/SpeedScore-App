@@ -245,7 +245,7 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
   </thead> 
   <tbody>
     <tr>
-      <td>12/9/21</td><td>103</td><td>43</td><td>35</td><td>8</td><td>7</td><td>10</td>
+      <td>12/10/21</td><td>103</td><td>43</td><td>35</td><td>8</td><td>7</td><td>10</td>
     </tr>
     <tr><td align="right"><b>Totals:</b></td><td><b>103</b></td><td><b>43</b></td><td><b>35</b></td><td><b>8</b></td><td><b>7</b></td><td><b>10</b></td>
     </tr>
@@ -267,9 +267,9 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
       <td>12/3/21</td><td>10</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td>
     </tr>
      <tr>
-      <td>12/10/21</td><td>10</td><td></td><td></td><td></td><td></td><td></td>
+      <td>12/10/21</td><td>10</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td>
     </tr>
-    <tr><td align="right"><b>Totals:</b></td><td>TODO<b></b></td><td><b></b></td><td><b></b></td><td><b></b></td><td><b></b></td><td><b></b></td>
+    <tr><td align="right"><b>Totals:</b></td><td><b>20</b></td><td><b>20</b></td><td><b>20</b></td><td><b>20</b></td><td><b>20</b></td><td><b>20</b></td>
     </tr>
   </tbody>
 </table>
