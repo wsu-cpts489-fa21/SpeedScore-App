@@ -35,6 +35,7 @@ class RoundForm extends React.Component {
                   + ":" + sec;
       }  
    
+
   handleChange = (event) => {
       const name = event.target.name;
        if (name === "seconds") {
@@ -211,9 +212,8 @@ class RoundForm extends React.Component {
             <div className="mb-3 centered">
               <label htmlFor="roundPictures" className="form-label">
                 Add pictures to your round:
-                {this.state.pictures.map((image) => (<img  src={image} className="fm-round-pictures round-pic" 
-                height="100" width="100"
-                />))}
+                {this.state.pictures.map((image) => (<img src={image} className="fm-round-pictures round-pic" 
+                height="100" width="100" onClick={() =>  this.setState({mainPic: image})} /> ))}
               <input id ="pictures"
                   className="form-control centered"
                   name="pictures"
@@ -226,22 +226,13 @@ class RoundForm extends React.Component {
             </div>
             <div className="mb-3 centered">
               <label htmlFor="roundMainPicture" className="form-label">
-                Add your main picture to display in round table:
+                Click on the main picture that you would like to display on your round table!:
                 <img id="roundMainPic"
                 aria-describedby="roundNotesDescr"
                 src={this.state.mainPic === "" ?
                     "" : this.state.mainPic }
                 className="fm-round-pictures round-pic" 
                 height="125" width="125"/>
-
-              <input id ="mainPic"
-                  className="form-control centered"
-                  name="mainPic"
-                  type="file"
-                  accept=".png, .gif, .jpg"
-                  aria-describedby="roundPicturesDescr"
-                  onChange={this.handleChange}
-              />
               </label>
             </div>
             <div className="mb-3 centered">
