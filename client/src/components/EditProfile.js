@@ -9,25 +9,50 @@ class EditProfile extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            // accountData:
-                id: this.props.userData.accountData.id,
-                password: this.props.userData.accountData.password,
-                securityQuestion: this.props.userData.accountData.securityQuestion,
-                securityAnswer: this.props.userData.accountData.securityAnswer,
-            // identityData:
-                displayName: this.props.userData.identityData.displayName,
-                profilePic: this.props.userData.identityData.profilePic,
-            // speedgolfData:
-                bio: this.props.userData.speedgolfData.bio,
-                homeCourse: this.props.userData.speedgolfData.homeCourse,
-                firstRound: this.props.userData.speedgolfData.firstRound,
-                clubComments: this.props.userData.speedgolfData.clubComments,
-                idValid: true,
-                securityQuestionValid: true,
-                securityAnswerValid: true,
-                displayNameValid: true
+        if (this.props.userData.accountData.id.toLowerCase().indexOf('@google') > -1
+            || this.props.userData.accountData.id.toLowerCase().indexOf('@github') > -1)
+        {
+            // For OAuth.
+            this.state = {
+                // accountData:
+                    id: this.props.userData.accountData.id,
+                // identityData:
+                    displayName: this.props.userData.identityData.displayName,
+                    profilePic: this.props.userData.identityData.profilePic,
+                // speedgolfData:
+                    bio: this.props.userData.speedgolfData.bio,
+                    homeCourse: this.props.userData.speedgolfData.homeCourse,
+                    firstRound: this.props.userData.speedgolfData.firstRound,
+                    clubComments: this.props.userData.speedgolfData.clubComments,
+                    idValid: true,
+                    securityQuestionValid: true,
+                    securityAnswerValid: true,
+                    displayNameValid: true
+            }
         }
+        else
+        {
+            this.state = {
+                // accountData:
+                    id: this.props.userData.accountData.id,
+                    password: this.props.userData.accountData.password,
+                    securityQuestion: this.props.userData.accountData.securityQuestion,
+                    securityAnswer: this.props.userData.accountData.securityAnswer,
+                // identityData:
+                    displayName: this.props.userData.identityData.displayName,
+                    profilePic: this.props.userData.identityData.profilePic,
+                // speedgolfData:
+                    bio: this.props.userData.speedgolfData.bio,
+                    homeCourse: this.props.userData.speedgolfData.homeCourse,
+                    firstRound: this.props.userData.speedgolfData.firstRound,
+                    clubComments: this.props.userData.speedgolfData.clubComments,
+                    idValid: true,
+                    securityQuestionValid: true,
+                    securityAnswerValid: true,
+                    displayNameValid: true
+            }
+        }
+
         this.dataIsInvalid = false;
         this.idError = React.createRef();
         this.securityQuestionError = React.createRef();
@@ -76,23 +101,47 @@ class EditProfile extends React.Component {
         const saValid = (this.state.securityAnswer.length > 0);
         const dnValid = (this.state.displayName.length > 0);
 
+        let newUserData = {};
+
         if (idValid && sqValid && saValid && dnValid)
         {
-            const newUserData = {
-                accountData: {
-                    id: this.state.id,
-                    password: this.state.password,
-                    securityQuestion: this.state.securityQuestion,
-                    securityAnswer: this.state.securityAnswer
-                },
-                identityData: {
-                    displayName: this.state.displayName,
-                    profilePic: this.state.profilePic
-                },
-                speedgolfData: {
-                    bio: this.state.bio,
-                    homeCourse: this.state.homeCourse,
-                    clubComments: this.state.clubComments
+            // If user is logged in through OAuth.
+            if (this.props.userData.accountData.id.toLowerCase().indexOf('@google') > -1
+                || this.props.userData.accountData.id.toLowerCase().indexOf('@github') > -1)
+            {
+                newUserData = {
+                    accountData: {
+                        id: this.state.id
+                    },
+                    identityData: {
+                        displayName: this.state.displayName,
+                        profilePic: this.state.profilePic
+                    },
+                    speedgolfData: {
+                        bio: this.state.bio,
+                        homeCourse: this.state.homeCourse,
+                        clubComments: this.state.clubComments
+                    }
+                }
+            }
+            else
+            {
+                newUserData = {
+                    accountData: {
+                        id: this.state.id,
+                        password: this.state.password,
+                        securityQuestion: this.state.securityQuestion,
+                        securityAnswer: this.state.securityAnswer
+                    },
+                    identityData: {
+                        displayName: this.state.displayName,
+                        profilePic: this.state.profilePic
+                    },
+                    speedgolfData: {
+                        bio: this.state.bio,
+                        homeCourse: this.state.homeCourse,
+                        clubComments: this.state.clubComments
+                    }
                 }
             }
 
@@ -218,6 +267,9 @@ class EditProfile extends React.Component {
                         </div>
 
                         {/* Password */}
+                    {this.props.userData.accountData.id.toLowerCase().indexOf('@google') > -1
+                        || this.props.userData.accountData.id.toLowerCase().indexOf('@github') > -1 ? null : 
+                        <>
                         <div className="mb-3 centered">
                             <label htmlFor="password" className="form-label">
                                 Password:
@@ -272,6 +324,8 @@ class EditProfile extends React.Component {
                                 Enter an easily remembered answer to the security question
                             </div>
                         </div>
+                    </>
+                }
                     </form>
                     </Accordion.Body>
                 </Accordion.Item>
