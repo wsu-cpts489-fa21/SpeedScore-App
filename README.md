@@ -266,10 +266,13 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
     <tr>
       <td>12/3/21</td><td>10</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td>
     </tr>
+    <tr>
+      <td>12/10/21</td><td>30</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td>
+    </tr>
      <tr>
       <td>12/10/21</td><td>10</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td>
     </tr>
-    <tr><td align="right"><b>Totals:</b></td><td><b>20</b></td><td><b>20</b></td><td><b>20</b></td><td><b>20</b></td><td><b>20</b></td><td><b>20</b></td>
+    <tr><td align="right"><b>Totals:</b></td><td><b>50</b></td><td><b>50</b></td><td><b>50</b></td><td><b>50</b></td><td><b>50</b></td><td><b>50</b></td>
     </tr>
   </tbody>
 </table>
