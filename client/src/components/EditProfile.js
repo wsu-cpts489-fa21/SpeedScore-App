@@ -6,51 +6,76 @@ import AppMode from './AppMode';
 import App from './App';
 
 class EditProfile extends React.Component {
+
+    isShowPopup = (status, badge) => {  
+        this.setState({ showModalPopup: status,
+                        badge: badge});  
+    };  
+
     constructor(props) {
         super(props);
 
-        if (this.props.userData.accountData.id.toLowerCase().indexOf('@google') > -1
-            || this.props.userData.accountData.id.toLowerCase().indexOf('@github') > -1)
-        {
-            // For OAuth.
-            this.state = {
-                // accountData:
-                    id: this.props.userData.accountData.id,
-                // identityData:
-                    displayName: this.props.userData.identityData.displayName,
-                    profilePic: this.props.userData.identityData.profilePic,
-                // speedgolfData:
-                    bio: this.props.userData.speedgolfData.bio,
-                    homeCourse: this.props.userData.speedgolfData.homeCourse,
-                    firstRound: this.props.userData.speedgolfData.firstRound,
-                    clubComments: this.props.userData.speedgolfData.clubComments,
-                    idValid: true,
-                    securityQuestionValid: true,
-                    securityAnswerValid: true,
-                    displayNameValid: true
-            }
-        }
-        else
-        {
-            this.state = {
-                // accountData:
-                    id: this.props.userData.accountData.id,
-                    password: this.props.userData.accountData.password,
-                    securityQuestion: this.props.userData.accountData.securityQuestion,
-                    securityAnswer: this.props.userData.accountData.securityAnswer,
-                // identityData:
-                    displayName: this.props.userData.identityData.displayName,
-                    profilePic: this.props.userData.identityData.profilePic,
-                // speedgolfData:
-                    bio: this.props.userData.speedgolfData.bio,
-                    homeCourse: this.props.userData.speedgolfData.homeCourse,
-                    firstRound: this.props.userData.speedgolfData.firstRound,
-                    clubComments: this.props.userData.speedgolfData.clubComments,
-                    idValid: true,
-                    securityQuestionValid: true,
-                    securityAnswerValid: true,
-                    displayNameValid: true
-            }
+        this.state = {
+            // accountData:
+                id: this.props.userData.accountData.id,
+                password: this.props.userData.accountData.password,
+                securityQuestion: this.props.userData.accountData.securityQuestion,
+                securityAnswer: this.props.userData.accountData.securityAnswer,
+            // identityData:
+                displayName: this.props.userData.identityData.displayName,
+                profilePic: this.props.userData.identityData.profilePic,
+            // speedgolfData:
+                bio: this.props.userData.speedgolfData.bio,
+                homeCourse: this.props.userData.speedgolfData.homeCourse,
+                firstRound: this.props.userData.speedgolfData.firstRound,
+                clubComments: this.props.userData.speedgolfData.clubComments,
+                idValid: true,
+                securityQuestionValid: true,
+                securityAnswerValid: true,
+                displayNameValid: true,
+          
+//         if (this.props.userData.accountData.id.toLowerCase().indexOf('@google') > -1
+//             || this.props.userData.accountData.id.toLowerCase().indexOf('@github') > -1)
+//         {
+//             // For OAuth.
+//             this.state = {
+//                 // accountData:
+//                     id: this.props.userData.accountData.id,
+//                 // identityData:
+//                     displayName: this.props.userData.identityData.displayName,
+//                     profilePic: this.props.userData.identityData.profilePic,
+//                 // speedgolfData:
+//                     bio: this.props.userData.speedgolfData.bio,
+//                     homeCourse: this.props.userData.speedgolfData.homeCourse,
+//                     firstRound: this.props.userData.speedgolfData.firstRound,
+//                     clubComments: this.props.userData.speedgolfData.clubComments,
+//                     idValid: true,
+//                     securityQuestionValid: true,
+//                     securityAnswerValid: true,
+//                     displayNameValid: true
+//             }
+//         }
+//         else
+//         {
+//             this.state = {
+//                 // accountData:
+//                     id: this.props.userData.accountData.id,
+//                     password: this.props.userData.accountData.password,
+//                     securityQuestion: this.props.userData.accountData.securityQuestion,
+//                     securityAnswer: this.props.userData.accountData.securityAnswer,
+//                 // identityData:
+//                     displayName: this.props.userData.identityData.displayName,
+//                     profilePic: this.props.userData.identityData.profilePic,
+//                 // speedgolfData:
+//                     bio: this.props.userData.speedgolfData.bio,
+//                     homeCourse: this.props.userData.speedgolfData.homeCourse,
+//                     firstRound: this.props.userData.speedgolfData.firstRound,
+//                     clubComments: this.props.userData.speedgolfData.clubComments,
+//                     idValid: true,
+//                     securityQuestionValid: true,
+//                     securityAnswerValid: true,
+//                     displayNameValid: true
+//             }
         }
 
         this.dataIsInvalid = false;
@@ -233,9 +258,8 @@ class EditProfile extends React.Component {
         </p>
         );
     }
-
+    
     render() {
-
         return(
             <>
             <h1 className="mode-page-header">Account & Profile</h1>

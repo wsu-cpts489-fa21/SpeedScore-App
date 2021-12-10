@@ -10,7 +10,7 @@ class RoundsPage extends React.Component {
             super(props);
             this.state = {mode: RoundsMode.ROUNDSTABLE,
                           deleteId: -1,
-                          editId: -1};        
+                          editId: -1,};        
     }
 
     setMode = (newMode) => {
@@ -57,7 +57,7 @@ class RoundsPage extends React.Component {
                     roundData={null}
                     saveRound={this.props.addRound}
                     setMode={this.setMode}
-                    toggleModalOpen={this.props.toggleModalOpen} />
+                    toggleModalOpen={this.props.toggleModalOpen}/>
             );
         case RoundsMode.EDITROUND:
             return (
@@ -66,7 +66,7 @@ class RoundsPage extends React.Component {
                 roundData={this.props.rounds[this.state.editId]}
                 saveRound={this.props.updateRound}
                 setMode={this.setMode}
-                toggleModalOpen={this.props.toggleModalOpen} />
+                toggleModalOpen={this.props.toggleModalOpen}/>
             );
         }
     }  

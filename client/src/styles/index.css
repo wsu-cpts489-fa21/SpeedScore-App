@@ -199,11 +199,16 @@ button::-moz-focus-inner {
 /* .modetab -- Style the container enclosing the mode tabs */
 .modetab-container {
   position: fixed;
-  top: 54px;
+  top: 60px;
   left: 0px;
   width: 100%;
   z-index: 150;
   display: flex; 
+}
+
+/* Shifts mode tabs down when badges are being displayed */
+.shifted {
+  top: 80px;
 }
   
 /* .modetab-btn -- Style mode tabs */

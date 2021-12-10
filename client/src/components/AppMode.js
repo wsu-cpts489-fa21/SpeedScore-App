@@ -6,7 +6,8 @@ const AppMode = {
     ROUNDS: "RoundsMode",
     COURSES: "CoursesMode",
     BUDDIES: "BuddiesMode",
-    EDITPROFILE: "EditProfileMode"
+    EDITPROFILE: "EditProfileMode",
+    BADGES: "BadgesMode"
 };
 
 Object.freeze(AppMode); //This ensures that the object is immutable.
