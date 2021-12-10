@@ -8,6 +8,10 @@ class RoundsTable extends React.Component {
     for (let r = 0; r < this.props.rounds.length; ++r) {
       table.push(
         <tr key={r}>
+          <td>  <img //Displays the main picture
+                  className="navbar-btn navbar-profile-btn" 
+                  style={{backgroundImage: this.props.rounds[r].mainPic === "" ? "" :
+                            `url(${this.props.rounds[r].mainPic})`}}/>  </td>
           <td>{this.props.rounds[r].date.substring(0,10)}</td>
           <td>{this.props.rounds[r].course}</td>
           <td>{(Number(this.props.rounds[r].strokes) + 
@@ -48,6 +52,9 @@ class RoundsTable extends React.Component {
           </caption>
           <thead className="table-light">
             <tr>
+            <th scope="col" className="cell-align-middle">
+              Picture
+            </th>
             <th scope="col" role="columnheader" 
                 className="sortable-header cell-align-middle" 
                 aria-sort="none">
@@ -92,5 +99,4 @@ class RoundsTable extends React.Component {
       );
     }   
 }
-
 export default RoundsTable;

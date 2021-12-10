@@ -419,6 +419,9 @@ button::-moz-focus-inner {
   vertical-align: middle;
 }
 
+.round-pic {
+  padding: 10px;
+
 .searchBar-open {
   width: 700px;
   padding-left: 15px; 
