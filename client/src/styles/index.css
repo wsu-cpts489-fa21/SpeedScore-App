@@ -413,3 +413,7 @@ button::-moz-focus-inner {
 .cell-align-middle {
   vertical-align: middle;
 }
+
+.round-pic {
+  padding: 10px;
+}
