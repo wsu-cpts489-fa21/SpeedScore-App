@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import logo from '../images/sslogo.png'
 import profilePic from '../images/DefaultProfilePic.jpg';
 import AppMode from './AppMode';
+import CreateAccount from './CreateAccount';
+import SearchBar from './SearchBar';
 
 class NavBar extends React.Component {
 
@@ -67,8 +69,10 @@ class NavBar extends React.Component {
                 <input id="searchBox" className="form-control hidden" 
                 aria-label="Search Rounds" size="30"
                 type="search" />
+                {this.props.searchBarOpen ? <SearchBar getSearchedText={this.props.getSearchedText}/> : null}
                 <button id="searchBtn" type="button" className="navbar-btn" 
-                    aria-label="Open Rounds Search">
+                    aria-label="Open Rounds Search" 
+                      onClick={this.props.toggleSearchBarOpen}>
                     <FontAwesomeIcon icon="search" className="navbar-btn-icon"/>
                 </button>
                 <button id="profileBtn" type="button" 

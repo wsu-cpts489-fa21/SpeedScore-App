@@ -418,3 +418,11 @@ button::-moz-focus-inner {
 .cell-align-middle {
   vertical-align: middle;
 }
+
+.searchBar-open {
+  width: 700px;
+  padding-left: 15px; 
+  padding-right: 15px;
+  margin-right: 10px;
+  height: 25px;
+}

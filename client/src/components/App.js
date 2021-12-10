@@ -32,6 +32,8 @@ class App extends React.Component {
                   menuOpen: false,
                   modalOpen: false,
                   showToast: false,
+                  searchBarOpen: false,
+                  searchBarText: "",
                   userData: {
                     accountData: {},
                     identityData: {},
@@ -115,6 +117,23 @@ class App extends React.Component {
 
   toggleModalOpen = () => {
     this.setState(prevState => ({dialogOpen: !prevState.dialogOpen}));
+  }
+
+  toggleSearchBarOpen = () => {
+    var searchBar = document.getElementById("searchBoxForm");
+
+    if (!searchBar)
+      this.setState(prevState => ({searchBarOpen: !prevState.searchBarOpen}));
+    else
+    {
+      searchBar.reset();
+      this.getSearchedText("");
+      this.setState(prevState => ({searchBarOpen: !prevState.searchBarOpen}));
+    }
+  }
+
+  getSearchedText = (searchText) => {
+    this.setState({searchBarText: searchText});
   }
 
   //Account Management methods
@@ -514,7 +533,10 @@ class App extends React.Component {
             <CoursesPage modalOpen={this.state.modalOpen}
                         toggleModalOpen={this.toggleModalOpen} 
                         menuOpen={this.state.menuOpen}
-                        userId={this.state.userId}/>,
+                        userId={this.state.userId}
+                        rounds={this.state.userData.rounds}
+                        searchBarText={this.state.searchBarText}
+                        searchBarOpen={this.state.searchBarOpen}/>,
           BuddiesMode:
             <BuddiesPage modalOpen={this.state.modalOpen}
                         toggleModalOpen={this.toggleModalOpen} 
