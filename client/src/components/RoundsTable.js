@@ -8,9 +8,9 @@ class RoundsTable extends React.Component {
     for (let r = 0; r < this.props.rounds.length; ++r) {
       table.push(
         <tr key={r}>
-          <td>  <img 
+          <td>  <img //Displays the main picture
                   className="navbar-btn navbar-profile-btn" 
-                  style={{backgroundImage:
+                  style={{backgroundImage: this.props.rounds[r].mainPic === "" ? "" :
                             `url(${this.props.rounds[r].mainPic})`}}/>  </td>
           <td>{this.props.rounds[r].date.substring(0,10)}</td>
           <td>{this.props.rounds[r].course}</td>

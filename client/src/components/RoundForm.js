@@ -16,10 +16,10 @@ class RoundForm extends React.Component {
                       minutes: 60,
                       seconds: "00",
                       SGS:"140:00",
-                      pictures: [],
-                      mainPic: "",
-                      videos: [],
-                      videoLinks: [],
+                      pictures: [], //Array of pictures 
+                      mainPic: "", //Main picture for table
+                      videos: [], //Videos
+                      videoLinks: [], //Links of youtube videos
                       notes: "",
                       btnIcon: "calendar",
                       btnLabel: "Log Round"};
@@ -53,7 +53,8 @@ class RoundForm extends React.Component {
           const newSGS = this.computeSGS(this.state.strokes, newMin, 
               this.state.seconds);
           this.setState({minutes: newMin, SGS: newSGS});
-      } else if (name === "videoLinks"){
+          //Checks if input is a link
+      } else if (name === "videoLinks"){ 
         var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
         '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+ // domain name
         '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
@@ -65,14 +66,14 @@ class RoundForm extends React.Component {
         }
         else{
           alert("This is not a link. Please only paste links!")
-        }
+        } //Main picture
       } else if (name === "mainPic"){
         const self = this;
         const reader = new FileReader();
         reader.readAsDataURL(event.target.files[0]);
         reader.addEventListener("load",function() {
           self.setState({mainPic: this.result});
-        });
+        }); //Videos
       } else if (name === "videos") {
         const self = this;
         const reader = new FileReader();
@@ -83,20 +84,19 @@ class RoundForm extends React.Component {
             reader.readAsDataURL(event.target.files[0]);
             reader.addEventListener("load",function() {
               self.setState({videos: self.state.videos.concat(this.result)});
-            });}
+            });}//Everything else
       } else if (name !== "pictures") {
         this.setState({[name]: event.target.value});
+        //Round pictures
       } else {
         const self = this;
         const reader = new FileReader();
         reader.readAsDataURL(event.target.files[0]);
         reader.addEventListener("load",function() {
           self.setState({pictures: self.state.pictures.concat(this.result)});
-          //self.setState({pictures: this.result});
         });
       }
   }
-
 
   handleSubmit = (event) => {
       event.preventDefault();
@@ -107,7 +107,6 @@ class RoundForm extends React.Component {
       const newRound = {...this.state};
       delete newRound.btnIcon;
       delete newRound.btnLabel;
-      //const res = await this.props.updateRound(newRound, editId);
       const res = await this.props.saveRound(newRound, this.props.editId);
       this.props.toggleModalOpen();
       this.props.setMode(RoundsMode.ROUNDSTABLE);
@@ -207,12 +206,14 @@ class RoundForm extends React.Component {
                 Enter optional round notes of up to 500 characters
               </div>
             </div>
+
+
             <div className="mb-3 centered">
               <label htmlFor="roundPictures" className="form-label">
                 Add pictures to your round:
                 {this.state.pictures.map((image) => (<img  src={image} className="fm-round-pictures round-pic" 
-                      height="100" width="100"
-                      />))}
+                height="100" width="100"
+                />))}
               <input id ="pictures"
                   className="form-control centered"
                   name="pictures"
@@ -228,7 +229,8 @@ class RoundForm extends React.Component {
                 Add your main picture to display in round table:
                 <img id="roundMainPic"
                 aria-describedby="roundNotesDescr"
-                src={this.state.mainPic}
+                src={this.state.mainPic === "" ?
+                    "" : this.state.mainPic }
                 className="fm-round-pictures round-pic" 
                 height="125" width="125"/>
 
