@@ -68,13 +68,7 @@ class RoundForm extends React.Component {
         else{
           alert("This is not a link. Please only paste links!")
         } //Main picture
-      } else if (name === "mainPic"){
-        const self = this;
-        const reader = new FileReader();
-        reader.readAsDataURL(event.target.files[0]);
-        reader.addEventListener("load",function() {
-          self.setState({mainPic: this.result});
-        }); //Videos
+       //Videos
       } else if (name === "videos") {
         const self = this;
         const reader = new FileReader();
@@ -212,8 +206,16 @@ class RoundForm extends React.Component {
             <div className="mb-3 centered">
               <label htmlFor="roundPictures" className="form-label">
                 Add pictures to your round:
-                {this.state.pictures.map((image) => (<img src={image} className="fm-round-pictures round-pic" 
-                height="100" width="100" onClick={() =>  this.setState({mainPic: image})} /> ))}
+                {this.state.pictures.map((image) => (<div className="round-pic"><img src={image} className="fm-round-pictures round-pic" 
+                height="100" width="100" onClick={() =>  this.setState({mainPic: image})}/>
+                      <button type="button" 
+                      className="pic-delete-btn"
+                      onClick={() => this.setState({pictures: this.state.pictures.filter(function(picture){
+                        return picture !== image })})}>
+                <span>&nbsp;Delete</span>
+              </button>
+              </div> ))}
+              
               <input id ="pictures"
                   className="form-control centered"
                   name="pictures"
