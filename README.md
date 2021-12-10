@@ -307,17 +307,15 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
 #### What went well
   - We delegated tasks to team members effectively
   - We continued with good team communication
-  - Item x
+  - We helped each other with bug fixes
   
  #### What we'd like to improve
-  - Item 1
-  - Item 2
-  - Item x
+  - This TPM went very well and no improvements are needed
   
 #### Changes we plan to implement in next milestone period
-  - Item 1
-  - Item 2
-  - Item x
+  - Continue to finish work by deadlines
+  - Continue to communicate and hold meetings
+  - Continue to help each other when we run into blocks
   
 ## Milestone 2 (Due 12/10)
 
