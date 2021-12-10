@@ -245,7 +245,7 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
   </thead> 
   <tbody>
     <tr>
-      <td>12/9/21</td><td>TODO</td><td>TODO</td><td>TODO</td><td>TODO</td><td>TODO</td><td>TODO</td>
+      <td>12/8/21</td><td>64</td><td>18</td><td>7</td><td>7</td><td>6</td><td>8</td>
     </tr>
     <tr><td align="right"><b>Totals:</b></td><td><b>TODO</b></td><td><b>TODO</b></td><td><b>TODO</b></td><td><b>TODO</b></td><td><b>TODO</b></td><td><b>TODO</b></td>
     </tr>
