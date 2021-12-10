@@ -8,7 +8,6 @@ import bcrypt from 'bcrypt';
 const userRoute = express.Router();
 const saltRounds = 10;
 
-
 //READ user route: Retrieves the user with the specified userId from users collection (GET)
 userRoute.get('/users/:userId', async(req, res, next) => {
     console.log("in /users route (GET) with userId = " + 
@@ -80,9 +79,9 @@ userRoute.post('/users/:userId',  async (req, res, next) => {
             const hash = await bcrypt.hash(req.body.accountData.password, saltRounds);
             thisUser = await new User({
                 accountData: {id: req.params.userId,
-                            password: hash,
-                            securityQuestion: req.body.accountData.securityQuestion,
-                            securityAnswer: req.body.accountData.securityAnswer},
+                              password: hash,
+                              securityQuestion: req.body.accountData.securityQuestion,
+                              securityAnswer: req.body.accountData.securityAnswer},
                 identityData: {displayName: req.body.identityData.displayName,
                                 profilePic: req.body.identityData.profilePic},
                 speedgolfData: {bio: req.body.speedgolfData.bio,
@@ -90,7 +89,7 @@ userRoute.post('/users/:userId',  async (req, res, next) => {
                                 personalBest: req.body.speedgolfData.personalBest,
                                 clubs: req.body.speedgolfData.clubs,
                                 clubComments: req.body.speedgolfData.clubComments},
-                rounds: []
+                                rounds: []
             }).save();
         return res.status(201).send("New account for '" + 
             req.params.userId + "' successfully created.");
@@ -100,7 +99,54 @@ userRoute.post('/users/:userId',  async (req, res, next) => {
         .send("Unexpected error occurred when adding user to database. " + err);
     }
   });
-  
+
+
+//UPDATE user route: Adds badge to user's display badges list (POST)
+userRoute.post('/badges/:userId',  async (req, res, next) => {
+  try {
+      const status = await User.updateOne(
+        {"accountData.id": req.params.userId},
+        {$push: {badges: req.body}});
+      if (status.modifiedCount != 1) { //account could not be found
+          console.log("status: " + JSON.stringify(status));
+          res.status(404).send("Account not updated. Either no account with that id"
+              + " exists, or no value in the account was changed.");
+      } else {
+        console.log('User Account Updated!');
+          res.status(200).send("User account " + req.params.userId + 
+              " successfully updated.")
+      }
+      } catch (err) {
+          res.status(400).send("Unexpected error occurred when updating user in database: " 
+          + err);
+      }
+});
+
+
+//UPDATE user route: Removes badge from user's display badges list (POST)
+userRoute.post('/bages/:userId',  async (req, res, next) => {
+  try {
+    let thisUser = await User.findOne({"accountData.id": req.params.userId});
+    var newBadges = []; // Display badges with badge removed
+    newBadges = thisUser.badges.filter((item) => {
+      return item.name != req.body.name;
+    });
+    let status = await User.updateOne({"accountData.id": req.params.userId}, {$set: {"badges": newBadges}});
+    if (status.modifiedCount != 1) { //account could not be found
+        console.log("status: " + JSON.stringify(status));
+        res.status(404).send("Account not updated. Either no account with that id"
+            + " exists, or no value in the account was changed.");
+    } else {
+      console.log('User Account Updated!');
+        res.status(200).send("User account " + req.params.userId + 
+            " successfully updated.")
+    }
+    } catch (err) {
+        res.status(400).send("Unexpected error occurred when updating user in database: " 
+        + err);
+    }
+});
+
 //UPDATE user route: Updates a user account in the users collection (POST)
 userRoute.put('/users/:userId',  async (req, res, next) => {
     console.log("in /users update route (PUT) with userId = " 
@@ -185,6 +231,4 @@ userRoute.delete('/users/:userId', async(req, res, next) => {
     }
   });
   
-  export default userRoute;
-
-  
+export default userRoute;

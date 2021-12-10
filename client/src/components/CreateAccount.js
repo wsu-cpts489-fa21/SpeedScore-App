@@ -115,7 +115,7 @@ class CreateAccount extends React.Component {
                     firstRound: "",
                     personalBest: {},
                     clubs: {},
-                    clubComments: ""
+                    clubComments: "",
                 }
             };
             this.props.createAccountDone(newAccount);

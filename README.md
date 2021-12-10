@@ -186,30 +186,30 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
   </thead> 
   <tbody>
     <tr>
-      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/46">Issue # 46</a></td><td><a href="https://github.com/PR">PR #</a></td><td>5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5</td><td>0</td><td></td>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/46">Issue # 46</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/69">PR # 69</a></td><td>5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5</td><td>100</td><td></td>
     </tr>
     <tr>
-     <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/36">Issue # 36</a></td><td><a href="https://github.com/PR">PR #</a></td><td>8</td><td>0</td><td>0</td><td>0</td><td>0</td><td>4</td><td>0</td><td></td>
+     <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/36">Issue # 36</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/69">PR # 69</a></td><td>8</td><td>0</td><td>0</td><td>0</td><td>0</td><td>4</td><td>100</td><td></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/15">Issue # 15</a></td><td><a href="https://github.com/PR">PR #</a></td><td>13</td><td>8</td><td>0</td><td>1</td><td>5</td><td>0</td><td>0</td><td></td>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/15">Issue # 15</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/71">PR # 71</a></td><td>13</td><td>8</td><td>0</td><td>1</td><td>5</td><td>0</td><td>100</td><td></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/19">Issue # 19</a></td><td><a href="https://github.com/PR">PR #</a></td><td>8</td><td>0</td><td>8</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/19">Issue # 19</a></td><td><a href="">PR #</a></td><td>8</td><td>0</td><td>8</td><td>0</td><td>0</td><td>0</td><td>100</td><td></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/32">Issue # 32</a></td><td><a href="https://github.com/PR">PR #</a></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td></td>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/32">Issue # 32</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/70">PR # 70</a></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>100</td><td></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/20">Issue # 20</a></td><td><a href="https://github.com/PR">PR #</a></td><td>5</td><td>0</td><td>0</td><td>5</td><td>0</td><td>0</td><td>0</td><td></td>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/20">Issue # 20</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/67">PR # 67</a></td><td>5</td><td>0</td><td>0</td><td>5</td><td>0</td><td>0</td><td>100</td><td></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/43">Issue # 43</a></td><td><a href="https://github.com/PR">PR #</a></td><td>3</td><td>0</td><td>0</td><td>0</td><td>3</td><td>0</td><td>0</td><td></td>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/43">Issue # 43</a></td><td><a href="">PR #</a></td><td>3</td><td>0</td><td>0</td><td>0</td><td>3</td><td>0</td><td>100</td><td></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/40">Issue # 40</a></td><td><a href="https://github.com/PR">PR #</a></td><td>5</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td></td>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/40">Issue # 40</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/40">PR #</a></td><td>5</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>100</td><td></td>
     </tr>
-    <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/68">Issue # 68</a></td><td><a href="https://github.com/PR">PR #</a></td><td>5</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td></td>
+    <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/68">Issue # 68</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/68">PR #</a></td><td>5</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>100</td><td></td>
     </tr>
     <tr><td colspan="2" align="right"><b>Totals:</b></td><td><b>50</b></td><td><b>10</b></td><td><b>10</b></td><td><b>8</b></td><td><b>10</b></td><td><b>11</b></td><td colspan="2"></td>
     </tr>
@@ -229,7 +229,7 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
 
 |Issue | Test File | Feature Tested | Results Summary | 
 |------|-----------|----------------|-----------------|
-|[Issue # 36](https://github.com/issues/36)| TODO: link to file | Viewing and searching speedgolf-friendly courses | [#/#total tests passed] (TODO: link to GIF) |
+|[Issue # 36](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/36)| [SearchCoursesTest.spec.ts](https://github.com/wsu-cpts489-fa21/tp-click-overflow/blob/main/client/src/tests/SearchCoursesTest.spec.ts) | Viewing and searching speedgolf-friendly courses | [#/#total tests passed] (TODO: link to GIF) |
   
 ### Communication
  
@@ -245,7 +245,7 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
   </thead> 
   <tbody>
     <tr>
-      <td>12/9/21</td><td>TODO</td><td>TODO</td><td>TODO</td><td>TODO</td><td>TODO</td><td>TODO</td>
+      <td>12/8/21</td><td>64</td><td>18</td><td>7</td><td>7</td><td>6</td><td>8</td>
     </tr>
     <tr><td align="right"><b>Totals:</b></td><td><b>TODO</b></td><td><b>TODO</b></td><td><b>TODO</b></td><td><b>TODO</b></td><td><b>TODO</b></td><td><b>TODO</b></td>
     </tr>
@@ -264,7 +264,7 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
   </thead> 
   <tbody>
     <tr>
-      <td>1239/21</td><td>10</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td>
+      <td>12/3/21</td><td>10</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td>
     </tr>
      <tr>
       <td>12/10/21</td><td>10</td><td></td><td></td><td></td><td></td><td></td>

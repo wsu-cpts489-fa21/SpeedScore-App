@@ -6,28 +6,59 @@ import AppMode from './AppMode';
 import App from './App';
 
 class EditProfile extends React.Component {
+
+    isShowPopup = (status, badge) => {  
+        this.setState({ showModalPopup: status,
+                        badge: badge});  
+    };  
+
     constructor(props) {
         super(props);
-
-        this.state = {
-            // accountData:
-                id: this.props.userData.accountData.id,
-                password: this.props.userData.accountData.password,
-                securityQuestion: this.props.userData.accountData.securityQuestion,
-                securityAnswer: this.props.userData.accountData.securityAnswer,
-            // identityData:
-                displayName: this.props.userData.identityData.displayName,
-                profilePic: this.props.userData.identityData.profilePic,
-            // speedgolfData:
-                bio: this.props.userData.speedgolfData.bio,
-                homeCourse: this.props.userData.speedgolfData.homeCourse,
-                firstRound: this.props.userData.speedgolfData.firstRound,
-                clubComments: this.props.userData.speedgolfData.clubComments,
-                idValid: true,
-                securityQuestionValid: true,
-                securityAnswerValid: true,
-                displayNameValid: true
+          
+        if (this.props.userData.accountData.id.toLowerCase().indexOf('@google') > -1
+            || this.props.userData.accountData.id.toLowerCase().indexOf('@github') > -1)
+        {
+            // For OAuth.
+            this.state = {
+                // accountData:
+                    id: this.props.userData.accountData.id,
+                // identityData:
+                    displayName: this.props.userData.identityData.displayName,
+                    profilePic: this.props.userData.identityData.profilePic,
+                // speedgolfData:
+                    bio: this.props.userData.speedgolfData.bio,
+                    homeCourse: this.props.userData.speedgolfData.homeCourse,
+                    firstRound: this.props.userData.speedgolfData.firstRound,
+                    clubComments: this.props.userData.speedgolfData.clubComments,
+                    idValid: true,
+                    securityQuestionValid: true,
+                    securityAnswerValid: true,
+                    displayNameValid: true
+            }
         }
+        else
+        {
+            this.state = {
+                // accountData:
+                    id: this.props.userData.accountData.id,
+                    password: this.props.userData.accountData.password,
+                    securityQuestion: this.props.userData.accountData.securityQuestion,
+                    securityAnswer: this.props.userData.accountData.securityAnswer,
+                // identityData:
+                    displayName: this.props.userData.identityData.displayName,
+                    profilePic: this.props.userData.identityData.profilePic,
+                // speedgolfData:
+                    bio: this.props.userData.speedgolfData.bio,
+                    homeCourse: this.props.userData.speedgolfData.homeCourse,
+                    firstRound: this.props.userData.speedgolfData.firstRound,
+                    clubComments: this.props.userData.speedgolfData.clubComments,
+                    idValid: true,
+                    securityQuestionValid: true,
+                    securityAnswerValid: true,
+                    displayNameValid: true
+            }
+        }
+
         this.dataIsInvalid = false;
         this.idError = React.createRef();
         this.securityQuestionError = React.createRef();
@@ -70,78 +101,146 @@ class EditProfile extends React.Component {
     handleSubmit = async(event) => {
         event.preventDefault();
 
-        // Variables defining validity of input fields
-        const idValid = this.idIsValid(this.state.id);
-        const sqValid = (this.state.securityQuestion.length > 0);
-        const saValid = (this.state.securityAnswer.length > 0);
-        const dnValid = (this.state.displayName.length > 0);
+        let newUserData = {};
 
-        if (idValid && sqValid && saValid && dnValid)
+        if (this.props.userData.accountData.id.toLowerCase().indexOf('@google') === -1
+                && this.props.userData.accountData.id.toLowerCase().indexOf('@github') === -1)
         {
-            const newUserData = {
-                accountData: {
-                    id: this.state.id,
-                    password: this.state.password,
-                    securityQuestion: this.state.securityQuestion,
-                    securityAnswer: this.state.securityAnswer
-                },
-                identityData: {
-                    displayName: this.state.displayName,
-                    profilePic: this.state.profilePic
-                },
-                speedgolfData: {
-                    bio: this.state.bio,
-                    homeCourse: this.state.homeCourse,
-                    clubComments: this.state.clubComments
+            // Variables defining validity of input fields
+            const idValid = this.idIsValid(this.state.id);
+            const sqValid = (this.state.securityQuestion.length > 0);
+            const saValid = (this.state.securityAnswer.length > 0);
+            const dnValid = (this.state.displayName.length > 0);
+
+            if (idValid && sqValid && saValid && dnValid)
+            {
+                newUserData = {
+                    accountData: {
+                        id: this.state.id,
+                        password: this.state.password,
+                        securityQuestion: this.state.securityQuestion,
+                        securityAnswer: this.state.securityAnswer
+                    },
+                    identityData: {
+                        displayName: this.state.displayName,
+                        profilePic: this.state.profilePic
+                    },
+                    speedgolfData: {
+                        bio: this.state.bio,
+                        homeCourse: this.state.homeCourse,
+                        clubComments: this.state.clubComments
+                    }
+                }
+
+                // Call the PUT userRoute to update database.
+                const url = '/users/' + this.props.userData.accountData.id;
+                let res = await fetch(url, {
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    
+                    method: 'PUT',
+                    body: JSON.stringify(newUserData)
+                });
+
+                if (res.status == 200)
+                {
+                    // If userData is updated in database, update it in UI.
+                    this.props.setMode(AppMode.FEED);
+                    this.props.updateProfile(newUserData);
+                    this.props.toggleToastFunction();
+                    // this.props.getUserData(this.state.id);
+                }
+                else
+                {
+                    alert('ERROR: User profile not updated ' + res.status);
+                    return false;
                 }
             }
 
-            // Call the PUT userRoute to update database.
-            const url = '/users/' + this.props.userData.accountData.id;
-            let res = await fetch(url, {
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                
-                method: 'PUT',
-                body: JSON.stringify(newUserData)
+            // Data entered is one or more fields is invalid.
+            // Check which field is invalid.
+            const idVal = (!idValid ? "" : this.state.id);
+            const sqVal = (!sqValid ? "" : this.state.securityQuestion);
+            const saVal = (!saValid ? "" : this.state.securityAnswer);
+            const dnVal = (!dnValid ? "" : this.state.displayName);
+
+            this.setState({
+                id: idVal,
+                securityQuestion: sqVal,
+                securityAnswer: saVal,
+                displayName: dnVal,
+                idValid: idValid,
+                securityQuestionValid: sqValid,
+                securityAnswerValid: saValid,
+                displayNameValid: dnValid
             });
 
-            if (res.status == 200)
-            {
-                // If userData is updated in database, update it in UI.
-                this.props.setMode(AppMode.FEED);
-                this.props.updateProfile(newUserData);
-                this.props.toggleToastFunction();
-                // this.props.getUserData(this.state.id);
-            }
-            else
-            {
-                alert('ERROR: User profile not updated ' + res.status);
-                return false;
-            }
+            this.dataIsInvalid = true;
         }
+        else
+        {
+            // Variables defining validity of input fields
+            const dnValid = (this.state.displayName.length > 0);
 
-        // Data entered is one or more fields is invalid.
-        // Check which field is invalid.
-        const idVal = (!idValid ? "" : this.state.id);
-        const sqVal = (!sqValid ? "" : this.state.securityQuestion);
-        const saVal = (!saValid ? "" : this.state.securityAnswer);
-        const dnVal = (!dnValid ? "" : this.state.displayName);
+            if (dnValid)
+            {
+                newUserData = {
+                    accountData: {
+                        id: this.state.id
+                    },
+                    identityData: {
+                        displayName: this.state.displayName,
+                        profilePic: this.state.profilePic
+                    },
+                    speedgolfData: {
+                        bio: this.state.bio,
+                        homeCourse: this.state.homeCourse,
+                        clubComments: this.state.clubComments
+                    }
+                }
 
-        this.setState({
-            id: idVal,
-            securityQuestion: sqVal,
-            securityAnswer: saVal,
-            displayName: dnVal,
-            idValid: idValid,
-            securityQuestionValid: sqValid,
-            securityAnswerValid: saValid,
-            displayNameValid: dnValid
-        });
+                // Call the PUT userRoute to update database.
+                const url = '/users/' + this.props.userData.accountData.id;
+                let res = await fetch(url, {
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    
+                    method: 'PUT',
+                    body: JSON.stringify(newUserData)
+                });
 
-        this.dataIsInvalid = true;
+                if (res.status == 200)
+                {
+                    // If userData is updated in database, update it in UI.
+                    this.props.setMode(AppMode.FEED);
+                    this.props.updateProfile(newUserData);
+                    this.props.toggleToastFunction();
+                    // this.props.getUserData(this.state.id);
+                }
+                else
+                {
+                    alert('ERROR: User profile not updated ' + res.status);
+                    return false;
+                }
+            }
+
+             // Data entered is one or more fields is invalid.
+             // Check which field is invalid.
+             const dnVal = (!dnValid ? "" : this.state.displayName);
+
+             this.setState({
+                 id: this.state.id,
+                 displayName: dnVal,
+                 idValid: true,
+                 displayNameValid: dnValid
+             });
+
+             this.dataIsInvalid = true;
+        }
     }
 
     renderErrorBox = () => {
@@ -184,9 +283,8 @@ class EditProfile extends React.Component {
         </p>
         );
     }
-
+    
     render() {
-
         return(
             <>
             <h1 className="mode-page-header">Account & Profile</h1>
@@ -203,14 +301,27 @@ class EditProfile extends React.Component {
                         <div className="mb-3 centered">
                             <label htmlFor="email" className="form-label">
                                 Email: 
+                                {this.props.userData.accountData.id.toLowerCase().indexOf('@google') > -1
+                                    || this.props.userData.accountData.id.toLowerCase().indexOf('@github') > -1 ?
+                                        <input id="id" className="form-control centered"
+                                            value={this.state.id}
+                                            name="id"
+                                            type="email"
+                                            size="35"
+                                            aria-describedby="emailDescr"
+                                            required={true}
+                                            readOnly
+                                            onChange={(event) => {this.handleChange(event)}}/>
+                                :
                                 <input id="id" className="form-control centered"
-                                    value={this.state.id}
-                                    name="id"
-                                    type="email"
-                                    size="35"
-                                    aria-describedby="emailDescr"
-                                    required={true}
-                                    onChange={(event) => {this.handleChange(event)}}/>
+                                            value={this.state.id}
+                                            name="id"
+                                            type="email"
+                                            size="35"
+                                            aria-describedby="emailDescr"
+                                            required={true}
+                                            onChange={(event) => {this.handleChange(event)}}/>
+                                }
                             </label>
                             <div id="emailDescr" className="form-text">
                                 Enter a valid email address
@@ -218,6 +329,9 @@ class EditProfile extends React.Component {
                         </div>
 
                         {/* Password */}
+                    {this.props.userData.accountData.id.toLowerCase().indexOf('@google') > -1
+                        || this.props.userData.accountData.id.toLowerCase().indexOf('@github') > -1 ? null : 
+                        <>
                         <div className="mb-3 centered">
                             <label htmlFor="password" className="form-label">
                                 Password:
@@ -272,6 +386,8 @@ class EditProfile extends React.Component {
                                 Enter an easily remembered answer to the security question
                             </div>
                         </div>
+                    </>
+                }
                     </form>
                     </Accordion.Body>
                 </Accordion.Item>
@@ -300,6 +416,16 @@ class EditProfile extends React.Component {
                     <div className="mb-3 centered">
                         <label htmlFor="profilePic" className="form-label">
                             Profile Picture:<br/>
+                            {this.props.userData.accountData.id.toLowerCase().indexOf('@google') > -1
+                                    || this.props.userData.accountData.id.toLowerCase().indexOf('@github') > -1 ?
+                            <input id="profilePic"
+                                className="form-control centered"
+                                value={this.state.profilePic}
+                                name="profilePic"
+                                readOnly
+                                aria-describedby="profilePicDescr"
+                                onChange={this.handleChange}/>
+                            :
                             <input id="profilePic"
                                 className="form-control centered"
                                 value={this.state.profilePic}
@@ -308,6 +434,7 @@ class EditProfile extends React.Component {
                                 accept=".png, .gif, .jpg"
                                 aria-describedby="profilePicDescr"
                                 onChange={this.handleChange}/>
+                            }
                         </label>
                         <div id="profilePicDescr" className="form-text">
                             A profile picture that represents you in the app (defaults to a generic picture)
