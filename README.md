@@ -229,7 +229,7 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
 
 |Issue | Test File | Feature Tested | Results Summary | 
 |------|-----------|----------------|-----------------|
-|[Issue # 36](https://github.com/issues/36)| [SearchCoursesTest.spec.ts](https://github.com/wsu-cpts489-fa21/tp-click-overflow/blob/main/client/src/tests/SearchCoursesTest.spec.ts) | Viewing and searching speedgolf-friendly courses | [#/#total tests passed] (TODO: link to GIF) |
+|[Issue # 36](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/36)| [SearchCoursesTest.spec.ts](https://github.com/wsu-cpts489-fa21/tp-click-overflow/blob/main/client/src/tests/SearchCoursesTest.spec.ts) | Viewing and searching speedgolf-friendly courses | [#/#total tests passed] (TODO: link to GIF) |
   
 ### Communication
  
