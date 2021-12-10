@@ -6,7 +6,7 @@ class ModeTabs extends React.Component {
       return(
         (this.props.mode !== AppMode.LOGIN && !this.props.modalOpen && this.props.mode != AppMode.EDITPROFILE) ?
         <div id="modeTabs" 
-             className={"modetab-container" + (this.props.menuOpen ? " disabled" : "")}  
+             className={"modetab-container" + (this.props.menuOpen ? " disabled" : "") + (Object.keys(this.props.displayBadges).length == 0 ? "" : " shifted")}  
              role="tablist" 
              aria-label="App Modes">
             <button id="feedMode" type="button" 
@@ -40,6 +40,14 @@ class ModeTabs extends React.Component {
                 aria-controls="buddiesModeTab"
                 onClick={() => this.props.setMode(AppMode.BUDDIES)}>
                 Buddies
+            </button>
+            <button id="badgesMode" type="button" 
+                className={"modetab-btn" +  
+                    (this.props.mode === AppMode.BADGES ? " modetab-selected" : "") } 
+                role="tab" tabIndex="-1" aria-selected="false" 
+                aria-controls="badgesModeTab"
+                onClick={() => this.props.setMode(AppMode.BADGES)}>
+                Badges
             </button>
         </div> : null
         );
