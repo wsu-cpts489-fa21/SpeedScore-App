@@ -420,7 +420,18 @@ button::-moz-focus-inner {
 }
 
 .round-pic {
-  padding: 10px;
+  padding: 3px;
+  display: inline-block;
+}
+
+.pic-delete-btn {
+  width:50%; 
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-size: 15px;
+  color: var(--text-color);
+  background-color: var(--main-red-color);
+}
 
 .searchBar-open {
   width: 700px;
