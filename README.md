@@ -195,7 +195,7 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
       <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/15">Issue # 15</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/71">PR # 71</a></td><td>13</td><td>8</td><td>0</td><td>1</td><td>5</td><td>0</td><td>100</td><td></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/19">Issue # 19</a></td><td><a href="">PR #</a></td><td>8</td><td>0</td><td>8</td><td>0</td><td>0</td><td>0</td><td>100</td><td></td>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/19">Issue # 19</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/72">PR # 72</a></td><td>8</td><td>0</td><td>8</td><td>0</td><td>0</td><td>0</td><td>100</td><td></td>
     </tr>
     <tr>
       <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/32">Issue # 32</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/70">PR # 70</a></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>100</td><td></td>
