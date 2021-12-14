@@ -195,7 +195,7 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
       <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/15">Issue # 15</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/71">PR # 71</a></td><td>13</td><td>8</td><td>0</td><td>1</td><td>5</td><td>0</td><td>100</td><td></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/19">Issue # 19</a></td><td><a href="">PR #</a></td><td>8</td><td>0</td><td>8</td><td>0</td><td>0</td><td>0</td><td>100</td><td></td>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/19">Issue # 19</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/72">PR # 72</a></td><td>8</td><td>0</td><td>8</td><td>0</td><td>0</td><td>0</td><td>100</td><td></td>
     </tr>
     <tr>
       <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/32">Issue # 32</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/70">PR # 70</a></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>100</td><td></td>
@@ -245,9 +245,9 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
   </thead> 
   <tbody>
     <tr>
-      <td>12/8/21</td><td>64</td><td>18</td><td>7</td><td>7</td><td>6</td><td>8</td>
+      <td>12/10/21</td><td>103</td><td>43</td><td>35</td><td>8</td><td>7</td><td>10</td>
     </tr>
-    <tr><td align="right"><b>Totals:</b></td><td><b>TODO</b></td><td><b>TODO</b></td><td><b>TODO</b></td><td><b>TODO</b></td><td><b>TODO</b></td><td><b>TODO</b></td>
+    <tr><td align="right"><b>Totals:</b></td><td><b>103</b></td><td><b>43</b></td><td><b>35</b></td><td><b>8</b></td><td><b>7</b></td><td><b>10</b></td>
     </tr>
   </tbody>
 </table>
@@ -266,10 +266,13 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
     <tr>
       <td>12/3/21</td><td>10</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td>
     </tr>
-     <tr>
-      <td>12/10/21</td><td>10</td><td></td><td></td><td></td><td></td><td></td>
+    <tr>
+      <td>12/10/21</td><td>30</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td>
     </tr>
-    <tr><td align="right"><b>Totals:</b></td><td>TODO<b></b></td><td><b></b></td><td><b></b></td><td><b></b></td><td><b></b></td><td><b></b></td>
+     <tr>
+      <td>12/10/21</td><td>10</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td>
+    </tr>
+    <tr><td align="right"><b>Totals:</b></td><td><b>50</b></td><td><b>50</b></td><td><b>50</b></td><td><b>50</b></td><td><b>50</b></td><td><b>50</b></td>
     </tr>
   </tbody>
 </table>
@@ -304,17 +307,15 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
 #### What went well
   - We delegated tasks to team members effectively
   - We continued with good team communication
-  - Item x
+  - We helped each other with bug fixes
   
  #### What we'd like to improve
-  - Item 1
-  - Item 2
-  - Item x
+  - This TPM went very well and no improvements are needed
   
 #### Changes we plan to implement in next milestone period
-  - Item 1
-  - Item 2
-  - Item x
+  - Continue to finish work by deadlines
+  - Continue to communicate and hold meetings
+  - Continue to help each other when we run into blocks
   
 ## Milestone 2 (Due 12/10)
 
