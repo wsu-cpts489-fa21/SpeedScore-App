@@ -96,13 +96,13 @@ class ModalBadgePopup extends Component {
                         </td>
                         <td>
                             {Object.keys(this.props.newBadges)[r] in this.props.displayBadges ?
-                                <button onClick= {() => this.handleRemove(r)}>
+                                <button id={"newBadgeRedCheckBox" + r} onClick= {() => this.handleRemove(r)}>
                                     <FontAwesomeIcon icon="times" color="red"/> 
                                 </button> :
                                 null
                             }
                             {!(Object.keys(this.props.newBadges)[r] in this.props.displayBadges) && Object.keys(this.props.displayBadges).length < 3 ?
-                                <button onClick= {() => this.handleAdd(r)}>
+                                <button id={"newBadgeGreenCheckBox" + r} onClick= {() => this.handleAdd(r)}>
                                     <FontAwesomeIcon icon="check-square" color="green"/> 
                                 </button> :
                                 null
@@ -118,7 +118,7 @@ class ModalBadgePopup extends Component {
     render() {  
         return (  
             <Fragment>  
-                <Modal show={this.props.showModalPopup} onHide={this.handleClose}  
+                <Modal id="newBadgeModal" show={this.props.showModalPopup} onHide={this.handleClose} 
                     size="lg"  
                     aria-labelledby="contained-modal-title-vcenter"  
                     centered>  
