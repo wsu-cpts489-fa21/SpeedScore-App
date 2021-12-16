@@ -15,7 +15,7 @@ class NavBar extends React.Component {
         table.push(
           <td key={r}>
             <div style={{height: '38px'}}>
-              <img src={Object.values(this.props.displayBadges)[r].badge} height="45px;"/>
+              <img id={"badgeImg" + r} src={Object.values(this.props.displayBadges)[r].badge} height="45px;"/>
             </div>
             <div className="centered">
               {Object.values(this.props.displayBadges)[r].level === "level0" ? 

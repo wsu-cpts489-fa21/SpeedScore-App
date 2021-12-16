@@ -198,16 +198,64 @@ return(
                         return picture !== image})}))}>
                 <span>&nbsp;Delete</span>
               </button>
-              </div> ))}
-        <input id ="pictures"
-            className="form-control centered"
-            name="pictures"
-            type="file"
-            accept=".png, .gif, .jpg"
-            aria-describedby="roundPicturesDescr"
-            onChange={handleChange}
-        />
-        </label>
+              </div> ))}             
+              <input id ="pictures"
+                  className="form-control centered"
+                  name="pictures"
+                  type="file"
+                  accept=".png, .gif, .jpg"
+                  aria-describedby="roundPicturesDescr"
+                  onChange={this.handleChange}
+              />
+              </label>
+            </div>
+            <div className="mb-3 centered">
+              <label htmlFor="roundMainPicture" className="form-label">
+                Click on the main picture that you would like to display on your round table!:
+                <img id="roundMainPic"
+                aria-describedby="roundNotesDescr"
+                src={this.state.mainPic === "" ?
+                    "" : this.state.mainPic }
+                className="fm-round-pictures round-pic" 
+                height="125" width="125"/>
+              </label>
+            </div>
+            <div className="mb-3 centered">
+              <label htmlFor="roundVideos" className="form-label">
+                If you have video files add them here:
+              <input id ="videos"
+                  className="form-control centered"
+                  name="videos"
+                  type="file"
+                  accept="video/*"
+                  aria-describedby="roundVideoDescr"
+                  onChange={this.handleChange}
+              />
+              </label>
+            </div>
+            <div className="mb-3 centered">
+              <label htmlFor="videoLinks">If you have youtube links add them here:
+                <textarea name="videoLinks" id="videoLinks" className="form-control centered" 
+                  aria-describedby="videoLinksDescr"
+                  rows="6" cols="75" maxLength="500"
+                  onChange={this.handleChange}>
+                </textarea>
+              </label>
+            </div>
+            <div className="mode-page-btn-container">
+              <button id="roundFormSubmitBtn" type="submit" className="mode-page-btn action-dialog action-button">
+                  <FontAwesomeIcon icon={this.state.btnIcon}  className={this.state.btnIcon == "spinner" ? "fa-spin" : ""}/>
+                  <span>&nbsp;{this.state.btnLabel}</span>
+              </button>
+              <button type="button" 
+                      className="mode-page-btn-cancel action-dialog cancel-button"
+                      onClick={() => {this.props.setMode(RoundsMode.ROUNDSTABLE);
+                                      this.props.toggleModalOpen();}}>
+                <FontAwesomeIcon icon="window-close"/>
+                <span>&nbsp;Cancel</span>
+              </button>
+          </div>
+        </form>
       </div>
       <div className="mb-3 centered">
         <label htmlFor="roundMainPicture" className="form-label">
