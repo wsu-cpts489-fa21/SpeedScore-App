@@ -247,7 +247,7 @@ return(
             <FontAwesomeIcon icon={state.btnIcon}  className={state.btnIcon == "spinner" ? "fa-spin" : ""}/>
             <span>&nbsp;{state.btnLabel}</span>
         </button>
-        <button type="button" 
+        <button id="logRoundBtn" type="button" 
                 className="mode-page-btn-cancel action-dialog cancel-button"
                 onClick={() => {props.setMode(RoundsMode.ROUNDSTABLE);
                   props.toggleModalOpen();}}>
