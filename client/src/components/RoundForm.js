@@ -96,64 +96,67 @@ return(
   <div id="roundsModeDialog" 
         className="mode-page action-dialog" role="dialog" 
         aria-modal="true" aria-labelledby="roundFormHeader" tabIndex="0">
-    <h1 id="roundFormHeader" className="mode-page-header">
-        
-    </h1>
-    <form id="logRoundForm" 
-          onSubmit={handleSubmit} noValidate>
+
+    <form id="logRoundForm" onSubmit={handleSubmit} noValidate>
+
       <div className="mb-3 centered">
-        <label htmlFor="roundDate" className="form-label">Date:
-            <input id="roundDate" name="date"  
+        <label htmlFor="roundDate" className="form-label"> Date:
+          <input id="roundDate" name="date"  
             className="form-control centered" type="date" 
             aria-describedby="roundDateDescr" value={state.date} 
             onChange={handleChange} required/>
         </label>
         <div id="roundDateDescr" className="form-text">
-        Enter a valid date
+          Enter a valid date
         </div>
       </div>
+
       <div className="mb-3 centered">
-        <label htmlFor="roundCourse" className="form-label">Course:
-            <input id="roundCourse" name="course" 
-                className="form-control centered" type="text" 
-                aria-describedby="roundCourseDescr"
-                size="50" maxLength="50"  value={state.course} 
-                onChange={handleChange} required />
+        <label htmlFor="roundCourse" className="form-label"> Course:
+          <input id="roundCourse" name="course" 
+            className="form-control centered" type="text" 
+            aria-describedby="roundCourseDescr"
+            size="50" maxLength="50"  value={state.course} 
+            onChange={handleChange} required />
         </label>
         <div id="roundCourseDescr" className="form-text">
-        Enter a course name of at most 50 characters
+          Enter a course name of at most 50 characters
         </div>
       </div>
+
       <div className="mb-3 centered">
-        <label htmlFor="roundType">Type:
-        <select id="roundType" name="type" id="roundType" className="form-control centered"
-                value={state.type} onChange={handleChange}>
-            <option value="practice">Practice</option>
-            <option value="tournament">Tournament</option>
-        </select> 
-        </label>
-      </div>
-      <div className="mb-3 centered">
-        <label htmlFor="roundHoles">Holes:
-          <select id="roundHoles" name="holes" 
-            className="form-control centered" value={state.holes} onChange={handleChange}>
-            <option value="9">9</option>
-            <option value="18">18</option>
+        <label htmlFor="roundType"> Type:
+          <select id="roundType" name="type" id="roundType" className="form-control centered"
+            value={state.type} onChange={handleChange}>
+              <option value="practice">Practice</option>
+              <option value="tournament">Tournament</option>
           </select> 
         </label>
       </div>
+
       <div className="mb-3 centered">
-      <label htmlFor="roundStrokes">Strokes:
-        <input id="roundStrokes" name="strokes" className="form-control centered" type="number" 
-              min="9" max="200" value={state.strokes} aria-describedby="roundStrokesDescr"
-              onChange={handleChange} required/>
+        <label htmlFor="roundHoles"> Holes:
+          <select id="roundHoles" name="holes" 
+            className="form-control centered" value={state.holes} onChange={handleChange}>
+              <option value="9">9</option>
+              <option value="18">18</option>
+          </select> 
+        </label>
+      </div>
+      
+      <div className="mb-3 centered">
+        <label htmlFor="roundStrokes"> Strokes:
+          <input id="roundStrokes" name="strokes" className="form-control centered" type="number" 
+            min="9" max="200" value={state.strokes} aria-describedby="roundStrokesDescr"
+            onChange={handleChange} required/>
         </label>
         <div id="roundStrokesDescr" className="form-text">
-        Enter a strokes value between 9 and 200
+          Enter a strokes value between 9 and 200
         </div>
       </div>
+
       <div className="mb-3 centered">
-        <label htmlFor="roundMinutes">Time:
+        <label htmlFor="roundMinutes"> Time:
           <input id="roundMinutes" name="minutes" type="number" size="3"
             aria-describedby="roundTimeDescr"
             min="10" max="400" value={state.minutes} style={{textAlign: "right"}}
@@ -164,17 +167,19 @@ return(
             required/>
         </label>
         <div id="roundTimeDescr" className="form-text">
-        Enter a minutes value between 10 and 400, and a seconds value between 0 and 59
+          Enter a minutes value between 10 and 400, and a seconds value between 0 and 59
         </div>
       </div>
+
       <div className="mb-3 centered">
-        <label htmlFor="roundSGS">Speedgolf Score:
-        <input name="SGS" className="form-control centered" type="text" 
+        <label htmlFor="roundSGS"> Speedgolf Score:
+          <input name="SGS" className="form-control centered" type="text" 
             size="6" value={state.SGS} readOnly={true}/>
         </label>
       </div>
+
       <div className="mb-3 centered">
-        <label htmlFor="roundNotes">Notes:
+        <label htmlFor="roundNotes"> Notes:
           <textarea name="notes" id="roundNotes" className="form-control centered" 
             aria-describedby="roundNotesDescr"
             rows="6" cols="75" maxLength="500"
@@ -186,103 +191,55 @@ return(
         </div>
       </div>
 
-
       <div className="mb-3 centered">
         <label htmlFor="roundPictures" className="form-label">
           Add pictures to your round:
           {state.pictures.map((image) => (<div className="round-pic"><img src={image} className="fm-round-pictures round-pic" 
-                height="100" width="100" onClick={() => setState(prevState => ({...prevState, mainPic: image}))}/>
-                      <button type="button" 
-                      className="pic-delete-btn"
-                      onClick={() => setState(prevState => ({...prevState,pictures: state.pictures.filter(function(picture){
-                        return picture !== image})}))}>
+            height="100" width="100" onClick={() => setState(prevState => ({...prevState, mainPic: image}))}/>
+              <button type="button" 
+                className="pic-delete-btn"
+                onClick={() => setState(prevState => ({...prevState,pictures: state.pictures.filter(function(picture){
+                return picture !== image})}))}>
                 <span>&nbsp;Delete</span>
               </button>
-              </div> ))}             
-              <input id ="pictures"
-                  className="form-control centered"
-                  name="pictures"
-                  type="file"
-                  accept=".png, .gif, .jpg"
-                  aria-describedby="roundPicturesDescr"
-                  onChange={this.handleChange}
-              />
-              </label>
-            </div>
-            <div className="mb-3 centered">
-              <label htmlFor="roundMainPicture" className="form-label">
-                Click on the main picture that you would like to display on your round table!:
-                <img id="roundMainPic"
-                aria-describedby="roundNotesDescr"
-                src={this.state.mainPic === "" ?
-                    "" : this.state.mainPic }
-                className="fm-round-pictures round-pic" 
-                height="125" width="125"/>
-              </label>
-            </div>
-            <div className="mb-3 centered">
-              <label htmlFor="roundVideos" className="form-label">
-                If you have video files add them here:
-              <input id ="videos"
-                  className="form-control centered"
-                  name="videos"
-                  type="file"
-                  accept="video/*"
-                  aria-describedby="roundVideoDescr"
-                  onChange={this.handleChange}
-              />
-              </label>
-            </div>
-            <div className="mb-3 centered">
-              <label htmlFor="videoLinks">If you have youtube links add them here:
-                <textarea name="videoLinks" id="videoLinks" className="form-control centered" 
-                  aria-describedby="videoLinksDescr"
-                  rows="6" cols="75" maxLength="500"
-                  onChange={this.handleChange}>
-                </textarea>
-              </label>
-            </div>
-            <div className="mode-page-btn-container">
-              <button id="roundFormSubmitBtn" type="submit" className="mode-page-btn action-dialog action-button">
-                  <FontAwesomeIcon icon={this.state.btnIcon}  className={this.state.btnIcon == "spinner" ? "fa-spin" : ""}/>
-                  <span>&nbsp;{this.state.btnLabel}</span>
-              </button>
-              <button type="button" 
-                      className="mode-page-btn-cancel action-dialog cancel-button"
-                      onClick={() => {this.props.setMode(RoundsMode.ROUNDSTABLE);
-                                      this.props.toggleModalOpen();}}>
-                <FontAwesomeIcon icon="window-close"/>
-                <span>&nbsp;Cancel</span>
-              </button>
-          </div>
-        </form>
+          </div> ))}             
+          <input id ="pictures"
+            className="form-control centered"
+            name="pictures"
+            type="file"
+            accept=".png, .gif, .jpg"
+            aria-describedby="roundPicturesDescr"
+            onChange={handleChange}/>
+        </label>
       </div>
-      <div className="mb-3 centered">
+
+      {/* <div className="mb-3 centered">
         <label htmlFor="roundMainPicture" className="form-label">
           Click on the main picture that you would like to display on your round table!:
           <img id="roundMainPic"
-          aria-describedby="roundNotesDescr"
-          src={state.mainPic === "" ?
-              "" : state.mainPic }
-          className="fm-round-pictures round-pic" 
-          height="125" width="125"/>
+            aria-describedby="roundNotesDescr"
+            src={state.mainPic === "" ?
+            "" : state.mainPic }
+            className="fm-round-pictures round-pic" 
+            height="125" width="125"/>
         </label>
       </div>
+
       <div className="mb-3 centered">
         <label htmlFor="roundVideos" className="form-label">
           If you have video files add them here:
         <input id ="videos"
-            className="form-control centered"
-            name="videos"
-            type="file"
-            accept="video/*"
-            aria-describedby="roundVideoDescr"
-            onChange={handleChange}
-        />
+          className="form-control centered"
+          name="videos"
+          type="file"
+          accept="video/*"
+          aria-describedby="roundVideoDescr"
+          onChange={handleChange}/>
         </label>
       </div>
+
       <div className="mb-3 centered">
-        <label htmlFor="videoLinks">If you have youtube links add them here:
+        <label htmlFor="videoLinks"> If you have youtube links add them here:
           <textarea name="videoLinks" id="videoLinks" className="form-control centered" 
             aria-describedby="videoLinksDescr"
             rows="6" cols="75" maxLength="500"
@@ -290,22 +247,80 @@ return(
           </textarea>
         </label>
       </div>
+            
       <div className="mode-page-btn-container">
-        <button type="submit" className="mode-page-btn action-dialog action-button">
-            <FontAwesomeIcon icon={state.btnIcon}  className={state.btnIcon == "spinner" ? "fa-spin" : ""}/>
-            <span>&nbsp;{state.btnLabel}</span>
+        <button id="roundFormSubmitBtn" type="submit" className="mode-page-btn action-dialog action-button">
+          <FontAwesomeIcon icon={state.btnIcon}  className={state.btnIcon == "spinner" ? "fa-spin" : ""}/>
+          <span>
+            &nbsp;{state.btnLabel}
+          </span>
         </button>
         <button type="button" 
-                className="mode-page-btn-cancel action-dialog cancel-button"
-                onClick={() => {props.setMode(RoundsMode.ROUNDSTABLE);
-                  props.toggleModalOpen();}}>
-          <FontAwesomeIcon icon="window-close"/>
-          <span>&nbsp;Cancel</span>
+          className="mode-page-btn-cancel action-dialog cancel-button"
+          onClick={() => {props.setMode(RoundsMode.ROUNDSTABLE);
+                          props.toggleModalOpen();}}>
+            <FontAwesomeIcon icon="window-close"/>
+          <span>
+            &nbsp;Cancel
+          </span>
         </button>
-    </div>
-  </form>
-</div>
-);
+      </div> */}
+      
+      <div className="mb-3 centered">
+        <label htmlFor="roundMainPicture" className="form-label">
+          Click on the main picture that you would like to display on your round table!:
+          <img id="roundMainPic"
+            aria-describedby="roundNotesDescr"
+            src={state.mainPic === "" ?
+            "" : state.mainPic }
+            className="fm-round-pictures round-pic" 
+            height="125" width="125"/>
+        </label>
+      </div>
+
+      <div className="mb-3 centered">
+        <label htmlFor="roundVideos" className="form-label">
+          If you have video files add them here:
+          <input id ="videos"
+            className="form-control centered"
+            name="videos"
+            type="file"
+            accept="video/*"
+            aria-describedby="roundVideoDescr"
+            onChange={handleChange}/>
+        </label>
+      </div>
+
+      <div className="mb-3 centered">
+        <label htmlFor="videoLinks"> If you have youtube links add them here:
+          <textarea name="videoLinks" id="videoLinks" className="form-control centered" 
+            aria-describedby="videoLinksDescr"
+            rows="6" cols="75" maxLength="500"
+            onChange={handleChange}>
+          </textarea>
+        </label>
+      </div>
+
+      <div className="mode-page-btn-container">
+        <button type="submit" className="mode-page-btn action-dialog action-button">
+          <FontAwesomeIcon icon={state.btnIcon}  className={state.btnIcon == "spinner" ? "fa-spin" : ""}/>
+          <span>
+            &nbsp;{state.btnLabel}
+          </span>
+        </button>
+        <button type="button" 
+          className="mode-page-btn-cancel action-dialog cancel-button"
+          onClick={() => {props.setMode(RoundsMode.ROUNDSTABLE);
+          props.toggleModalOpen();}}>
+          <FontAwesomeIcon icon="window-close"/>
+          <span>
+            &nbsp;Cancel
+          </span>
+        </button>
+      </div>  
+
+    </form>
+  </div>);
 }
 
 export default RoundForm;
