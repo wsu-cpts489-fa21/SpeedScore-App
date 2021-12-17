@@ -276,31 +276,15 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
     </tr>
   </tbody>
 </table>
-  
-#### Face-to-Face Meetings
-<table> 
-  <thead>
-    <tr>
-      <th colspan="2"></th><th colspan="5">In attendance?</th><th></th>
-    </tr> 
-    <tr>
-      <th>Date</th><th>Duration (min)</th><th>TM1</th><th>TM2</th><th>TM3</th><th>TM4</th><th>TM5</th><th>Notes</th>
-    </tr>
-  </thead> 
-  <tbody>
-    <tr><td align="right"><b>Totals:</b></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td><td></td>
-    </tr>
-  </tbody>
-</table>
 
 #### Context Statements
 | Team Member | Context Statement |
 |-------------|-------------------|
-|TM1| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
-|TM2| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
-|TM3| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
-|TM4| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
-|TM5| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
+|Brandon| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
+|Adi| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
+|Parikshit| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
+|Joel| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
+|Josh| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
 
 ### Retrospective
 
@@ -437,27 +421,14 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
 #### Context Statements
 | Team Member | Context Statement |
 |-------------|-------------------|
-|TM1| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
-|TM2| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
-|TM3| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
-|TM4| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
-|TM5| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
-
-### Retrospective
-
-[Link to Recording](https://wsu.zoom.us/recording)
+|Brandon| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
+|Adi| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
+|Parikshit| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
+|Josh| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
+|Joel| <*Optional but encouraged*: Brief statement explaining your communication to this milestone> |
 
 #### What went well
-  - Item 1
-  - Item 2
-  - Item x
+  - We got most of what we needed to done
   
- #### What we'd like to improve
-  - Item 1
-  - Item 2
-  - Item x
-  
-#### Changes we plan to implement in next milestone period
-  - Item 1
-  - Item 2
-  - Item x
+#### What we'd like to improve
+  - We didn't communicate effectively, and so we didn't have enough time to fix everyone's code
