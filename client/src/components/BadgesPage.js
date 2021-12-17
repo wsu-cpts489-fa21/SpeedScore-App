@@ -23,7 +23,7 @@ class BadgesPage extends React.Component {
       const table = [];
       for (let r = 0; r < Object.keys(this.props.badges).length; ++r) {
          table.push(
-            <tr key={r} onClick={() => this.isShowPopup(true, Object.values(this.props.badges)[r], Object.keys(this.props.badges)[r])} className="centered"> 
+            <tr id={"badge" + r} key={r} onClick={() => this.isShowPopup(true, Object.values(this.props.badges)[r], Object.keys(this.props.badges)[r])} className="centered"> 
                <td>
                   <div>
                      {Object.values(this.props.badges)[r].level === "level0" ?
