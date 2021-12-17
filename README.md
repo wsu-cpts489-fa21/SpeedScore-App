@@ -403,17 +403,14 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
       <th></th><th colspan="6">Post/Reply Counts</th>
     </tr> 
     <tr>
-      <th>Date</th><th>Total</th><th>TM1</th><th>TM2</th><th>TM3</th><th>TM4</th><th>TM5</th>
+      <th>Date</th><th>Total</th><th>Brandon</th><th>Adi</th><th>Parikshit</th><th>Joel</th><th>Josh</th>
     </tr>
   </thead> 
   <tbody>
     <tr>
-      <td>11/9/21</td><td>5</td><td>2</td><td>1</td><td>1</td><td>1</td><td>0</td>
+      <td>12/17/21</td><td>52</td><td>15</td><td>8</td><td>21</td><td>5</td><td>3</td>
     </tr>
-    <tr>
-     <td>11/12/21</td><td>4</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td>
-    </tr>
-    <tr><td align="right"><b>Totals:</b></td><td><b>9</b></td><td><b>3</b></td><td><b>2</b></td><td><b>1</b></td><td><b>1</b></td><td><b>1</b></td>
+    <tr><td align="right"><b>Totals:</b></td><td><b>52</b></td><td><b>15</b></td><td><b>8</b></td><td><b>21</b></td><td><b>5</b></td><td><b>3</b></td>
     </tr>
   </tbody>
 </table>
