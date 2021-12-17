@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import AppMode from './AppMode.js'
-import CreateAccount from './CreateAccount.js';
+import AccountForm from './CreateAccount.js';
 import AUTH_ROOT from '../env.js';
 
 class LoginPage extends React.Component {
@@ -138,7 +138,7 @@ class LoginPage extends React.Component {
        
     render() {
         return(this.state.showCreateAccount?
-            <CreateAccount 
+            <AccountForm 
               createAccount = {this.props.createAccount}
               accountExists = {this.props.accountExists}
               createAccountDone = {this.createAccountDone} 
