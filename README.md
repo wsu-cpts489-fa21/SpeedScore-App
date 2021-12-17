@@ -327,12 +327,15 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
       <th colspan="2"></th><th colspan="6">Story Point Counts</th><th colspan="2"></th>
     </tr> 
     <tr>
-      <th>Issue</th><th>Linked PR</th><th>Total</th><th>Brandon</th><th>Adi</th><th>Parikshit</th><th>Josh</th><th>Joel</th><th>% Complete</th><th>Notes</th>
+      <th>Issue</th><th>Linked PR</th><th>Total</th><th>Brandon</th><th>Adi</th><th>Parikshit</th><th>Joel</th><th>Josh</th><th>% Complete</th><th>Notes</th>
     </tr>
   </thead> 
   <tbody> 
     <tr>
       <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/14">Issue # 14</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/74">PR # 74</a></td><td>8</td><td>0</td><td>0</td><td>8</td><td>0</td><td>0</td><td>100</td><td></td>
+    </tr>  
+    <tr>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/24">Issue # 24</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/76">PR # 76</a></td><td>3</td><td>0</td><td>0</td><td>0</td><td>3</td><td>0</td><td>100</td><td></td>
     </tr>  
     <tr><td colspan="2" align="right"><b>Totals:</b></td><td><b>8</b></td><td><b>3</b></td><td><b>1</b></td><td><b>1</b></td><td><b>0.8</b></td><td><b>0.4</b></td><td colspan="2"></td>
     </tr>
