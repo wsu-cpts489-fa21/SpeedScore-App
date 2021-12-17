@@ -308,10 +308,10 @@ return(
             &nbsp;{state.btnLabel}
           </span>
         </button>
-        <button type="button" 
-          className="mode-page-btn-cancel action-dialog cancel-button"
-          onClick={() => {props.setMode(RoundsMode.ROUNDSTABLE);
-          props.toggleModalOpen();}}>
+        <button id="logRoundBtn" type="button" 
+                className="mode-page-btn-cancel action-dialog cancel-button"
+                onClick={() => {props.setMode(RoundsMode.ROUNDSTABLE);
+                props.toggleModalOpen();}}>
           <FontAwesomeIcon icon="window-close"/>
           <span>
             &nbsp;Cancel
