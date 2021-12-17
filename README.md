@@ -381,11 +381,11 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
 #### Context Statements
 | Team Member | Context Statement |
 |-------------|-------------------|
-|TM1| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
-|TM2| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
-|TM3| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
-|TM4| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
-|TM5| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
+|Brandon| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
+|Adi| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
+|Parikshit| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
+|Joel| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
+|Josh| <*Optional but encouraged*: Brief statement explaining your contribution to this milestone> |
 
 ### Testing
 
@@ -396,7 +396,7 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
   
 ### Communication
  
-#### Slack Messages
+#### Discord Messages
 <table> 
   <thead>
     <tr>
@@ -425,39 +425,14 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
       <th colspan="2"></th><th colspan="5">In attendance?</th>
     </tr> 
     <tr>
-      <th>Date</th><th>Duration (min)</th><th>TM1</th><th>TM2</th><th>TM3</th><th>TM4</th><th>TM5</th>
+      <th>Date</th><th>Duration (min)</th><th>Brandon</th><th>Adi</th><th>Parikshit</th><th>Joel</th><th>Josh</th>
     </tr>
   </thead> 
   <tbody>
-    <tr>
-      <td>11/9/21</td><td>17</td><td>&check;</td><td>&check;</td><td></td><td>&check;</td><td>&check;</td>
-    </tr>
      <tr>
-      <td>11/12/21</td><td>31</td><td>&check;</td><td>&check;</td><td></td><td></td><td>&check;</td>
+      <td>12/16/21</td><td>30</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td><td>&check;</td>
     </tr>
-    <tr><td align="right"><b>Totals:</b></td><td><b>48</b></td><td><b>2</b></td><td><b>2</b></td><td><b>0</b></td><td><b>1</b></td><td><b>2</b></td>
-    </tr>
-  </tbody>
-</table>
-  
-#### Face-to-Face Meetings
-<table> 
-  <thead>
-    <tr>
-      <th colspan="2"></th><th colspan="5">In attendance?</th><th></th>
-    </tr> 
-    <tr>
-      <th>Date</th><th>Duration (min)</th><th>TM1</th><th>TM2</th><th>TM3</th><th>TM4</th><th>TM5</th><th>Notes</th>
-    </tr>
-  </thead> 
-  <tbody>
-    <tr>
-      <td>11/10/21</td><td>45</td><td>&check;</td><td>&check;</td><td></td><td>&check;</td><td>&check;</td><td>We met in CUB conference room</td>
-    </tr>
-     <tr>
-      <td>11/14/21</td><td>20</td><td>&check;</td><td>&check;</td><td></td><td></td><td>&check;</td><td>We met at Starbucks for coffee</td>
-    </tr>
-    <tr><td align="right"><b>Totals:</b></td><td><b>65</b></td><td><b>2</b></td><td><b>2</b></td><td><b>0</b></td><td><b>1</b></td><td><b>2</b></td><td></td>
+    <tr><td align="right"><b>Totals:</b></td><td><b>30</b></td><td><b>1</b></td><td><b>1</b></td><td><b>1</b></td><td><b>1</b></td><td><b>1</b></td>
     </tr>
   </tbody>
 </table>
