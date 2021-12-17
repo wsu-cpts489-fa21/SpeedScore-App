@@ -346,7 +346,7 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
       <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/41">Issue # 41</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/41">PR # X</a></td><td>5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>20</td><td></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/77">Issue # 77</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/77">PR # X</a></td><td>5</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>80</td><td></td>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/77">Issue # 77</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/77">PR # X</a></td><td>5</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>80</td><td></td>
     </tr>
     <tr>
       <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/33">Issue # 42</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/42">PR # X</a></td><td>3</td><td>3</td><td>0</td><td>0</td><td>0</td><td>0</td><td>100</td><td></td>
@@ -357,7 +357,7 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
     <tr>
       <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/33">Issue # 33</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/33">PR # X</a></td><td>5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td>
     </tr>
-    <tr><td colspan="2" align="right"><b>Totals:</b></td><td><b>49</b></td><td><b>9</b></td><td><b>7</b></td><td><b>10</b></td><td><b>10</b></td><td><b>2</b></td><td colspan="2"></td>
+    <tr><td colspan="2" align="right"><b>Totals:</b></td><td><b>49</b></td><td><b>9</b></td><td><b>8</b></td><td><b>10</b></td><td><b>10</b></td><td><b>2</b></td><td colspan="2"></td>
     </tr>
   </tbody>
 </table>
