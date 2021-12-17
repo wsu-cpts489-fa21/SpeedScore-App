@@ -1,9 +1,9 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import { library } from "@fortawesome/fontawesome-svg-core"; 
 import { faWindowClose, faEdit, faCalendar, 
         faSpinner, faSignInAlt, faBars, faTimes, faSearch,
         faSort, faTrash, faEye, faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { faGithub} from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import NavBar from './NavBar.js';
 import ModeTabs from './ModeTabs.js';
 import LoginPage from './LoginPage.js';
@@ -17,7 +17,7 @@ import EditProfile from './EditProfile.js';
 
 library.add(faWindowClose,faEdit, faCalendar, 
             faSpinner, faSignInAlt, faBars, faTimes, faSearch,
-            faSort, faTrash, faEye, faUserPlus, faGithub);
+            faSort, faTrash, faEye, faUserPlus, faGithub, faGoogle);
 
 const App = ()=>{
 
@@ -35,6 +35,20 @@ const App = ()=>{
         roundCount: 0},
       authenticated: false             
       });
+
+   useEffect(() => {
+      document.addEventListener("click", handleClick, true);
+      if (!state.authenticated) { 
+       //Use /auth/test route to (re)-test authentication and obtain user data
+       fetch("/auth/test")
+         .then((response) => response.json())
+         .then((obj) => {
+          if (obj.isAuthenticated) {
+            logInUser(obj.user);
+           }
+       })
+     } 
+   });
 
   // const componentDidMount() {
   //   document.addEventListener("click",this.handleClick, true);
@@ -134,6 +148,7 @@ const App = ()=>{
   }
 
   const logInUser = (userObj) => {
+     console.log('login called')
       setState({userData: userObj,
                      mode: AppMode.FEED,
                      authenticated: true});
