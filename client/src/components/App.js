@@ -215,19 +215,63 @@ class App extends React.Component {
     this.getRoundTimeBadges(rounds);
     this.getRoundStrokesBadges(rounds);
     this.getRoundFrequencyBadges(rounds);
+    this.getRoundCourseBadges(rounds);
+    this.getRoundTournamentBadges(rounds);
     return badges;
   }
 
-  // Helper function to get the Round Count badge level
-  getRoundCountBadges = (rounds) => {
-      badges.rounds["level"] = "level0" // Default
+  // Helper function to get the Round Time badge level
+  getRoundCourseBadges = (rounds) => {
+    badges.roundCourseCount["level"] = "level0" // Default
+    //const roundsTimeCounter = {0: 200}; // Default
+    const roundsCourseCounter = []
 
-      Object.keys(badges.rounds).forEach(level => {
-        if (rounds.length >= badges.rounds[level].qualification) { // Gets highest level
-          badges.rounds["level"] = level
+    for (let i = 0; i < rounds.length; i++) { // Finds the lowest round time
+      //roundsTimeCounter[0] = parseInt(rounds[i].minutes)
+      if (!roundsCourseCounter.includes(rounds[i].course)) {
+        roundsCourseCounter.push(rounds[i].course)
+      }
+    }
+
+    Object.keys(badges.roundCourseCount).forEach(level => {
+        if (roundsCourseCounter.length >= badges.roundCourseCount[level].qualification) {  // Gets highest level
+          badges.roundCourseCount["level"] = level;
         }
+    });
+    return badges;
+  }
+
+    // Helper function to get the Round Time badge level
+    getRoundTournamentBadges = (rounds) => {
+      badges.roundTournamentCount["level"] = "level0" // Default
+      //const roundsTimeCounter = {0: 200}; // Default
+      let roundsTournamentCounter = 0
+  
+      for (let i = 0; i < rounds.length; i++) { // Finds the lowest round time
+        //roundsTimeCounter[0] = parseInt(rounds[i].minutes)
+        if (rounds[i].type === "tournament") {
+          roundsTournamentCounter ++
+        }
+      }
+  
+      Object.keys(badges.roundTournamentCount).forEach(level => {
+          if (roundsTournamentCounter >= badges.roundTournamentCount[level].qualification) {  // Gets highest level
+            badges.roundTournamentCount["level"] = level;
+          }
       });
       return badges;
+    }
+
+  // Helper function to get the Round Count badge level
+  getRoundCountBadges = (rounds) => {
+    badges.rounds["level"] = "level0" // Default
+
+    Object.keys(badges.rounds).forEach(level => {
+      if (rounds.length >= badges.rounds[level].qualification) { // Gets highest level
+        badges.rounds["level"] = level
+      }
+    });
+    return badges;
   }
 
   // Helper function to get the Round Time badge level

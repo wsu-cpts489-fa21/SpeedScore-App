@@ -37,40 +37,8 @@ const PinnedBadges = (props) => {
                </div>
             </td>
          );
-
-// class NavBar extends React.Component {
-
-//     // Displays up to three badges in navbar
-//     displayBadges = () => {
-//       const table = [];
-//       for (let r = 0; r < Object.keys(this.props.displayBadges).length; ++r) {
-//         table.push(
-//           <td key={r}>
-//             <div style={{height: '38px'}}>
-//               <img id={"badgeImg" + r} src={Object.values(this.props.displayBadges)[r].badge} height="45px;"/>
-//             </div>
-//             <div className="centered">
-//               {Object.values(this.props.displayBadges)[r].level === "level0" ? 
-//                 <FontAwesomeIcon icon="star" color="transparent"/> :
-//                 Object.values(this.props.displayBadges)[r].level === "level1" ?
-//                     <div>
-//                       <FontAwesomeIcon icon="star" color="gold" style={{fontSize: '8px'}}/>
-//                     </div> :
-//                     Object.values(this.props.displayBadges)[r].level === "level2" ?
-//                       <div>
-//                           <FontAwesomeIcon icon="star" color="gold" style={{fontSize: '8px'}}/>
-//                           <FontAwesomeIcon icon="star" color="gold" style={{fontSize: '8px'}}/>
-//                       </div> :
-//                       <div>
-//                           <FontAwesomeIcon icon="star" color="gold" style={{fontSize: '8px'}}/>
-//                           <FontAwesomeIcon icon="star" color="gold" style={{fontSize: '8px'}}/>
-//                           <FontAwesomeIcon icon="star" color="gold" style={{fontSize: '8px'}}/> 
-//                       </div>}                     
-//               </div>
-//           </td>
-//         );
       }
-      return table;
+   return table;
 }
 
 // Displays the navbar
