@@ -356,6 +356,7 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
 |Issue | Test File | Feature Tested | Results Summary | 
 |------|-----------|----------------|-----------------|
 |[Issue # 14](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/14)| [BadgeTest.js](https://github.com/wsu-cpts489-fa21/tp-click-overflow/blob/main/client/src/tests/BadgeTest.js)|Badge System Testing| [4/4 tests passed](https://github.com/wsu-cpts489-fa21/tp-click-overflow/tree/main/client/src/tests/gifs) |
+|[Issue # 18](https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/18)| [roundMediaTest.spec.ts](https://github.com/wsu-cpts489-fa21/tp-click-overflow/blob/main/client/src/tests/roundMediaTest.spec.ts)|Round Media Testing| [4/4 tests passed](https://github.com/wsu-cpts489-fa21/tp-click-overflow/blob/main/client/src/tests/gifs/roundFormTests.gif) |
   
 ### Communication
  
