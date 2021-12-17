@@ -337,6 +337,45 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
     <tr>
       <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/24">Issue # 24</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/76">PR # 76</a></td><td>3</td><td>0</td><td>0</td><td>0</td><td>3</td><td>0</td><td>100</td><td></td>
     </tr>  
+    <tr>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/18">Issue # 18</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/78">PR # 78</a></td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td><td>0</td><td>100</td><td></td>
+    </tr>  
+    <tr>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/30">Issue # 30</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/79">PR # 79</a></td><td>3</td><td>0</td><td>3</td><td>0</td><td>0</td><td>0</td><td>100</td><td></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/21">Issue # 21</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/81">PR # 81</a></td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>100</td><td></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/26">Issue # 26</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/80">PR # 80</a></td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>100</td><td></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/25">Issue # 25</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/75">PR # 75</a></td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>100</td><td></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/39">Issue # 39</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/39">PR # X</a></td><td>5</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>100</td><td></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/82">Issue # 82</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/83">PR # 83</a></td><td>3</td><td>3</td><td>0</td><td>0</td><td>0</td><td>0</td><td>100</td><td></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/39">Issue # 39</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/39">PR # X</a></td><td>5</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>100</td><td></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/41">Issue # 41</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/41">PR # X</a></td><td>5</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>20</td><td></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/77">Issue # 77</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/77">PR # X</a></td><td>5</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>80</td><td></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/33">Issue # 42</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/42">PR # X</a></td><td>3</td><td>3</td><td>0</td><td>0</td><td>0</td><td>0</td><td>100</td><td></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/42">Issue # 42</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/42">PR # X</a></td><td>5</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/29">Issue # 29</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/29">PR # X</a></td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td></td>
+    </tr>
     <tr><td colspan="2" align="right"><b>Totals:</b></td><td><b>8</b></td><td><b>3</b></td><td><b>1</b></td><td><b>1</b></td><td><b>0.8</b></td><td><b>0.4</b></td><td colspan="2"></td>
     </tr>
   </tbody>
