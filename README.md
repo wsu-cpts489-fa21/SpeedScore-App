@@ -353,9 +353,6 @@ You can access our team's deployed app at [this Heroku site](https://capstonedyn
       <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/25">Issue # 25</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/75">PR # 75</a></td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>100</td><td></td>
     </tr>
     <tr>
-      <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/39">Issue # 39</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/39">PR # X</a></td><td>5</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>100</td><td></td>
-    </tr>
-    <tr>
       <td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/issues/82">Issue # 82</a></td><td><a href="https://github.com/wsu-cpts489-fa21/tp-click-overflow/pull/83">PR # 83</a></td><td>3</td><td>3</td><td>0</td><td>0</td><td>0</td><td>0</td><td>100</td><td></td>
     </tr>
     <tr>
