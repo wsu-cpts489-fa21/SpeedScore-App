@@ -28,6 +28,36 @@ const badges = {
                            name: "The Pro",
                            description: "Log 20 rounds!"}
    },
+   roundCourseCount: {
+      badge: badge5,
+      notBadge: notBadge5,
+      name: "The Traveller Badge",
+      level: "level0",
+      level1: {qualification: 2,
+                           name: "The Tourist",
+                           description: "Play at 2 Different Courses!"},
+      level2: {qualification: 5,
+                           name: "The Frequenter",
+                           description: "Play at 5 Different Courses!"},
+      level3: {qualification: 10,
+                           name: "The Well Travelled",
+                           description: "Play at 10 Different Courses!"}
+   },
+   roundTournamentCount: {
+      badge: badge4,
+      notBadge: notBadge4,
+      name: "The Champion Badge",
+      level: "level0",
+      level1: {qualification: 2,
+                           name: "The Participant",
+                           description: "Play in 2 Tournaments!"},
+      level2: {qualification: 5,
+                           name: "The Podium Placer",
+                           description: "Play in 5 Tournaments!"},
+      level3: {qualification: 10,
+                           name: "The Champion",
+                           description: "Play in 10 Tournaments!"}
+   },
    roundTime: {
       badge: badge6,
       notBadge: notBadge6,
